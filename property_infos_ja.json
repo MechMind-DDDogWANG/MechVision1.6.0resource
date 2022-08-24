@@ -3282,6 +3282,18 @@
             }
         }
     },
+    "mmind::StepInscribedCircleDetector": {
+        "groupInfos": {
+            "Detection Settings": "検出設定"
+        },
+        "keywords": "内接円検出器",
+        "properties": {
+            "maxNumberOfDetectedCircles": {
+                "keyToolTip": "検出した円の最大数",
+                "name": "検出した円の最大数"
+            }
+        }
+    },
     "mmind::StepInstanceSegmentator": {
         "groupInfos": {
             "Acceptable Mean for Gray-scaled Input": "グレースケール入力の許容可能な平均値",
