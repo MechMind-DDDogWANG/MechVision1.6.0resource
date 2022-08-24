@@ -8112,11 +8112,11 @@
                 "keyToolTip": "如果搜索范围内的像素值减去原始像素数值，那么这个像素值将被忽略掉。",
                 "name": "平滑阈值"
             },
-            "thresholdIgnore": {
+            "": {
                 "keyToolTip": "如果像素的斜率大于此thresholdRemove，并且其相邻像素的斜率大于此阈值，则将此相邻像素的值设置为零。"
             },
             "thresholdRemove": {
-                "keyToolTip": "如果像素的梯度大于此阈值，并且其相邻像素的梯度大于thresholdIgnore，则此邻居像素的值将设置为零。"
+                "keyToolTip": "如果像素的梯度大于此阈值，并且其相邻像素的梯度大于，则此邻居像素的值将设置为零。"
             }
         }
     },
