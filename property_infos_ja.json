@@ -1491,10 +1491,19 @@
         }
     },
     "mmind::StepCalcDiameterAndThickness": {
+        "groupInfos": {
+            "Hough Circles Parameters": "\nハフ変換による円検出のパラメータ"
+        },
         "properties": {
             "closingOperateSize": {
                 "keyToolTip": "閉じる操作のカーネルサイズ。",
                 "name": "クロージングオペレートサイズ"
+            },
+            "dp": {
+                "name": "Dp"
+            },
+            "edgeGradientThres": {
+                "name": "エッジ勾配の閾値"
             }
         }
     },
