@@ -1,0 +1,5256 @@
+{
+    "QObject": {
+        "properties": {
+            "objectName": {
+                "name": "ステップ名"
+            }
+        }
+    },
+    "enums": {
+        "mmind::AbstractLaserProfiler::RowNumConstraint": {
+            "MaxRowNum": "最大行数",
+            "TransDistance": "移動距離"
+        },
+        "mmind::DataIterator::PlayMode": {
+            "Normal": "順番にプレイ",
+            "PlayAll": "順番にプレイ",
+            "RepeatAll": "すべて繰り返す",
+            "RepeatOne": "1つ繰り返す",
+            "Shuffle": "シャッフルプレイ"
+        },
+        "mmind::PPFEnums::RegistrationMode": {
+            "EdgeRegistration": "エッジマッチング",
+            "SurfaceRegistration": "表面マッチング"
+        },
+        "mmind::Player::PlayMode": {
+            "Normal": "ノーマル",
+            "RepeatAll": "全て繰り返し",
+            "RepeatOne": "一枚繰り返し",
+            "Shuffle": "ランダム読み取り"
+        },
+        "mmind::Step::ExecFlags": {
+            "ContinueWhenNoOutput": "出力がない場合に実行を続ける",
+            "NotifyProcedureOutWhenNoOutput": "出力がない場合にプロジェクトの実行状態を通知して終了",
+            "ReloadFile": "必要なファイルを再読み込む",
+            "ReuseInput": "多重入力",
+            "TextOutput": "テキスト化出力",
+            "TriggerCtrlWhenNoOutput": "出力がない場合に制御フローをトリガー",
+            "TriggerCtrlWhenOutput": "出力がある場合に制御フローをトリガー",
+            "VisualizeOutput": "可視化出力"
+        },
+        "mmind::Step::ParameterTuningLevel": {
+            "Advanced": "詳細設定",
+            "Basic": "基本設定"
+        },
+        "mmind::StepBoxDimensionsValidation::BoxDimensionInfoType": {
+            "KnownBoxDimension": "箱の寸法が既知",
+            "UnknownBoxDimension": "箱の寸法が未知"
+        },
+        "mmind::StepBoxDimensionsValidation::KnownDimensionFilterType": {
+            "JustRemoveInvalidBox": "無効な箱のみを削除",
+            "JustWarningAndKeepAllDimensions": "アラームのみを送信し、すべての寸法情報を保持",
+            "RemoveAllIfExistsInvalidBox": "無効な箱の寸法があれば、すべての出力情報を削除"
+        },
+        "mmind::StepBoxDimensionsValidation::UnknownDimensionFilterType": {
+            "JustWarningAndKeepAllDimensions": "アラームのみを送信し、すべての寸法情報を保持",
+            "RemoveAllIfExistsInvalidBox": "無効な箱の寸法があれば、すべての出力情報を削除"
+        },
+        "mmind::StepBoxMasksValidation::FilterType": {
+            "JustRemoveNonRectangularBoxes": "非長方形の箱の情報のみを削除",
+            "RemoveAllIfExistsNonRectangularBox": "非長方形の箱があれば、すべての出力情報を削除"
+        },
+        "mmind::StepCalcDistanceCircleToCircle::DistanceMode": {
+            "CenterToCenter": "円の中心・ツー・円の中心"
+        },
+        "mmind::StepCalcDistanceCircleToSegment::DistanceMode": {
+            "CenterToSegment": "円の中心・ツー・線分"
+        },
+        "mmind::StepCalcDistancePointToCircle::DistanceMode": {
+            "PointToCenter": "ポイント・ツー・円の中心"
+        },
+        "mmind::StepCalcPoseFromHeatMap::GripperType": {
+            "ParallelJaw": "グリッパー",
+            "SuctionCup": "真空吸盤"
+        },
+        "mmind::StepCloudROI::InputCloudCoordType": {
+            "Camera": "カメラ座標系",
+            "Robot": "ロボット座標系"
+        },
+        "mmind::StepCoarseRegistrationV2::VisualizationOption": {
+            "PointsUsedInPv": "位置姿勢検証中に点の使用状況",
+            "RegistrationResult": "マッチング結果",
+            "SampledModel": "サンプリング後のモデル",
+            "SampledScene": "サンプリング後のシーン"
+        },
+        "mmind::StepCoarseRegistrationV2::VoxelLengthGenetationStrategy": {
+            "Auto": "自動生成",
+            "Manual": "手動設定"
+        },
+        "mmind::StepDeepLearningPack::ClsResultsOutputFlags": {
+            "ConfidencesOutput": "信頼度を出力",
+            "LabelsOutput": "ラベルを出力"
+        },
+        "mmind::StepDeepLearningPack::DetResultsOutputFlags": {
+            "BboxesOutput": "境界ボックスを出力",
+            "ConfidencesOutput": "信頼度を出力",
+            "LabelsOutput": "ラベルを出力",
+            "ResultImagesOutput": "結果画像を出力"
+        },
+        "mmind::StepDeepLearningPack::SegResultsOutputFlags": {
+            "AreasOutput": "面積を出力",
+            "ConfidencesOutput": "信頼度を出力",
+            "ContoursOutput": "輪郭を出力",
+            "MaskOutput": "マスクを出力",
+            "PerimetersOutput": "周囲を出力",
+            "SegResultOutput": "結果を出力"
+        },
+        "mmind::StepDeepLearningPackInfer::ClsResultsOutputFlags": {
+            "ConfidencesOutput": "信頼度を出力",
+            "LabelsOutput": "ラベルを出力"
+        },
+        "mmind::StepDeepLearningPackInfer::FastPositioningResultsOutputFlags": {
+            "ResultDatasOutput": "回転角度を出力",
+            "ResultImagesOutput": "結果画像を出力"
+        },
+        "mmind::StepDeepLearningPackInfer::InstanceSegResultsOutputFlags": {
+            "BboxMasksOutput": "境界ボックスのマスクを出力",
+            "BboxesOutput": "境界ボックスを出力",
+            "ConfidencesOutput": "信頼度を出力",
+            "LabelsOutput": "ラベルを出力",
+            "MasksOutput": "マスクを出力"
+        },
+        "mmind::StepDeepLearningPackInfer::ObjResultsOutputFlags": {
+            "BboxesOutput": "境界ボックスを出力",
+            "ConfidencesOutput": "信頼度を出力",
+            "LabelsOutput": "ラベルを出力",
+            "ResultImagesOutput": "結果画像を出力"
+        },
+        "mmind::StepDeepLearningPackInfer::SegResultsOutputFlags": {
+            "ContoursOutput": "輪郭を出力",
+            "MaskOutput": "マスクを出力",
+            "SegResultOutput": "結果を出力"
+        },
+        "mmind::StepGeneralReadImage::ImageSource": {
+            "Dir": "ディレクトリ",
+            "File": "ファイル"
+        },
+        "mmind::StepGraspPointPredictor::GripperType": {
+            "ParallelJaw": "グリッパー",
+            "SuctionCup": "真空吸盤"
+        },
+        "mmind::StepGraspPointPredictor::MethodType": {
+            "ArgMax": "二値化確率",
+            "PositiveProbability": "元の把持可能な確率"
+        },
+        "mmind::StepGraspPoseEstimation::PickingMethod": {
+            "Gripper": "グリッパー",
+            "SuctionCup": "真空吸盤"
+        },
+        "mmind::StepGraspPoseEstimation::ShowGraspType": {
+            "Height": "高さ",
+            "Score": "スコア",
+            "Width": "幅"
+        },
+        "mmind::StepGraspPoseEstimation::ShowType": {
+            "FinalScore": "最後のスコア",
+            "ObjectLength": "対象物の長さ",
+            "PoseHeight": "位置姿勢の高さ",
+            "SuctionCupDiameter": "吸盤直径"
+        },
+        "mmind::StepMeasurePrimitives::SubPixelAlgo": {
+            "Fast": "高速",
+            "Precise": "精確"
+        },
+        "mmind::StepPoseVisualizer::ShowPosesType": {
+            "After": "出力位置姿勢のみを表示",
+            "All": "入力と出力をすべて表示",
+            "Before": "入力位置姿勢のみを表示"
+        },
+        "mmind::StepProcedureOut::OutputType": {
+            "Dynamic": "カスタマイズ",
+            "Predefined": "事前設定"
+        },
+        "mmind::StepReadImage::PathType": {
+            "AbsolutePath": "画像の絶対パス",
+            "BasePath": "画像名"
+        },
+        "mmind::StepRectifyTrajPoseBaseFlange::ClockwiseType": {
+            "Clockwise": "時計回り",
+            "CounterClockwise": "反時計回り"
+        },
+        "mmind::StepScaleROI::RoiRectType": {
+            "AdapativeModifiedRoiOriginP": " 画像の境界線でカラーROIを調整",
+            "BoundRect": "入力画像の外接長方形の領域を抽出",
+            "Origin": "設定によってカラー画像のROIを抽出"
+        },
+        "mmind::StepStraightenRingShapedImageRegion::Interpolation": {
+            "Bilinear": "バイリニア補間",
+            "Nearest_Neighbor": "最近傍補間"
+        },
+        "mmind::enums::DirectionType": {
+            "Negative": "負方向",
+            "Positive": "正方向"
+        },
+        "mmind::enums::FilePathType": {
+            "BaseName": "ベースネーム",
+            "CompletePath": "フルパス",
+            "FileName": "ファイル名"
+        },
+        "mmind::enums::MatchingMode": {
+            "HighPrecision": "高精度",
+            "HighSpeed": "高速",
+            "Standard": "標準"
+        },
+        "mmind::enums::PointSelection": {
+            "All": "すべて",
+            "First": "最初",
+            "Last": "最後",
+            "Second": "2番目"
+        },
+        "mmind::enums::SceneType": {
+            "Camera": "カメラ座標系",
+            "Robot": "ロボット座標系"
+        },
+        "mmind::enums::SpecifiedSide": {
+            "Bottom": "下の辺",
+            "Left": "左の辺",
+            "Right": "右の辺",
+            "Top": "上の辺"
+        }
+    },
+    "mmind::AbstractCamera": {
+        "properties": {
+            "cameraId": {
+                "name": "カメラ ID",
+                "valueToolTip": "カメラを選択"
+            },
+            "cameraParameterGroupName": {
+                "name": "カメラパラメータグループ名"
+            },
+            "reconnectTimes": {
+                "keyToolTip": "接続に失敗した場合にカメラに再接続する最大回数です。",
+                "name": "再接続の最大回数"
+            },
+            "virtualMode": {
+                "name": "仮想モード"
+            }
+        }
+    },
+    "mmind::AbstractLaserProfiler": {
+        "groupInfos": {
+            "Stop Criteria": "停止条件"
+        },
+        "properties": {
+            "configFileName": {
+                "name": "コンフィグファイル名"
+            },
+            "ip": {
+                "name": "IP"
+            },
+            "maxRowNum": {
+                "name": "最大行数"
+            },
+            "movementMode": {
+                "name": "運動モード"
+            },
+            "pulseEquivalency": {
+                "name": "等価パルス",
+                "valueToolTip": "運動コントロールプラットフォームから受信した信号の解像度。"
+            },
+            "rowNumConstraint": {
+                "name": "行数の制約条件",
+                "valueToolTip": "タイムアウトまたは行数の条件が満たされると、取得プロセスは終了します。"
+            },
+            "saveEncoderValuesToJson": {
+                "name": "エンコーダー値をJSONに保存",
+                "valueToolTip": "チェックを入れると、運動コントロール プラットフォームからのエンコーダ値は、現在のプロジェクトの「EncoderValues」という名前のサブフォルダに保存されます。"
+            },
+            "timeOut": {
+                "name": "タイムアウト時間",
+                "valueToolTip": "タイムアウトまたは行数の条件が満たされると、取得プロセスは終了します。"
+            },
+            "timerInterval": {
+                "name": "タイマー間隔",
+                "valueToolTip": "カメラからデータパケットを取得する頻度。"
+            },
+            "transDist": {
+                "name": "移動距離",
+                "valueToolTip": "期待行数 = 移動距離/細分化率/等価パルス"
+            },
+            "xOffset": {
+                "name": "横方向のオフセット",
+                "valueToolTip": "往復運動におけるターンごとの水平並進。\nこの値が負の可能性があります。"
+            },
+            "ySampleRatio": {
+                "name": "細分化率",
+                "valueToolTip": "並進方向に沿った細分化率です。ほとんどの場合、この値はカメラソフトウェアから取得できます。\nこのパラメータは取得行数を計算するために使用され、カメラのリファインメント値は変更されません。"
+            }
+        }
+    },
+    "mmind::AdaptiveThreshold": {
+        "properties": {
+            "adaptiveMethod": {
+                "name": "適応しきい値"
+            },
+            "blockSize": {
+                "name": "ブロックサイズ"
+            },
+            "constant": {
+                "name": "定数しきい値"
+            },
+            "threImgType": {
+                "name": "画像タイプ"
+            },
+            "threOperationType": {
+                "name": "分割操作のタイプ"
+            }
+        }
+    },
+    "mmind::BgSegmentator": {
+        "groupInfos": {
+            "Initialization Status": "初期化のステータス"
+        },
+        "properties": {
+            "imgHeight": {
+                "name": "読み取られた背景画像の高さ"
+            },
+            "imgWidth": {
+                "name": "読み取られた背景画像の幅"
+            },
+            "initialized": {
+                "name": "初期化成功"
+            },
+            "projectDir": {
+                "name": "現在プロジェクトのディレクトリ"
+            }
+        }
+    },
+    "mmind::CLAHE": {
+        "properties": {
+            "clipLimit": {
+                "name": "コントラストの最大しきい値"
+            }
+        }
+    },
+    "mmind::CircleCloudsFilter": {
+        "groupInfos": {
+            "Contour Settings": "輪郭設定"
+        },
+        "properties": {
+            "contourRetrievalMode": {
+                "keyToolTip": "点群を2D平面に投影し、その輪郭を検索します。",
+                "name": "輪郭検索モード",
+                "valueToolTip": "RETR_EXTERNAL: 輪郭を検索します。\nRETR_HULL: 輪郭の凸包を検索します。"
+            },
+            "maxAreaThreshold": {
+                "keyToolTip": "この値よりも面積が大きい点群は破棄されます。",
+                "name": "最大面積"
+            },
+            "maxCircularity": {
+                "name": "最大円形度"
+            },
+            "maxConvexity": {
+                "name": "最大凸性"
+            },
+            "maxInertia": {
+                "name": "最大慣性"
+            },
+            "minAreaThreshold": {
+                "keyToolTip": "この値よりも面積が小さい点群は破棄されます。",
+                "name": "最小面積"
+            },
+            "minCircularity": {
+                "name": "最小円形度"
+            },
+            "minConvexity": {
+                "name": "最小凸性"
+            },
+            "minInertia": {
+                "name": "最小慣性"
+            }
+        }
+    },
+    "mmind::CloudCapacityFilter": {
+        "properties": {
+            "maxPointsNum": {
+                "keyToolTip": "この値より多くの点がある点群は破棄されます。",
+                "name": "最大点数しきい値"
+            },
+            "minPointsNum": {
+                "keyToolTip": "この値より少ない点を持つ点群は破棄されます。",
+                "name": "最小点数しきい値"
+            }
+        }
+    },
+    "mmind::CloudPreprocessingGPU": {
+        "groupInfos": {
+            "Calculation Settings": "計算設定",
+            "Concave & Convex Removal Settings": "凹凸点除去設定",
+            "Outlier Removal Settings": "外れ値の除去設定"
+        },
+        "properties": {
+            "calNormRadius": {
+                "keyToolTip": "検索半径内の点は、法線ベクトルの計算に使用されます。",
+                "name": "法線ベクトルを計算するときの半径"
+            },
+            "concaveRadius": {
+                "name": "凹凸点の検索半径を除去"
+            },
+            "concaveThreshold": {
+                "name": "凹点除去しきい値"
+            },
+            "convexThreshold": {
+                "name": "凸点除去しきい値"
+            },
+            "isBatched": {
+                "keyToolTip": "点群の数が多すぎてビデオメモリが少なすぎる場合は、これをチェックします。",
+                "name": "バッチ処理"
+            },
+            "removeConvexAndConcave": {
+                "name": "凹凸点を除去"
+            },
+            "removeSparse": {
+                "name": "外れ値を除去"
+            },
+            "sparseCircleTime": {
+                "name": "循環回数"
+            },
+            "sparseRadius": {
+                "name": "検索半径"
+            },
+            "sparseThreshold": {
+                "keyToolTip": "現在の点の検索半径内の点の数が外れ値のしきい値より少ない場合、外れ値と見なされます。",
+                "name": "外れ値のしきい値"
+            }
+        }
+    },
+    "mmind::ColorBalancer": {
+        "properties": {
+            "blueToYellow": {
+                "name": "青色から黄色へ"
+            },
+            "greenToRed": {
+                "name": "緑色から赤色へ"
+            },
+            "lightness": {
+                "name": "輝度"
+            }
+        }
+    },
+    "mmind::ColorValueSegmentator": {
+        "groupInfos": {
+            "Custom Settings": "カスタマイズの設定"
+        }
+    },
+    "mmind::DepthValueSegmentator": {
+        "groupInfos": {
+            "Custom Settings": "カスタマイズの設定"
+        }
+    },
+    "mmind::EuclideanCluster": {
+        "properties": {
+            "clusterTolerance": {
+                "keyToolTip": "クラスター内の点間の最大距離です。",
+                "name": "出力クラスター内の隣接点の最大距離"
+            },
+            "cores": {
+                "keyToolTip": "並列処理タスクのコアの数です。\n0：最大コア数。",
+                "name": "ユークリッドクラスター"
+            }
+        }
+    },
+    "mmind::External2D": {
+        "properties": {
+            "AutoExposure": {
+                "name": "自動露出"
+            },
+            "ExposureTime": {
+                "name": "露出時間"
+            },
+            "MeanGrayValue": {
+                "name": "平均諧調値"
+            }
+        }
+    },
+    "mmind::FilterRegLocalMatcher": {
+        "properties": {
+            "iterationNumber": {
+                "keyToolTip": "反復回数の上限です。\n値が大きいほど、実行時間が長くなります。",
+                "name": "反復回数"
+            },
+            "matchingMode": {
+                "keyToolTip": "HighSpeed: 最速だが精度の低いモードです。\nStandard: より安定したモードです。\nHighPrecision: 最も正確だが遅いモードです。",
+                "name": "マッチングモード"
+            },
+            "minimumStandardDeviation": {
+                "name": "最小標準偏差"
+            },
+            "standardDeviation": {
+                "keyToolTip": "値が高いほど、結果の精度は低くなりますが、実行は速くなります。",
+                "name": "標準偏差"
+            },
+            "standardDeviationUpdateStepNumber": {
+                "keyToolTip": "標準偏差を微調整するためのパラメータです。",
+                "name": "標準偏差減衰の回数"
+            }
+        }
+    },
+    "mmind::GammaCorrection": {
+        "properties": {
+            "gamma": {
+                "name": "輝度係数（gamma）"
+            }
+        }
+    },
+    "mmind::ICPLocalMatcher": {
+        "groupInfos": {
+            "Iteration Settings": "反複設定",
+            "Point Pair Rejection": "ポイントペアの除去設定"
+        },
+        "properties": {
+            "applyWeightsOnPairs": {
+                "keyToolTip": "チェックを入れると、モデルの重みがアルゴリズムの反復に使用されます。\nそのため、重みモデルとマッチングする可能性が高くなります。",
+                "name": "反復に重みを使用"
+            },
+            "automaticWeight": {
+                "keyToolTip": "チェックを入れると、重み自動計算の機能が使用されます。\nマッチング結果が良くない場合、これをお薦めします。",
+                "name": "反復ポイントペアの重みを自動的に計算"
+            },
+            "complexObject": {
+                "keyToolTip": "対象物が複雑形状の対象物（単純な幾何学的形状ではない）であり、「反復ポイントペアの重みを自動的に計算」が必要な場合は、これをチェックします。",
+                "name": "複雑形状の対象物であるか"
+            },
+            "iterNum": {
+                "keyToolTip": "反復回数の上限です。値が大きいほど、実行時間が長くなります。",
+                "name": "反複回数"
+            },
+            "mse": {
+                "keyToolTip": "各反復でのMSEの下限です。\nこの値が大きいほど、アルゴリズムの実行が速くなります。",
+                "name": "平均二乗誤差しきい値"
+            },
+            "nearestPointSearchRadius": {
+                "keyToolTip": "隣接する点の半径を検索します。\nサンプリング間隔が大きい場合は、より高い値に設定することをお薦めします。",
+                "name": "最近点の検索半径"
+            },
+            "pointPairAngleDiffThre": {
+                "keyToolTip": "対応するポイントペアの法線間の角度差がこの値よりも大きい場合、ポイントペアは除去されます。",
+                "name": "ポイントペア角度差のしきい値"
+            },
+            "rejectPair": {
+                "keyToolTip": "チェックを入れると、異常ポイントペア除去機能が使用されます。",
+                "name": "異常ポイントペア除去"
+            },
+            "removeRepeatCorrespond": {
+                "keyToolTip": "チェックを入れると、重複ポイントペア除去機能が使用されます。\nモデル点群の点数がシーン内の単一対象物の点数よりも多い場合は、使用することをお薦めします。",
+                "name": "重複ポイントペアを除去"
+            },
+            "removeRepeatCorrespondType": {
+                "keyToolTip": "MinDis: 重複が多い対応するポイントペアが除去されます。\nGlobalMin: 重複が少ない対応するポイントペアが除去されます。",
+                "name": "重複対応を除去する方式"
+            },
+            "showCorresponse": {
+                "keyToolTip": "各反復に対応する点を表示します。",
+                "name": "対応する点を表示"
+            },
+            "stddevMulThresh": {
+                "keyToolTip": "Nシグマ偏差外の距離を持つポイントペアは除去されます。",
+                "name": "ポイントペア除去シグマ複数しきい値"
+            },
+            "windowSize": {
+                "keyToolTip": "極小値を見つけるためのパラメータです。\nこの値が高いほど、アルゴリズムが最小値を検出する信頼性が高くなります。",
+                "name": "ウィンドウサイズ"
+            }
+        }
+    },
+    "mmind::IlluminationNormalization": {
+        "groupInfos": {
+            "Background Adjustment Settings": "背景調整の設定",
+            "Gaussain Kernel Settings": "カーネル設定",
+            "General Settings": "共通設定"
+        },
+        "properties": {
+            "kernelSize": {
+                "name": "カーネルサイズ"
+            },
+            "kernelSizeLarge": {
+                "name": "大きなカーネルサイズ"
+            },
+            "kernelSizeMedium": {
+                "name": "中カーネルサイズ"
+            },
+            "kernelSizeSmall": {
+                "name": "小さなカーネルサイズ"
+            },
+            "meanIllumination": {
+                "name": "平均明るさ"
+            },
+            "method": {
+                "name": "方法"
+            },
+            "roi": {
+                "name": "ROI"
+            }
+        }
+    },
+    "mmind::LMICamera": {
+        "properties": {
+            "ip": {
+                "name": "カメラIP"
+            },
+            "receiveTimeOut": {
+                "name": "返信タイムアウト"
+            }
+        }
+    },
+    "mmind::Lucid": {
+        "properties": {
+            "NetCamIp": {
+                "name": "3DカメラIP"
+            },
+            "TimeOut": {
+                "name": "返信タイムアウト"
+            },
+            "cam2dAutoExposure": {
+                "name": "2Dカメラに自動露出を使用"
+            },
+            "cam2dExposureTime": {
+                "name": "2Dカメラの露出時間"
+            },
+            "cam2dIp": {
+                "name": "2DカメラIP"
+            },
+            "cam2dMeanGrayValue": {
+                "name": "2Dカメラの平均諧調値"
+            },
+            "cam2dType": {
+                "name": "2Dカメラタイプ"
+            },
+            "cam3dAccumulatedImages": {
+                "name": "3Dカメラの重ねられた画像"
+            },
+            "cam3dDepthGain": {
+                "name": "3Dカメラゲイン"
+            },
+            "cam3dEnableConfidenceThresh": {
+                "name": "3Dカメラに信頼度しきい値を使用"
+            },
+            "cam3dEnableSpatialFilter": {
+                "name": "3Dカメラに空間フィルタリングを使用"
+            },
+            "cam3dExposure": {
+                "name": "3Dカメラ露出"
+            },
+            "cam3dInfraredGain": {
+                "name": "3Dカメラの赤外線ゲイン"
+            },
+            "cam3dMinConfidenceThresh": {
+                "name": "3Dカメラの信頼度しきい値の最小値"
+            },
+            "cam3dWorkDist": {
+                "name": "3Dカメラの作業距離"
+            },
+            "limitAverageGrayValueOfOutputImage": {
+                "name": "出力画像の平均諧調値を制限"
+            },
+            "maxGrayValue": {
+                "name": "最大平均諧調値"
+            },
+            "maxIterationNums": {
+                "name": "最大イテレーション数"
+            },
+            "minGrayValue": {
+                "name": "最小平均諧調値"
+            }
+        }
+    },
+    "mmind::MOGSegmentator": {
+        "groupInfos": {
+            "Custom Settings": "カスタマイズの設定"
+        }
+    },
+    "mmind::MechEye": {
+        "groupInfos": {
+            "Debug Properties": "デバッグパラメータ"
+        },
+        "properties": {
+            "configGroup": {
+                "keyToolTip": "Mech-Eyeカメラと併用する必要があります。\nMech-Eyeに黒い対象物に適応する「black」と名付けられたパラメータと白い対象物に適応する「white」と名付けられたパラメータがある場合、特定のパラメータグループ名を使用できます。\n一台のMech-Eyeで複数のプロジェクトを実行可能です。ただし、プロジェクトの異なる色の対象物には、同じ露出設定を使用することはできません。",
+                "name": "コンフィグ・グループ",
+                "valueToolTip": "デフォルトは空の入力です。現在のMech-Eyeの設定を使用します。"
+            },
+            "maxSavingNum": {
+                "keyToolTip": "デバッグ画像の最大保存枚数",
+                "name": "最大保存枚数"
+            },
+            "needRectify": {
+                "name": "ベースライン補正"
+            },
+            "saveDbgImgs": {
+                "name": "デバッグ画像保存"
+            },
+            "savePath": {
+                "keyToolTip": "デバッグ画像を保存するディレクトリです。\n保存をオンしてもディレクトリが空のままであれば、現在のプロジェクトのディレクトリに保存されます。",
+                "name": "デバッグ画像ディレクトリ"
+            }
+        }
+    },
+    "mmind::MorphOperatorWithKernel": {
+        "properties": {
+            "kernelSize": {
+                "keyToolTip": "カーネルのサイズです。",
+                "name": "カーネルのサイズ"
+            },
+            "morphShapes": {
+                "name": "カーネルの形状",
+                "valueToolTip": "MORPH_RECT: 長方形のカーネルを使用します。\nMORPH_CROSS: 交差カーネルを使用します。\nMORPH_ELLIPSE:楕円形のカーネルを使用します。"
+            }
+        }
+    },
+    "mmind::NetCamera": {
+        "properties": {
+            "IPAddress": {
+                "name": "IPアドレス"
+            },
+            "portNumber": {
+                "name": "カメラポート (1 ~ 65535)"
+            },
+            "timeOut": {
+                "name": "タイムアウト"
+            }
+        }
+    },
+    "mmind::NormalEstimation": {
+        "properties": {
+            "halfKernelSize": {
+                "name": "検索カーネルの半径"
+            },
+            "searchRadius": {
+                "keyToolTip": "隣接する点の半径を検索します。\nサンプリング間隔が大きい場合は、より高い値に設定することをお薦めします。",
+                "name": "最近点の検索半径"
+            }
+        }
+    },
+    "mmind::NormalsFilter": {
+        "groupInfos": {
+            "Angle Thresholding Settings": "角度しきい値の設定",
+            "Reference Direction": "基準方向"
+        },
+        "properties": {
+            "alignX": {
+                "name": "基準方向のX値"
+            },
+            "alignY": {
+                "name": "基準方向のY値"
+            },
+            "alignZ": {
+                "name": "基準方向のZ値"
+            },
+            "maxAngle": {
+                "keyToolTip": "基準方向と点の法線の間の最大角度差です。",
+                "name": "最大角度差"
+            },
+            "minAngle": {
+                "keyToolTip": "基準方向と点の法線の間の最小角度差です。",
+                "name": "最小角度差"
+            },
+            "useRobotZInCamera": {
+                "keyToolTip": "カメラ座標で記述されたロボットのZ軸を基準方向として使用します。",
+                "name": "ロボットのZ軸を使用"
+            }
+        }
+    },
+    "mmind::OrderByDateTime": {
+        "properties": {
+            "dirExpiration": {
+                "keyToolTip": "ファイルディレクトリの更新期間を選択するか、ディレクトリを毎週または毎月更新するか、まったく更新しないでください。",
+                "name": "ファイルディレクトリの有効期限",
+                "valueToolTip": "Week: ファイルを1週間だけ保持します。\nMonth: ファイルを1か月だけ保持します。\nForever:：時間制限はありません。"
+            }
+        }
+    },
+    "mmind::OrderByIndexDir": {
+        "properties": {
+            "folderNameLength": {
+                "keyToolTip": "フォルダにはインデックスが付けられています。この値は、フォルダ名の桁数です。",
+                "name": "フォルダ名の長さ"
+            }
+        }
+    },
+    "mmind::OrderBySequence": {
+        "properties": {
+            "autoOverwriteFiles": {
+                "name": "同じ名前のファイルを自動的に上書き"
+            },
+            "maxFileSize": {
+                "keyToolTip": "保存できるファイルの最大数。",
+                "name": "ファイルの最大数"
+            }
+        }
+    },
+    "mmind::PPFInitPose": {
+        "groupInfos": {
+            "Clustering Settings": "クラスタリング設定",
+            "Pose Verification Settings": "位置姿勢検証の設定",
+            "Results Visualization": "結果の可視化設定",
+            "Sample Settings": "サンプリング設定",
+            "Voting Settings": "投票設定"
+        },
+        "properties": {
+            "angleQuantification": {
+                "keyToolTip": "ポイントの法線間の角度の定量化です（角度間隔= 360° / 角度の定量化）。\n角度の定量化が大きいほど、結果はより正確になる傾向がありますが、点群の品質に対する要件は高くなります。",
+                "name": "角度の定量化"
+            },
+            "autoUniformSample": {
+                "keyToolTip": "「サンプリングされたモデルの期待点数」によってサンプリング間隔を自動的に調整します。",
+                "name": "自動ダウンサンプリング"
+            },
+            "clusterDeltaAngle": {
+                "keyToolTip": "これは、位置姿勢がクラスター化された後の1つのクラスターの最大角度差です。",
+                "name": "角度差しきい値"
+            },
+            "clusterDeltaDist": {
+                "keyToolTip": "これは、位置姿勢がクラスター化された後の1つのクラスターの最大距離差です。",
+                "name": "距離差しきい値"
+            },
+            "clusterRatio": {
+                "keyToolTip": "クラスタリングの候補位置姿勢の比率です。\nこの値が大きいほど、完全にマッチングする可能性が高くなりますが、実行時間は長くなります",
+                "name": "クラスター比"
+            },
+            "clusterTransformTopN": {
+                "keyToolTip": "スコアの高いN個位置姿勢が出力されます。",
+                "name": "スコアが最も高いN個の結果を出力"
+            },
+            "denseSideBySideEdges": {
+                "keyToolTip": "このオプションは2つの場合にチェックされます。\n1. 点群のエッジを使用します。\n各点が位置する平面の方向は「法線方向」です。\n対象物は密接に並べて配置されます。\n2. 点群のエッジを使用します。\n各点が位置する平面の方向は「接線方向」です。 1つの点群は複数の対象物とマッチングする必要があります。ワークの前面と背面がランダムに表示される場合があります。",
+                "name": "密集しているサイドバイサイドエッジ"
+            },
+            "distQuantification": {
+                "keyToolTip": "点間の距離を定量化するためのパラメータです（距離間隔 = \"距離の定量化\" * \"サンプリング間隔\" )。\n値が大きいほど、結果の精度が低くなる傾向があります。",
+                "name": "距離の定量化"
+            },
+            "expectedModelSampledNum": {
+                "keyToolTip": "「自動ダウンサンプリング」がチェックされた後、結果の点群内の点数はこの値に近くなります。\n値が小さいほど、サンプリングされた点群内の点が少なくなります。そのため、推定位置姿勢の精度も低くなります。",
+                "name": "サンプリングされたモデルの期待点数"
+            },
+            "leafSize": {
+                "keyToolTip": "モデルおよびシーンの点群のダウンサンプリングに使用するサンプリング間隔です。\nこの値が大きいほど、サンプリングされた点群内の点は少なくなります。そのため、推定位置姿勢の精度も低くなります。",
+                "name": "サンプリング間隔"
+            },
+            "maxSizeOfSampledModel": {
+                "keyToolTip": "サンプリングされたモデル点群の点数の上限です。",
+                "name": "モデルサンプリングの最大点数"
+            },
+            "maxSizeOfSampledScene": {
+                "keyToolTip": "サンプリングされたモデル点群の点数の下限です。",
+                "name": "シーンサンプリング最大点数"
+            },
+            "maxVoteRatio": {
+                "keyToolTip": "スコアが値よりも高い位置姿勢、投票で最高の位置姿勢のスコア *「最大投票率」は、クラスターまたは位置姿勢の検証プロセスに使用されます。\n値が小さいほど、正確なマッチング結果が見つかる可能性は高くなりますが、実行に時間がかかります。",
+                "name": "最大投票率"
+            },
+            "minLeafSize": {
+                "keyToolTip": "「自動ダウンサンプリング」がチェックされている場合、サンプリング間隔が計算されます。計算されたサンプリング間隔がこの値よりも小さい場合、この値がサンプリング間隔として使用されます。",
+                "name": "最小サンプリング間隔"
+            },
+            "pvMarkedMargin": {
+                "keyToolTip": "マークされた隣接ボクセルの数です。\n値が高いほど、結果の精度が低くなる傾向があります。",
+                "name": "隣接点の検索半径"
+            },
+            "pvOutputSize": {
+                "keyToolTip": "各点群で検出された位置姿勢の予想数です。",
+                "name": "単一点群の出力結果の数"
+            },
+            "refStep": {
+                "keyToolTip": "このパラメータは、点群をサンプリングしてポイントペアを作成するために使用されます。\n値が大きいほど実行は速くなりますが、精度は低くなります。",
+                "name": "参考点のサンプリングステップサイス"
+            },
+            "referredStep": {
+                "keyToolTip": "このパラメータは、点群をサンプリングしてポイントペアを作成するために使用されます。\n値が大きいほど実行は速くなりますが、精度は低くなります。",
+                "name": "参考される点のサンプリングステップサイズ"
+            },
+            "sampler": {
+                "name": "サンプリング方法"
+            },
+            "showOutputModelAndSceneCloud": {
+                "keyToolTip": "変換されたモデルとシーンの点群をレンダリングして、対象物の推定位置姿勢を表示します。",
+                "name": "マッチング結果を表示"
+            },
+            "showSampledModelCloud": {
+                "keyToolTip": "モデルのサンプリング点群を表示します。",
+                "name": "サンプリングされたモデルの点群を表示"
+            },
+            "showSampledSceneCloud": {
+                "keyToolTip": "シーンのサンプリング点群を表示します。",
+                "name": "サンプリングされたシーンの点群を表示"
+            },
+            "usePV": {
+                "keyToolTip": "チェックを入れると、位置姿勢検証アルゴリズムが正しい位置姿勢の選択に使用されます。",
+                "name": "位置姿勢検証を使用"
+            },
+            "voxelLength": {
+                "keyToolTip": "ボクセルの長さです。\n値が大きいほど、結果の精度が低くなる傾向があります。",
+                "name": "ボクセルの長さ"
+            }
+        }
+    },
+    "mmind::PPFInitPoseEasyMode": {
+        "groupInfos": {
+            "Output Settings": "出力設定",
+            "Result Visualization": "結果可視化の設定",
+            "Speed Control": "速度制御"
+        },
+        "properties": {
+            "denseSideBySideEdges": {
+                "name": "密集しているサイドバイサイドエッジ"
+            },
+            "mainSpeedController": {
+                "keyToolTip": "値が大きいほど、アルゴリズムは高速になります。ただし、精度も低下します。その効果は「サブ速度制御パラメータ」よりも明らかです。",
+                "name": "メイン速度制御パラメータ(1 ~ 6)"
+            },
+            "outputSize": {
+                "keyToolTip": "各点群で検出された位置姿勢の予想数です。",
+                "name": "単一点群の出力結果の数"
+            },
+            "secondarySpeedController": {
+                "keyToolTip": "値が大きいほど、アルゴリズムの実行速度は速くなります。\nただし、精度も低下しています。 「メイン速度制御パラメータ」よりも影響が少ないです。",
+                "name": "サブ速度制御パラメータ (1 ~ 20)"
+            },
+            "showOutputModelAndSceneCloud": {
+                "keyToolTip": "変換されたモデルとシーンの点群をレンダリングして、対象物の推定位置姿勢を表示します。",
+                "name": "マッチング結果を表示"
+            },
+            "showSampledModelCloud": {
+                "keyToolTip": "モデルのサンプリング点群を表示します。",
+                "name": "サンプリングされたモデルの点群を表示"
+            },
+            "showSampledSceneCloud": {
+                "keyToolTip": "シーンのサンプリング点群を表示します。",
+                "name": "サンプリングされたシーンの点群を表示"
+            }
+        }
+    },
+    "mmind::ROIByFile": {
+        "properties": {
+            "height": {
+                "name": "長さ"
+            },
+            "roiFile": {
+                "name": "カラー画像のROIファイル",
+                "valueToolTip": "2D ROIを設定"
+            },
+            "startX": {
+                "name": "ROIの開始X座標"
+            },
+            "startY": {
+                "name": "ROIの開始Y座標"
+            },
+            "width": {
+                "name": "幅"
+            }
+        }
+    },
+    "mmind::ROIByParam": {
+        "properties": {
+            "height": {
+                "name": "長さ"
+            },
+            "startX": {
+                "name": "ROIの開始X座標"
+            },
+            "startY": {
+                "name": "ROIの開始Y座標"
+            },
+            "width": {
+                "name": "幅"
+            }
+        }
+    },
+    "mmind::RectCloudsFilter": {
+        "properties": {
+            "minRectangularity": {
+                "keyToolTip": "境界長方形内の非ゼロピクセルの比率がこの値より大きい点群は、有効と見なすことができます。",
+                "name": "矩形性の最小しきい値"
+            }
+        }
+    },
+    "mmind::RegionGrowingSeg": {
+        "properties": {
+            "curvatureThreshold": {
+                "keyToolTip": "点の曲率しきい値です。",
+                "name": "曲率しきい値"
+            },
+            "searchNum": {
+                "keyToolTip": "隣接する点の数です。",
+                "name": "隣接点の個数"
+            },
+            "smoothnessThreshold": {
+                "keyToolTip": "点の法線間の角度しきい値です。",
+                "name": "平滑しきい値"
+            }
+        }
+    },
+    "mmind::Roi3DSetting": {
+        "groupInfos": {
+            "3D ROI Settings": "3D ROI設定"
+        },
+        "properties": {
+            "isOnlyRoi": {
+                "name": "3D ROIを使用"
+            },
+            "roiBoundaryPath": {
+                "keyToolTip": "3D関心領域(ROI)を設定します。",
+                "name": "3D ROIファイル",
+                "valueToolTip": "3D ROIを設定"
+            },
+            "useRoiInFlange": {
+                "name": "フランジで3D ROIを使用"
+            }
+        }
+    },
+    "mmind::SolidCloudsFilter": {
+        "properties": {
+            "ratio": {
+                "keyToolTip": "等高線の非ゼロピクセルの比率がこの値より大きい点群は、ソリッドと見なすことができます。",
+                "name": "比率しきい値"
+            },
+            "removeSloidCloud": {
+                "name": "ソリッド点群を除去"
+            }
+        }
+    },
+    "mmind::StatisticalOutlierFilter": {
+        "properties": {
+            "meanK": {
+                "keyToolTip": "平均距離推定に使用される最近隣接点の数です。",
+                "name": "最近隣接点の数"
+            },
+            "stddevMulThresh": {
+                "keyToolTip": "距離しきい値計算の標準偏差乗数です。",
+                "name": "標準偏差乗数"
+            }
+        }
+    },
+    "mmind::Step": {
+        "properties": {
+            "execFlags": {
+                "name": "実行フラグ"
+            },
+            "parameterTuningLevel": {
+                "name": "パラメータのデバッグレベル"
+            }
+        }
+    },
+    "mmind::Step2DBoundaryEstimation": {
+        "groupInfos": {
+            "Contour Settings": "輪郭設定",
+            "Morphological Operation Settings": "モルフォロジー操作の設定"
+        },
+        "properties": {
+            "ContourRetrievalMode": {
+                "name": "輪郭の検索方法"
+            },
+            "dilateSize": {
+                "name": "拡張カーネルサイズ"
+            },
+            "erodeSize": {
+                "name": "侵食カーネルサイズ"
+            },
+            "isGroupContours": {
+                "name": "同じ点群内の輪郭をマージ"
+            },
+            "layerIndex": {
+                "name": "カスタムの輪郭層"
+            },
+            "lineSize": {
+                "name": "2D線の幅"
+            },
+            "minContourSize": {
+                "name": "最小長さ"
+            }
+        }
+    },
+    "mmind::Step2dCamera": {
+        "groupInfos": {
+            "Camera Settings": "カメラ設定"
+        }
+    },
+    "mmind::Step2dCircleDetector": {
+        "groupInfos": {
+            "Settings of Circle Radius": "円の半径の設定"
+        },
+        "keywords": "２D円の中心を見つかる",
+        "properties": {
+            "circleDetectorType": {
+                "name": "円心検出のタイプ"
+            },
+            "maxRadius": {
+                "keyToolTip": "円の半径の最大値",
+                "name": "最大半径"
+            },
+            "minRadius": {
+                "keyToolTip": "円の半径の最小値",
+                "name": "最小半径"
+            },
+            "outputType": {
+                "name": "出力のタイプ"
+            }
+        }
+    },
+    "mmind::Step3DBoundaryEstimation": {
+        "groupInfos": {
+            "Boundary Estimation Settings": "境界推定設定",
+            "Neighbour Search Settings": "近傍検索の設定"
+        },
+        "properties": {
+            "angleThreshold": {
+                "keyToolTip": "点の法線と隣の点の法線とのなす角がこの値より大きいとき、その点は境界点として認識されます。",
+                "name": "角度のしきい値"
+            },
+            "nearestNeighbourSearchType": {
+                "keyToolTip": "近傍点検索の方法。",
+                "name": "近傍検索のタイプ"
+            },
+            "searchNumber": {
+                "keyToolTip": "点の法線ベクトルを推定するために検索される近傍点の数。",
+                "name": "検索される近傍点の数"
+            },
+            "searchRadius": {
+                "keyToolTip": "点の法線ベクトルを推定するために使用する近傍点の検索半径。",
+                "name": "近傍点の検索半径"
+            }
+        }
+    },
+    "mmind::Step3Dmask2D": {
+        "groupInfos": {
+            "Morphological Operation": "モルフォロジー演算",
+            "Projection Operation": "投影操作"
+        },
+        "properties": {
+            "closingOperateSize": {
+                "keyToolTip": "正投影後のクロージング処理のカーネルサイズです。\n物体の小さな穴を埋めたり、隣り合う物体をつなげたり、面積を大きく変えずに境界を滑らかにしたりします。",
+                "name": "クロージング処理カーネルサイズ"
+            },
+            "dilateSize": {
+                "keyToolTip": "物体の面積を増やします。または物体の壊れた部分を結合します。",
+                "name": "膨張処理カーネルサイズ"
+            },
+            "erodeSize": {
+                "keyToolTip": "小さなホワイトノイズを除去します。またはつながっている2つの物体を切り離します。",
+                "name": "収縮処理カーネルサイズ"
+            },
+            "imageType": {
+                "keyToolTip": "カラー画像／深度画像",
+                "name": "画像のタイプ",
+                "valueToolTip": "Color：カラーマスク画像を生成します。\nDepth：深度マスク画像を生成します。"
+            },
+            "projectAlongObjZAxis": {
+                "name": "物体のZ軸に沿った投影"
+            },
+            "projectionType": {
+                "name": "投影のタイプ",
+                "valueToolTip": "OrthographicProjection：正射投影（元々平行な線は、この変換の後でも平行になります）\nPrespectiveProjection：透視投影"
+            },
+            "scaleRatio": {
+                "keyToolTip": "正射投影の縮尺を指定します。\nデフォルト値は1000（1ピクセルが1mm）です。",
+                "name": "正射投影の縮尺"
+            },
+            "useMorphOperation": {
+                "keyToolTip": "画像を滑らかにするためのモルフォロジカル操作を適用する場合に使用します。",
+                "name": "モルフォロジー演算"
+            }
+        }
+    },
+    "mmind::StepAbstractDetector": {
+        "groupInfos": {
+            "Font Settings": "フォント設定"
+        },
+        "properties": {
+            "confidenceThreshold": {
+                "name": "信頼度しきい値 (0 ~ 1.0)"
+            },
+            "fontScale": {
+                "name": "フォントサイズ (0 ~ 10)"
+            },
+            "manuallyFontScale": {
+                "keyToolTip": "カスタマイズされたフォントサイズを選択できます。",
+                "name": "カスタムフォントサイズを使用"
+            },
+            "maxInstancesPerImage": {
+                "name": "検出対象物の最大数（0〜2000）"
+            },
+            "sendResultSize": {
+                "keyToolTip": "チェックを入れると、結果をMech-Vizに送信します。",
+                "name": "検出された対象物の数をMech-Vizに送信"
+            }
+        }
+    },
+    "mmind::StepAbstractUnpack": {
+        "groupInfos": {
+            "Dimension Settings": "次元設定"
+        },
+        "properties": {
+            "vectorLevel": {
+                "keyToolTip": "操作レイヤーが0の場合、操作はリスト内の各要素に対して実行されます。",
+                "name": "操作レイヤー",
+                "valueToolTip": "最も内側のレイヤーは0です。"
+            }
+        }
+    },
+    "mmind::StepAddLabels": {
+        "groupInfos": {
+            "File Settings": "ファイルの設定"
+        },
+        "properties": {
+            "labelFile": {
+                "name": "ラベルファイル",
+                "valueToolTip": "ラベルを設定\n\nファイル内の最初のラベルのみが使用されます。"
+            }
+        }
+    },
+    "mmind::StepAdjustPoseRotation": {
+        "groupInfos": {
+            "Axis Settings": "軸の設定",
+            "Input Usage Settings": "入力の使用設定",
+            "Method Selection": "方法選択",
+            "Reference Direction": "基準方向"
+        },
+        "properties": {
+            "axisType": {
+                "keyToolTip": "調整する軸を選択します。",
+                "name": "調整対象軸"
+            },
+            "inputPoseUsage": {
+                "name": "入力位置姿勢の使用",
+                "valueToolTip": "All：すべての基準位置姿勢を使用して、元の位置姿勢を1つずつ調整します。\nFirstOnly：最初の基準位置姿勢のみを使用して、元の位置姿勢を調整します。"
+            },
+            "rectifyMethod": {
+                "keyToolTip": "調整方法。",
+                "name": "校正方法",
+                "valueToolTip": "HARD_RECTIFY: 指定された軸を指定された方向に回転させます。\nRoTATION：指定した軸をZ軸を中心に、指定した基準方向に近い方向へ回転させます。左右対称の構造を持つ物体の把持によく使われます。"
+            },
+            "symmetryAngle": {
+                "keyToolTip": "基準方向に対する最小回転角度を求めます。",
+                "name": "対称角",
+                "valueToolTip": "この値が90度の場合、90度刻みでZ軸周りに4回回転させる。基準位置姿勢の指定軸と元の位置姿勢の間の角度が最も小さい結果を選択します。"
+            },
+            "x": {
+                "keyToolTip": "入力基準のポートが有効化されていない場合、この値が使用されます。",
+                "name": "X軸"
+            },
+            "y": {
+                "keyToolTip": "入力基準のポートが有効化されていない場合、この値が使用されます。",
+                "name": "Y軸"
+            },
+            "z": {
+                "keyToolTip": "入力基準のポートが有効化されていない場合、この値が使用されます。",
+                "name": "Z軸"
+            }
+        }
+    },
+    "mmind::StepAutoTrajectory": {
+        "groupInfos": {
+            "Cloud Mask Processing Settings": "点群マスクの処理設定",
+            "Trajectory Settings": "経路の設定",
+            "Visualization Settings": "可視化設定"
+        },
+        "properties": {
+            "depthDiffThre": {
+                "keyToolTip": "元の画像とフィルター処理された画像の深さの差が このしきい値より大きい場合、これらの点は画像の経路と見なされます。",
+                "name": "深度の高さのしきい値"
+            },
+            "dilateSize": {
+                "keyToolTip": "膨張カーネルサイズです。",
+                "name": "膨張カーネルサイズ"
+            },
+            "erodeSize": {
+                "keyToolTip": "収縮カーネルサイズです。",
+                "name": "収縮カーネルサイズ"
+            },
+            "minTrajLength": {
+                "keyToolTip": "経路点の最小ピクセル数です。",
+                "name": "経路点の最小ピクセル数"
+            },
+            "showTrajImagScale": {
+                "keyToolTip": "経路画像のスケーリングを表示します。",
+                "name": "経路画像のスケーリングを表示"
+            },
+            "useBinaryImg": {
+                "name": "二値画像を使用"
+            }
+        }
+    },
+    "mmind::StepBinaryClassifier": {
+        "groupInfos": {
+            "Threshold Settings": "しきい値設定"
+        },
+        "properties": {
+            "multiThreshold": {
+                "keyToolTip": "入力データのしきい値。\nしきい値はセミコロン「；」で区切ります。",
+                "name": "各ポートの入力データのしきい値"
+            }
+        }
+    },
+    "mmind::StepBoolListLogicalOperation": {
+        "properties": {
+            "logicalOperator": {
+                "name": "論理演算子"
+            },
+            "portCount": {
+                "name": "ポート数"
+            }
+        }
+    },
+    "mmind::StepBoxDimensionsValidation": {
+        "groupInfos": {
+            "Box Dimension Information": "箱の寸法情報",
+            "Dimension Type": "寸法検証のタイプ"
+        },
+        "properties": {
+            "boxDimensionErrorTolerance": {
+                "name": "箱の寸法の誤差許容範囲"
+            },
+            "boxDimensionInfoType": {
+                "name": "箱の寸法情報のタイプ"
+            },
+            "knownDimensionFilterType": {
+                "name": "箱寸法のフィルタータイプが既知"
+            },
+            "unknownDimensionFilterType": {
+                "name": "箱寸法のフィルタータイプが未知"
+            }
+        }
+    },
+    "mmind::StepBoxMasksValidation": {
+        "groupInfos": {
+            "Missing Detection": "漏れ認識の判断",
+            "Rectangularity Validation": "長方形度の検証",
+            "Size Consistency": "寸法の一致性"
+        },
+        "properties": {
+            "allBoxesMustBeDetected": {
+                "name": "すべての箱を識別する必要あり"
+            },
+            "allBoxesMustBeSameDimension": {
+                "name": "箱の寸法が一致する必要あり"
+            },
+            "boxDimensionErrorTolerance": {
+                "name": "寸法誤差の許容範囲"
+            },
+            "filterType": {
+                "name": "フィルタータイプ"
+            },
+            "marginWidth": {
+                "name": "ギャップ幅"
+            },
+            "minRectangularity": {
+                "name": "最小長方形度のしきい値"
+            },
+            "rectangularityValidation": {
+                "name": "長方形度の検証"
+            },
+            "showMarginMask": {
+                "name": "ギャップマスクを表示"
+            },
+            "sizeRatioOfRemainingBoxToStandardBox": {
+                "name": "標準箱の寸法領域に対する残りの領域の比率"
+            }
+        }
+    },
+    "mmind::StepCalcAngleOfSpecifiedDir": {
+        "properties": {
+            "outPutAbsoluteValue": {
+                "name": "絶対値で出力",
+                "valueToolTip": "Trueをチェックすると、出力値が正になります。"
+            },
+            "rotAxis": {
+                "keyToolTip": "1番の位置姿勢の指定軸を回転させ、2番の位置姿勢の指定軸の方向に到達させます。\n一番の位置姿勢の軸が時計回りに回転している場合、回転角は正です。",
+                "name": "回転軸",
+                "valueToolTip": "指定された軸と同一であってはなりません。"
+            },
+            "specifiedAxis": {
+                "keyToolTip": "2 つの入力位置姿勢の指定された軸の間の角度を計算します。",
+                "name": "指定軸"
+            }
+        }
+    },
+    "mmind::StepCalcBoxSize": {
+        "groupInfos": {
+            "Background Settings": "背景の設定",
+            "Calculation Settings": "計算の設定",
+            "Scene Information": "シーンの情報"
+        },
+        "properties": {
+            "backgroudFileName": {
+                "keyToolTip": "プロジェクトディレクトリの中にある背景の深度画像の相対パスです。",
+                "name": "背景ファイルの名前"
+            },
+            "backgroundHeight": {
+                "keyToolTip": "ロボット座標における背景の高さは箱のZ軸方向の長さを計算することに使われています。",
+                "name": "背景の高さ"
+            },
+            "backgroundHeightSource": {
+                "keyToolTip": "ロボット座標において、ベースの高さに関する情報を提供します。",
+                "name": "背景高さのソース",
+                "valueToolTip": "BackgroundFile: 背景画像から高さを生成します。\nCustomizedHeight：カスタマイズした高さを設定します。"
+            },
+            "plateThickness": {
+                "keyToolTip": "背景の上に置かれた板の厚みであり、例えば、ローラーベルトの厚みです。ロボットが実行している時に、この板を取り外す必要があります。",
+                "name": "板の厚み"
+            },
+            "searchRadius": {
+                "keyToolTip": "深度画像において、 探索半径によって、箱の頂点の深度が決められています。",
+                "name": "検索半径"
+            }
+        }
+    },
+    "mmind::StepCalcCalibBoardPose": {
+        "groupInfos": {
+            "Blob Detector": "\nブロブ検出器"
+        },
+        "properties": {
+            "maxCircleArea": {
+                "name": "円の最大面積"
+            },
+            "maxThreshold": {
+                "name": "上限値"
+            },
+            "minCircleArea": {
+                "name": "円の最小面積"
+            },
+            "minCircularity": {
+                "name": "最小真円度"
+            },
+            "minConvexity": {
+                "name": "最小コンベクシティ"
+            },
+            "minDist": {
+                "name": "最小距離"
+            },
+            "minThreshold": {
+                "name": "下限値"
+            }
+        }
+    },
+    "mmind::StepCalcCloudCurvature": {
+        "properties": {
+            "measurement": {
+                "name": "出力タイプ"
+            },
+            "percentile": {
+                "name": "パーセンタイル"
+            }
+        }
+    },
+    "mmind::StepCalcCloudFilterFlag": {
+        "groupInfos": {
+            "Cloud Preprocessing Settings": "点群前処理の設定"
+        },
+        "properties": {
+            "_filterType": {
+                "keyToolTip": "点群を2次元平面に投影して検証します。",
+                "name": "フィルター",
+                "valueToolTip": "CircleCloudsFilter: 投影が非円形である点群を除去します。\nCloudCapcityFilter: 点群の大きさに基づいて点群をフィルタリングします。\nRectCloudsFilter: 投影が長方形でない点群を削除します。\nSolidCloudsFilter: ソリッド点を除去します。"
+            },
+            "dilateSize": {
+                "keyToolTip": "物体の面積を増やします。また、物体の壊れた部分を結合します。",
+                "name": "膨張処理のカーネルサイズ"
+            },
+            "erodeSize": {
+                "keyToolTip": "小さなホワイトノイズを除去します。また、つながっている2つの物体を切り離します。",
+                "name": "収縮処理のカーネルサイズ"
+            },
+            "useOrthographicProj": {
+                "keyToolTip": "投影後は、もともと平行だった線はすべて平行のままです。",
+                "name": "正射投影を使用"
+            }
+        }
+    },
+    "mmind::StepCalcCloudSortCriteria": {
+        "groupInfos": {
+            "Reference Point": "基準点"
+        },
+        "properties": {
+            "axisForSorting": {
+                "name": "指定されたプロパティ",
+                "valueToolTip": "NONE: 0を出力します。\nX: 代表点のX値を出力します。\nY: 代表点のY値を出力します。\nZ: 代表点のZ値を出力します。\nDIS2BasePt: 代表点と基準点との距離を出力します。"
+            },
+            "baseX": {
+                "name": "X"
+            },
+            "baseY": {
+                "name": "Y"
+            },
+            "baseZ": {
+                "name": "Z"
+            },
+            "refPointForSorting": {
+                "keyToolTip": "点群を表す点です。",
+                "name": "代表点",
+                "valueToolTip": "中心点: 点群の中心を取り、点群を表します。\n境界最小値: X軸、Y軸、Z軸に沿った最小値を取り、点群を表します。\n境界最大値: X軸、Y軸、Z軸に沿った最大値を取り、点群を表します。"
+            }
+        }
+    },
+    "mmind::StepCalcDiameterAndThickness": {
+        "properties": {
+            "closingOperateSize": {
+                "keyToolTip": "閉じる操作のカーネルサイズ。",
+                "name": "クロージングオペレートサイズ"
+            }
+        }
+    },
+    "mmind::StepCalcDistAlongAxisWithinMask": {
+        "groupInfos": {
+            "Axis Settings": "軸の設定"
+        },
+        "properties": {
+            "axisType": {
+                "keyToolTip": "入力位置姿勢に指定された軸によって、線の方向を決めています。",
+                "name": "軸のタイプ"
+            }
+        }
+    },
+    "mmind::StepCalcDistanceCircleToCircle": {
+        "properties": {
+            "distanceMode": {
+                "name": "距離モード"
+            }
+        }
+    },
+    "mmind::StepCalcDistanceCircleToSegment": {
+        "properties": {
+            "distanceMode": {
+                "name": "距離モード"
+            }
+        }
+    },
+    "mmind::StepCalcDistancePointToCircle": {
+        "properties": {
+            "distanceMode": {
+                "name": "距離モード"
+            }
+        }
+    },
+    "mmind::StepCalcDistanceToBasePose": {
+        "groupInfos": {
+            "Reference Pose": "基準位置姿勢"
+        },
+        "properties": {
+            "baseX": {
+                "name": "X",
+                "valueToolTip": "この値は、基準位置姿勢ポートが有効になっていない場合に使用されます。"
+            },
+            "baseY": {
+                "name": "Y",
+                "valueToolTip": "この値は、基準位置姿勢ポートが有効になっていない場合に使用されます。"
+            },
+            "baseZ": {
+                "name": "Z",
+                "valueToolTip": "この値は、基準位置姿勢ポートが有効になっていない場合に使用されます。"
+            },
+            "distanceType": {
+                "keyToolTip": "NONE: 空のリストを出力します。\nDis2ReferencePose: 三次元空間において入力した位置姿勢と基準位置姿勢との距離を計算します。\nDis2ReferencePoseOnXYPlane: XY平面において入力した位置姿勢と基準位置姿勢との距離を計算します。",
+                "name": "距離の種類"
+            }
+        }
+    },
+    "mmind::StepCalcFlatnessError": {
+        "properties": {
+            "inlierDistanceThreshold": {
+                "name": "インライアと判別する距離の閾値"
+            },
+            "maxIterations": {
+                "name": "最大反復回数"
+            }
+        }
+    },
+    "mmind::StepCalcLengthAlongAxis": {
+        "properties": {
+            "axisType": {
+                "keyToolTip": "長さは基準軸の方向に沿って計算されます。"
+            }
+        }
+    },
+    "mmind::StepCalcMaskArea": {
+        "groupInfos": {
+            "Area Calculation Settings": "面積計算の設定"
+        },
+        "properties": {
+            "areaType": {
+                "name": "計算方法"
+            }
+        }
+    },
+    "mmind::StepCalcParallelismError": {
+        "properties": {
+            "inlierDistanceThreshold": {
+                "name": "インライアと判別する距離の閾値"
+            },
+            "maxIterations": {
+                "name": "最大反復回数"
+            }
+        }
+    },
+    "mmind::StepCalcPoseFilterFlag": {
+        "groupInfos": {
+            "Reference Direction": "基準方向"
+        },
+        "properties": {
+            "AxisType": {
+                "name": "位置姿勢の指定軸"
+            },
+            "angleThreshold": {
+                "name": "角度の最大差 (0 ~ 180)"
+            },
+            "dirX": {
+                "name": "X値"
+            },
+            "dirY": {
+                "name": "Y値"
+            },
+            "dirZ": {
+                "name": "Z値"
+            },
+            "filterOutAllPoses": {
+                "name": "無効な位置姿勢が含まれている場合は空のリストを出力"
+            }
+        }
+    },
+    "mmind::StepCalcPoseFromHeatMap": {
+        "groupInfos": {
+            "Connected Area Search Settings": "連結領域の検索設定",
+            "Connected Area Settings": "連結領域の設定",
+            "Gripper Settings": "治具の設定",
+            "Parallel Jaw Related Settings": "グリッパーの関連設定",
+            "Pick Candidate Settings": "把持候補の設定",
+            "Pose Extraction Settings": "位置姿勢抽出の設定",
+            "Score Settings": "スコア設定",
+            "Visualization Settings": "可視化設定"
+        },
+        "properties": {
+            "LRRAngleStep": {
+                "name": "LRR検索の角度ステップサイズ"
+            },
+            "LRRTanslationStep": {
+                "name": "LRR検索の並進ステップサイズ"
+            },
+            "areaSizeLowerBound": {
+                "name": "連結領域の最小面積"
+            },
+            "areaSizeUpperBound": {
+                "name": "連結領域の最大面積"
+            },
+            "bboxLToWRatioThre": {
+                "name": "境界ボックスのアスペクト比のしきい値"
+            },
+            "calcDepthMethod": {
+                "name": "位置姿勢のZ軸の計算方法"
+            },
+            "convexityThre": {
+                "name": "凸性のしきい値 (0 ~ 1)"
+            },
+            "depthSearchRadius": {
+                "name": "位置姿勢のZ軸を計算するときの領域検索半径"
+            },
+            "distThre": {
+                "keyToolTip": "ヒートマップからヒートポイントを抽出するための最小距離しきい値。",
+                "name": "最小距離しきい値"
+            },
+            "extractMethod": {
+                "name": "把持位置姿勢の抽出方法"
+            },
+            "fontScale": {
+                "name": "フォントのスケーリング(0.5 ~ 2.0)"
+            },
+            "gripperType": {
+                "name": "治具のタイプ"
+            },
+            "histPrecision": {
+                "keyToolTip": "中央値を使用してヒートポイントの深度を計算するときのヒストグラムの精度。",
+                "name": "ヒストグラムの精度"
+            },
+            "lowerThre": {
+                "name": "連結領域を生成する確率の下限しきい値"
+            },
+            "poiPrecision": {
+                "name": "位置姿勢の計算精度 (POI)"
+            },
+            "probabilityStep": {
+                "name": "確率しきい値を小さくするためのステップサイズ"
+            },
+            "probabilityThre": {
+                "name": "連結領域を生成する確率の開始しきい値"
+            },
+            "rotationClassNum": {
+                "name": "回転角度のグループ数"
+            },
+            "scoreType": {
+                "name": "スコアタイプ"
+            },
+            "showArea": {
+                "name": "輪郭面積を表示"
+            },
+            "showContourThre": {
+                "name": "輪郭の対応するしきい値を表示"
+            },
+            "showConvexity": {
+                "name": "凸性を表示"
+            },
+            "showCupDiameters": {
+                "name": "吸盤の直径を表示"
+            },
+            "showPointConfidence": {
+                "name": "把持位置姿勢の確率を表示"
+            },
+            "thresholdUsage": {
+                "name": "しきい値の使用方式"
+            },
+            "topK": {
+                "keyToolTip": "確率の高い最初のK個位置姿勢が抽出されます。",
+                "name": "最初のK個位置姿勢"
+            },
+            "treatContourAsConcaveIfHasHole": {
+                "name": "連結領域に穴がある場合は凹面と見なす"
+            },
+            "useContourApproximateDir": {
+                "name": "主方向を位置姿勢のX軸として使用"
+            }
+        }
+    },
+    "mmind::StepCalcPosesAndSizes": {
+        "groupInfos": {
+            "Advanced Calculation Settings": "計算の詳細設定",
+            "Box Pose Calculation Settings": "箱の位置姿勢計算の設定",
+            "Pose Calculation Settings": "位置姿勢計算の設定",
+            "Reference Direction": "基準方向"
+        },
+        "properties": {
+            "alignSearchRadius": {
+                "name": "エッジに揃えられた検索半径"
+            },
+            "backgroundHeight": {
+                "keyToolTip": "ロボット座標系での背景の高さ。Z方向の箱の長さを計算するために使用されます。",
+                "name": "箱の底部の固定高さ"
+            },
+            "calcBoxZLen": {
+                "keyToolTip": "対象物のZ方向の長さを計算するときにのみチェックされます。",
+                "name": "箱の高さを計算"
+            },
+            "rotationType": {
+                "keyToolTip": "点群の境界ボックスの位置姿勢または点群の主要要素の方向を位置姿勢の姿勢として使用することを選択できます。",
+                "name": "位置姿勢方向の計算方法"
+            },
+            "translationType": {
+                "keyToolTip": "点群の境界ボックスの中心点または点群の中心点を位置姿勢の位置座標として使用することを選択できます。",
+                "name": "位置姿勢中心の計算方法"
+            },
+            "useBestAlignedRect": {
+                "name": "エッジに揃えられた境界長方形",
+                "valueToolTip": "外接の長方形は、対象物の輪郭にできるだけ揃える必要があります。"
+            },
+            "useMaxDistAlongSpecifiedDir": {
+                "name": "基準方向に沿って最大距離を使用"
+            },
+            "x": {
+                "name": "X"
+            },
+            "y": {
+                "name": "Y"
+            },
+            "z": {
+                "name": "Z"
+            }
+        }
+    },
+    "mmind::StepCalcRect3dPose": {
+        "groupInfos": {
+            "Output Pose Strategy": "出力位置姿勢の戦略",
+            "Pose Calculation Settings": "位置姿勢を計算するときの設定",
+            "Sucker Properties": "吸盤サイズ設定"
+        },
+        "properties": {
+            "inputType": {
+                "name": "入力タイプ"
+            },
+            "outputNumberType": {
+                "name": "位置姿勢の数"
+            },
+            "searchRadius": {
+                "name": "位置姿勢のZ値の検索半径を計算"
+            },
+            "suckerLengthX": {
+                "name": "X軸における吸盤のサイズ"
+            },
+            "suckerLengthY": {
+                "name": "Y軸における吸盤のサイズ"
+            },
+            "suckerMaskOtherRectRatio": {
+                "name": "入力タイプ"
+            }
+        }
+    },
+    "mmind::StepCalcSideApproximateMidpoint": {
+        "properties": {
+            "pointZInCamera": {
+                "keyToolTip": "カメラ座標系での中間点のZ値です。",
+                "name": "中間点のZ値"
+            },
+            "specifiedSide": {
+                "keyToolTip": "この指定された辺の中間点を計算します。",
+                "name": "指定辺"
+            }
+        }
+    },
+    "mmind::StepCalcSizeInMat": {
+        "groupInfos": {
+            "Correspondence Settings": "対応の設定"
+        },
+        "properties": {
+            "correspondenceType": {
+                "name": "タイプ"
+            }
+        }
+    },
+    "mmind::StepCaliperBaseClass": {
+        "properties": {
+            "edgeDetectionFrameHalfWidth": {
+                "keyToolTip": "エッジ検出フレームの半分の幅です。\nエッジがはっきりしない場合は、値を適切に増やすことができます。エッジがはっきりしている場合は、値を適切に減らすことができます。",
+                "name": "エッジ検出フレームの半分の幅"
+            },
+            "edgePolarityType": {
+                "keyToolTip": "このパラメータは、エッジ検出フレーム内で縦方向に上から下にどのようなグレースケールの変化を対象物のエッジと見なすかを設定します。",
+                "name": "エッジ極性"
+            },
+            "edgeSelection": {
+                "keyToolTip": "このパラメータは、単一のエッジ検出フレームに検出されたどのエッジ ポイントをフィッティングのエッジポイントとして選択するかを指定します。",
+                "name": "エッジ選択"
+            },
+            "grayscaleChangeLowerThreshold": {
+                "keyToolTip": "エッジ検出フレーム内のこのしきい値を超えるグレースケール変化を持つポイントは、対象物のエッジポイントと見なされます。",
+                "name": "グレースケール変化の下限しきい値"
+            },
+            "numberOfEdgeDetectionFrames": {
+                "keyToolTip": "このパラメータは、設定されたROI内で生成されるエッジ検出フレームの数を設定します。フィッティング用の対象物のエッジポイントは、各エッジ検出フレーム内で生成されます。",
+                "name": "エッジ検出フレームの数"
+            },
+            "sigmaOfGaussianFilter": {
+                "keyToolTip": "エッジ検出フレーム内で画像を垂直方向にフィルター処理するために使用されるガウシアンフィルタ係数で、推奨値は1です。",
+                "name": "ガウシアンフィルタ係数"
+            }
+        }
+    },
+    "mmind::StepCamera": {
+        "groupInfos": {
+            "Background Removal Settings": "静的背景削除設定",
+            "Camera Settings": "カメラ設定"
+        },
+        "properties": {
+            "backgroundDepthThres": {
+                "keyToolTip": "ポイントの深度が背景画像との対比がしきい値を超える場合、背景ポイントとして認識されて、削除されます。",
+                "name": "背景深度の変動"
+            },
+            "cameraType": {
+                "name": "カメラタイプ"
+            },
+            "dataPath": {
+                "name": "画像データパス"
+            },
+            "depthBackgroundFileName": {
+                "name": "深度背景画像",
+                "valueToolTip": "2D背景を設定"
+            },
+            "filePathType": {
+                "name": "画像名のタイプ"
+            },
+            "playMode": {
+                "name": "プレイモード"
+            },
+            "recaptureTimes": {
+                "name": "再撮影回数"
+            },
+            "removeBackgroundByDepth": {
+                "keyToolTip": "深度しきい値処理方法で背景を除去しますか。",
+                "name": "深度画像による背景を削除"
+            },
+            "robotName": {
+                "keyToolTip": "Mech-Centerの中で接続しているロボットの名前・型番と一致させる必要があります。",
+                "name": "Mech-Centerにあるロボットの名前"
+            },
+            "startFrameName": {
+                "name": "開始フレーム"
+            }
+        }
+    },
+    "mmind::StepCaptureCloudInBox": {
+        "groupInfos": {
+            "Box Dimensions' Settings": "箱の寸法設定",
+            "Usage Settings of Input Clouds": "入力点群の使用方式設定"
+        },
+        "properties": {
+            "halfX": {
+                "name": "X軸における長さの半分"
+            },
+            "halfY": {
+                "name": "Y軸における長さの半分"
+            },
+            "halfZ": {
+                "name": "Z軸における長さの半分"
+            },
+            "inputCloudUsage": {
+                "name": "入力点群の使用方式"
+            }
+        }
+    },
+    "mmind::StepCaptureCloudInSetCylinder": {
+        "groupInfos": {
+            "Cylinder Properties": "円柱のプロパティ",
+            "Ring and Sector Radius Properties": "リングとセクターの半径のプロパティ",
+            "Sector Angle Properties": "セクターの角度のプロパティ",
+            "Usage Settings for Input Clouds": "入力点群の使用方式設定",
+            "Z Direction Properties": "Z方向のプロパティ"
+        },
+        "properties": {
+            "endAngle": {
+                "name": "終了角度"
+            },
+            "extractPointsType": {
+                "name": "形状タイプ"
+            },
+            "inputPointCloudUsage": {
+                "name": "入力点群の使用方式"
+            },
+            "radius": {
+                "name": "半径"
+            },
+            "startAngle": {
+                "name": "開始角度"
+            },
+            "useCenter": {
+                "name": "点群の中心によって点群が円柱内にあるかどうかを判断"
+            },
+            "xoyDisMaxThre": {
+                "name": "外円半径"
+            },
+            "xoyDisMinThre": {
+                "name": "内円半径"
+            },
+            "zDisMaxThre": {
+                "name": "最大Z値"
+            },
+            "zDisMinThre": {
+                "name": "最小Z値"
+            }
+        }
+    },
+    "mmind::StepCapturePoseInRoiFlag": {
+        "properties": {
+            "inputPosesCoordType": {
+                "name": "入力位置姿勢の座標系"
+            },
+            "showPosesType": {
+                "name": "位置姿勢の表示設定"
+            }
+        }
+    },
+    "mmind::StepChamferMatching": {
+        "groupInfos": {
+            "Candidate Search Settings": "候補検索設定",
+            "Template Variant": "テンプレート設定",
+            "Threshold Settings": "しきい値の設定"
+        },
+        "properties": {
+            "baseAspect": {
+                "name": "基本アスペクト比"
+            },
+            "baseScale": {
+                "name": "ベーススケール"
+            },
+            "directionCost": {
+                "name": "角度損失の重み"
+            },
+            "directionVariationRange": {
+                "name": "対象物の姿勢の変化範囲"
+            },
+            "lineAngleQuantization": {
+                "name": "輪郭線角度定量化 (1 ~ 360)"
+            },
+            "maxAspectExponent": {
+                "name": "最大アスペクト指数"
+            },
+            "maxMeanDistanceError": {
+                "name": "平均距離誤差の最大しきい値"
+            },
+            "maxScaleExponent": {
+                "name": "最大スケール指数"
+            },
+            "minAspectExponent": {
+                "name": "最小アスペクト指数"
+            },
+            "minScaleExponent": {
+                "name": "最小スケール指数"
+            },
+            "objectMainDirection": {
+                "name": "対象物の大まかな姿勢 (0 ~ 360)"
+            },
+            "overlapThre": {
+                "name": "重複しきい値(0 ~ 1.0)"
+            },
+            "rotateStep": {
+                "name": "テンプレート検索の回転ステップサイズ"
+            },
+            "translateStepInM": {
+                "name": "テンプレート検索の並進ステップサイズ"
+            }
+        }
+    },
+    "mmind::StepClassifiedBySpecifiedThreshold": {
+        "groupInfos": {
+            "File Settings": "ファイル設定"
+        },
+        "properties": {
+            "labelFile": {
+                "keyToolTip": "[label_1, label_2, ... label_M]の形式で複数のラベルを格納したファイル。\nラベルの大きさとしきいtの大きさの間には、M =N + 1の関係式があります。",
+                "name": "ラベルファイル名",
+                "valueToolTip": "ラベルを設定"
+            },
+            "thresholdValueFile": {
+                "keyToolTip": "複数のしきい値を [ threshold_1, threshold_2, ... threshold_N ] の形式で格納したファイル。\nN個のしきい値に対して、N + 1個のラベルが必要です。",
+                "name": "しきい値ファイル名",
+                "valueToolTip": "しきい値を設定"
+            }
+        }
+    },
+    "mmind::StepCloudCluster": {
+        "properties": {
+            "cloudClusterType": {
+                "name": "クラスターアルゴリズム",
+                "valueToolTip": "EuclideanCluster: 距離に基づいて、このカテゴリに属する​​かどうかを判断します。\nRegionGrowingSeg: 法線ベクトルと曲率に従って、このカテゴリに属する​​かどうかを判断します。"
+            },
+            "gpu": {
+                "keyToolTip": "通常、入力点群のサイズが大きい場合はCPUよりも高速であり、CPUとGPUのパフォーマンスにも依存します。",
+                "name": "GPU"
+            },
+            "maxClusterNum": {
+                "keyToolTip": "クラスターの最大点数です。それ以外の場合、クラスターは削除されます。",
+                "name": "クラスター内の最大点数"
+            },
+            "minClusterNum": {
+                "keyToolTip": "クラスターの最小点数です。それ以外の場合、クラスターは削除されます。",
+                "name": "クラスター内の最小点数"
+            }
+        }
+    },
+    "mmind::StepCloudFilterByModelAndPose": {
+        "groupInfos": {
+            "Searching Radius": "検索半径"
+        }
+    },
+    "mmind::StepCloudPreprocessing": {
+        "properties": {
+            "cloudPreprocessingType": {
+                "name": "法線ベクトルの計算方法",
+                "valueToolTip": "CloudPreprocessingGPU: 法線ベクトルを計算し、入力を変換します。このオプションは、GPUが存在し、ユーザーが通常の情報を必要とする場合に推奨されます。\nCloudXYZToCloudNormal: 単純で高速な型変換は、実際の法線ベクトルを計算しません。\nNormalEstimation: 通常の方法です。通常の情報が必要で、GPUが存在しない場合に推奨されます。"
+            }
+        }
+    },
+    "mmind::StepCloudROI": {
+        "groupInfos": {
+            "Empty Status Settings": "空である状態設定"
+        },
+        "properties": {
+            "coordinateSystemType": {
+                "keyToolTip": "入力点群が配置されている座標系です。",
+                "name": "点群にある座標系のタイプを入力"
+            },
+            "isSendNoCloudInfo": {
+                "keyToolTip": "チェックすると、3D ROIに空である点を送信します。",
+                "name": "3D ROI内の点が空であるかどうかを送信"
+            },
+            "minPointNum": {
+                "keyToolTip": "3D ROI内の点数のしきい値です。3D ROIの点数がしきい値よりも少ない場合、ステップは点群を出力しません。",
+                "name": "3D ROI内の点数の最小値"
+            }
+        }
+    },
+    "mmind::StepCloudSampler": {
+        "properties": {
+            "samplerType": {
+                "name": "サンプラータイプ"
+            }
+        }
+    },
+    "mmind::StepCloudServer": {
+        "groupInfos": {
+            "Cloud Settings": "点群設定",
+            "Object Information Settings": "対象物情報設定"
+        },
+        "properties": {
+            "areInputsInCamCoord": {
+                "keyToolTip": "入力点群と対象物の位置姿勢がカメラ座標にある場合、このパラメータをチェックしてください。",
+                "name": "入力はカメラ座標系にある"
+            },
+            "inputType": {
+                "keyToolTip": "入力点群のタイプです。",
+                "name": "入力点群のタイプ",
+                "valueToolTip": "CloudXYZRGB：点の位置のある色付きの点群です。\nCloudXYZ：点の位置のある点群です。\nCloudXYZNORMAL：点の位置と法線ベクトル付き点群です。"
+            },
+            "sendObjInfo": {
+                "keyToolTip": "チェックすると、検出された対象物情報をMech-Vizに送信します。チェックした後、入力点群内の対象物に属する点は、最初に「テンプレートフィッティング位置姿勢に従って点群をフィルタリング」のステップを使用する必要があります。 Mech-Vizは、対象物情報を使用して、CADモデルと衝突モデルを点群に配置し、可視化と衝突検出に役立ちます。",
+                "name": "対象物情報を送信"
+            }
+        }
+    },
+    "mmind::StepCloudSizeClassifier": {
+        "groupInfos": {
+            "Aspect Ratio Settings": "アスペクト比の設定",
+            "Height Difference Threshold Settings": "高さの差しきい値設定",
+            "Length Difference Threshold Settings": "長さの差しきい値設定",
+            "Width Difference Threshold Settings": "幅の差しきい値設定"
+        },
+        "properties": {
+            "aspectRatioThre": {
+                "name": "アスペクト比のしきい値"
+            },
+            "baseHeight": {
+                "name": "基準高さ"
+            },
+            "heightDiffLowerRatioThre": {
+                "name": "比率の下限しきい値"
+            },
+            "heightDiffUpperRatioThre": {
+                "name": "比率の上限しきい値"
+            },
+            "lengthDiffLowerRatioThre": {
+                "name": "比率の下限しきい値"
+            },
+            "lengthDiffUpperRatioThre": {
+                "name": "比率の上限しきい値"
+            },
+            "widthDiffLowerRatioThre": {
+                "name": "比率の下限しきい値"
+            },
+            "widthDiffUpperRatioThre": {
+                "name": "比率の上限しきい値"
+            }
+        }
+    },
+    "mmind::StepCloudTransform": {
+        "groupInfos": {
+            "Transformation Settings": "変換設定"
+        },
+        "properties": {
+            "transformType": {
+                "keyToolTip": "点群を別の座標系に変換します。",
+                "name": "変換タイプ",
+                "valueToolTip": "CameraToRobot: 点群をカメラ座標からロボット座標に変換します。\nRobotToCamera: 点群をロボット座標からカメラ座標に変換します。\nAllWithFirst: 最初の基準位置姿勢で点群リストを変換します。\nFirstWithAll: すべての基準位置姿勢で最初の点群を変換します。\nUseCorrespondenceInput。基準位置姿勢で点群を1対1で変換します。\nAffineTransform: 点群を変換行列で変換します。"
+            }
+        }
+    },
+    "mmind::StepCloudsFilter": {
+        "groupInfos": {
+            "Clouds Projection Settings": "点群投影設定",
+            "Morphological Transformation": "モルフォロジー変換設定"
+        },
+        "properties": {
+            "_filterType": {
+                "name": "フィルタリング方法",
+                "valueToolTip": "CircleCloudsFilter: 投影が非円形である点群を除去します。\nCloudCapcityFilter: 点群のサイズに基づいて点群をフィルタリングします。\nRectCloudsFilter: 投影が非長方形である点群を除去除します。\nSolidCloudsFilter: ソリッド点群を除去します。"
+            },
+            "dilateSize": {
+                "name": "膨張処理のカーネルサイズ"
+            },
+            "erodeSize": {
+                "name": "収縮処理のカーネルサイズ"
+            },
+            "projectionType": {
+                "name": "投影タイプ",
+                "valueToolTip": "Orthographic: 元々平行であった各線は、この変換後に平行になります。\nPrespective:透視図から表示します。"
+            }
+        }
+    },
+    "mmind::StepCloudsInROI": {
+        "properties": {
+            "coordType": {
+                "name": "入力点群の座標系"
+            }
+        }
+    },
+    "mmind::StepCoarseRegistration": {
+        "properties": {
+            "processorType": {
+                "name": "アルゴリズムのタイプ"
+            }
+        }
+    },
+    "mmind::StepCoarseRegistrationV2": {
+        "groupInfos": {
+            "Pose Filtering Settings": "位置姿勢フィルタリング設定",
+            "Pose Verification Settings": "位置姿勢検証設定",
+            "Preprocessing Settings": "前処理設定",
+            "Result Visualization": "結果の可視化設定",
+            "Voting Settings": "投票設定"
+        },
+        "properties": {
+            "AxisType": {
+                "keyToolTip": "位置姿勢の制限軸です。\n\n使用するには、パラメータ「軸によって候補位置姿勢をフィルタリング」のツールチップをご参照ください。",
+                "name": "指定軸"
+            },
+            "angleQuantification": {
+                "keyToolTip": "ポイントの法線間の角度の定量化です（角度間隔= 360° / 角度の定量化）。\n角度の定量化が大きいほど、結果はより正確になる傾向がありますが、点群の品質に対する要件は高くなります。",
+                "name": "角度の定量化"
+            },
+            "angleThreshold": {
+                "name": "角度差の上限しきい値",
+                "valueToolTip": "使用するには、パラメータ「軸によって候補位置姿勢をフィルタリング」のツールチップをご参照ください。"
+            },
+            "distQuantification": {
+                "name": "距離の定量化",
+                "valueToolTip": "点間の距離を定量化するためのパラメータです（距離間隔 = 距離の定量化 * サンプリング間隔 )。\n値が大きいほど、結果の精度が低くなる傾向があります。"
+            },
+            "expectedModelPointNum": {
+                "keyToolTip": "サンプリングされたモデル点群の予想点数です。\n値が小さいほど、サンプリングされた点群内の点が少なくなり、精度が低くなります。",
+                "name": "サンプリングされたモデルの期待点数"
+            },
+            "filterCandidatePoseByAxis": {
+                "keyToolTip": "制限軸と基準方向との間に大きな角度差（角度差の上限しきい値より大きい）がある位置姿勢は、候補位置姿勢とは見なされません。通常、ミラー マッチングの結果に対応する位置姿勢を除外するために使用されます。",
+                "name": "指定軸の角度に基づいて候補位置姿勢をフィルタリング"
+            },
+            "maxNumOfPointPairsPerFeature": {
+                "keyToolTip": "モデル分析に各特徴に含むポイントペアの最大数です。\n値が小さいほど実行は速くなりますが、精度は低くなります。",
+                "name": "単一特徴に含むポイントペアの最大数"
+            },
+            "maxScenePointNum": {
+                "keyToolTip": "サンプリング後のシーン点群の点の数がこの値より多い場合、点群は無視され、空のデータが出力されます。",
+                "name": "サンプリング後の入力点群の点の最大数"
+            },
+            "maxVoteRatio": {
+                "keyToolTip": "スコアが値よりも高い位置姿勢、投票で最高の位置姿勢のスコア *「最大投票率」は、クラスターまたは位置姿勢の検証プロセスに使用されます。\n値が小さいほど、正確なマッチング結果が見つかる可能性は高くなりますが、実行に時間がかかります。",
+                "name": "最大投票率"
+            },
+            "maxVoxelLength": {
+                "keyToolTip": "ボクセル長さの上限。",
+                "name": "最大ボクセル長さ"
+            },
+            "minVoxelLength": {
+                "keyToolTip": "ボクセル長さの下限。",
+                "name": "最小ボクセル長さ"
+            },
+            "neighbourNumber": {
+                "keyToolTip": "各点の方向を計算するために使用される近傍点の数です。",
+                "name": "近傍点の数"
+            },
+            "outputNum": {
+                "keyToolTip": "各入力点群のマッチング位置姿勢の期待数です。",
+                "name": "単一点群の結果の期待数"
+            },
+            "refStep": {
+                "keyToolTip": "このパラメータは、点群をサンプリングしてポイントペアを作成するために使用されます。\n値が大きいほど実行は速くなりますが、精度は低くなります。",
+                "name": "参考点のサンプリングステップサイズ"
+            },
+            "referenceDir": {
+                "keyToolTip": "使用するには、パラメータ「軸によって候補位置姿勢をフィルタリング」のツールチップをご参照ください。",
+                "name": "基準方向"
+            },
+            "referredStep": {
+                "keyToolTip": "このパラメータは、点群をサンプリングしてポイントペアを作成するために使用されます。\n値が大きいほど実行は速くなりますが、精度は低くなります。",
+                "name": "参考される点のサンプリングステップサイズ"
+            },
+            "registrationMode": {
+                "keyToolTip": "モデルの点群が何であるかに応じて、マッチング モードを選択してください。\nモデル点群が対象物のエッジの場合は、「エッジマッチング」を選択してください。\nモデル点群が対象物の表面の場合は、「表面マッチング」を選択してください。",
+                "name": "マッチングモード"
+            },
+            "useDistanceNMS": {
+                "keyToolTip": "オンにすると、選択した位置姿勢からの距離が対象物の直径の0.1倍未満である候補位置姿勢が除外されます。",
+                "name": "位置姿勢距離に基づいた非最大抑制を使用"
+            },
+            "visualizationOption": {
+                "keyToolTip": "デバッグ結果出力を有効にすると、選択したオプションが生成されて表示されます。",
+                "name": "可視化オプション"
+            },
+            "voxelLength": {
+                "keyToolTip": "ボクセルの長さです。\n値が大きいほど、結果の精度が低くなる傾向があります。",
+                "name": "ボクセル長さ"
+            },
+            "voxelLengthGenetationStrategy": {
+                "keyToolTip": "ボクセル長さは、自動生成または手動で設定できます。新規ユーザーには、「自動生成」をお勧めします。",
+                "name": "ボクセル長さの生成戦略"
+            }
+        }
+    },
+    "mmind::StepCoordsTransform": {
+        "groupInfos": {
+            "Transformation Settings": "変換設定"
+        },
+        "properties": {
+            "transformType": {
+                "keyToolTip": "位置姿勢を別の座標系に変換します。",
+                "name": "変換タイプ",
+                "valueToolTip": "CameraToRobot：位置姿勢をカメラ座標からロボット座標に変換します。\nRobotToCamera：位置姿勢をロボット座標からカメラ座標に変換します。\nAllWithFirst：最初の基準位置姿勢で元の位置姿勢のリストを変換します。\nFirstWithAll：すべての基準位置姿勢で最初の元の位置姿勢を変換します。\nUseCorrespondenceInput：基準位置姿勢で元の位置姿勢を1対1で変換します。"
+            }
+        }
+    },
+    "mmind::StepCopyImages": {
+        "groupInfos": {
+            "Custom Settings": "カスタマイズの設定",
+            "Directory Settings": "ディレクトリの設定",
+            "Image Indexing Settings": "画像インデックスの設定"
+        },
+        "properties": {
+            "inputDir": {
+                "keyToolTip": "コピーされる画像を収納するディレクトリの位置を示す絶対パスです。",
+                "name": "画像インプット用ディレクトリ"
+            },
+            "maxImgNum": {
+                "keyToolTip": "コピーされ、保存される画像の最大値です。この値以上の画像を取り扱うことができません。",
+                "name": "画像の数の最大値"
+            },
+            "renameWhenCopy": {
+                "name": "コピーする場合名前を変更"
+            },
+            "saveDir": {
+                "keyToolTip": "コピーした画像を保存するためのディレクトリの位置を示す絶対パスです。",
+                "name": "保存用ディレクトリ"
+            },
+            "startIndex": {
+                "name": "開始インデックス"
+            }
+        }
+    },
+    "mmind::StepCountElementsInSpecifiedLevel": {
+        "properties": {
+            "vectorLevel": {
+                "name": "配列内の操作変数の次元"
+            }
+        }
+    },
+    "mmind::StepDecomposeInput": {
+        "groupInfos": {
+            "Linear Operation": "線形変換"
+        },
+        "properties": {
+            "addend": {
+                "name": "加数"
+            },
+            "inputType": {
+                "name": "入力タイプ"
+            },
+            "multiplier": {
+                "name": "乗数"
+            }
+        }
+    },
+    "mmind::StepDeepLearning": {
+        "groupInfos": {
+            "Model": "モデル",
+            "Preload Settings": "プリロード設定",
+            "Server": "サーバー"
+        },
+        "properties": {
+            "configPath": {
+                "keyToolTip": "ディープラーニングのコンフィグファイルパスです。拡張子は「.py/.dlkcfg/.json」です。",
+                "name": "コンフィグファイル"
+            },
+            "modelPath": {
+                "keyToolTip": "ディープラーニングのモデルファイルパスです。拡張子は「.pth/.dlkmp」です。",
+                "name": "モデルファイル"
+            },
+            "preloadModelOnProjectOpen": {
+                "keyToolTip": "チェックを入れると、モデルがプリロードされます。",
+                "name": "プロジェクトを開くとモデルを自動プリロード"
+            },
+            "serverIP": {
+                "keyToolTip": "ディープラーニングサーバーのIPアドレスです。",
+                "name": "サーバーIP"
+            },
+            "serverPort": {
+                "keyToolTip": "ディープラーニングサーバーのポート(1 ~ 65535)です。",
+                "name": "サーバーポート (1 ~ 65535)"
+            }
+        }
+    },
+    "mmind::StepDeepLearningPack": {
+        "properties": {
+            "clsConfidenceThreshold": {
+                "name": "画像分類の信頼度しきい値 (0.0~1.0)"
+            },
+            "clsResultsOutputFlags": {
+                "name": "画像分類の出力フラグ"
+            },
+            "detConfidenceThreshold": {
+                "name": "対象物検出の信頼度しきい値 (0.0~1.0)"
+            },
+            "detResultsOutputFlags": {
+                "name": "対象物検出の出力フラグ"
+            },
+            "modelsPackagePath": {
+                "name": "モデルパッケージのファイルパス"
+            },
+            "needFilterSegResults": {
+                "name": "欠陥セグメンテーションの結果をフィルタリング"
+            },
+            "segAreaLowerLimit": {
+                "name": "欠陥の分割輪郭の面積の下限値"
+            },
+            "segPerimeterLowerLimit": {
+                "name": "分割輪郭の周囲の下限値"
+            },
+            "segResultsOutputFlags": {
+                "name": "欠陥セグメンテーションの出力フラグ"
+            },
+            "useSegAreaFiltering": {
+                "name": "欠陥の分割輪郭の面積によって結果をフィルタリング"
+            },
+            "useSegPerimeterFiltering": {
+                "name": "欠陥の分割輪郭の周囲によって結果をフィルタリング"
+            }
+        }
+    },
+    "mmind::StepDeepLearningPackInfer": {
+        "groupInfos": {
+            "ROI settings": "ROI設定"
+        },
+        "properties": {
+            "clsConfidenceThreshold": {
+                "name": "画像分類の信頼度しきい値(0.0～1.0)"
+            },
+            "clsResultsOutputFlags": {
+                "name": "画像分類の出力フラグ"
+            },
+            "fastPositioningResultsOutputFlags": {
+                "name": "すばやく位置決めの出力フラグ"
+            },
+            "instanceSegConfidenceThreshold": {
+                "name": "インスタンスセグメンテーションの信頼度しきい値(0.0～1.0)"
+            },
+            "instanceSegResultsOutputFlags": {
+                "name": "インスタンスセグメンテーションの出力フラグ"
+            },
+            "modelPackagePath": {
+                "name": "モデルパッケージのファイルパス"
+            },
+            "objConfidenceThreshold": {
+                "name": "対象物検出の信頼度しきい値(0.0～1.0)"
+            },
+            "objResultsOutputFlags": {
+                "name": "対象物検出の出力フラグ"
+            },
+            "roiPath": {
+                "name": "ROIファイル"
+            },
+            "segResultsOutputFlags": {
+                "name": "欠陥セグメンテーションの出力フラグ"
+            }
+        }
+    },
+    "mmind::StepDefectDetector": {
+        "groupInfos": {
+            "Defect Classification": "欠陥分類",
+            "Filter Settings": "欠陥フィルタリング設定",
+            "Visualization Settings": "可視化設定"
+        },
+        "properties": {
+            "classificationConfigFile": {
+                "name": "コンフィグファイル"
+            },
+            "classificationModelFile": {
+                "name": "モデルファイル"
+            },
+            "defectAreaThreshold": {
+                "name": "欠陥サイズをフィルタリングするためのしきい値"
+            },
+            "detectionRegionRoiList": {
+                "name": "欠陥検出のROI領域"
+            },
+            "drawDefectLabelOnImage": {
+                "name": "画像で欠陥のカテゴリーを絵画"
+            },
+            "drawDefectMaskOnImage": {
+                "name": "画像で欠陥のマスクを描画"
+            },
+            "fontScale": {
+                "name": "フォントサイズ（0~10）"
+            },
+            "manuallyFontScale": {
+                "name": "カスタマイズのフォントサイズを使用"
+            },
+            "useClassification": {
+                "name": "欠陥分類の機能を使用"
+            }
+        }
+    },
+    "mmind::StepDepthImgValidation": {
+        "groupInfos": {
+            "Depth Range Settings": "深度範囲の設定"
+        },
+        "properties": {
+            "clearPrevious": {
+                "keyToolTip": "取得した深度画像を削除します。",
+                "name": "前の画像データを削除"
+            },
+            "interval": {
+                "name": "間隔"
+            },
+            "maxThre": {
+                "keyToolTip": "\"下限値\"のツールチップをご参照ください。",
+                "name": "上限値"
+            },
+            "minThre": {
+                "keyToolTip": "\"下限値\"から\"上限値\"に至るまで、\"間隔\"を用いて、いくつかの区間を指定することができます。\n各ピクセルにおいて、同じ位置の深度値と平均深度値との差は、これらの間隔のいずれかに入ります。\n全てのポイントに対して、各区間にあるポイントが占める割合は最終結果として表示されます。",
+                "name": "下限値"
+            }
+        }
+    },
+    "mmind::StepDepthInRoi": {
+        "groupInfos": {
+            "Threshold Settings": "しきい値の設定"
+        },
+        "properties": {
+            "minPointNum": {
+                "keyToolTip": "3D ROI内の点数のしきい値です。\n点数がしきい値よりも小さい場合、警告メッセージが表示されます。",
+                "name": "ROI内の最小点数"
+            }
+        }
+    },
+    "mmind::StepDetectBinInscribedRectSides": {
+        "groupInfos": {
+            "Bin Size Settings": "箱のサイズ設定"
+        },
+        "properties": {
+            "binHeight": {
+                "name": "箱の高さ"
+            },
+            "binSideWallThickness": {
+                "name": "箱側面の厚さ"
+            }
+        }
+    },
+    "mmind::StepDetectCircle": {
+        "groupInfos": {
+            "Visualization Settings": "可視化設定"
+        },
+        "properties": {
+            "drawDetectedCircle": {
+                "name": "検出された円を描画"
+            },
+            "drawEdgeDetectionFrames": {
+                "name": "エッジ検出フレームを描画"
+            },
+            "drawEdgePoints": {
+                "name": "エッジポイントを描画"
+            },
+            "drawROI": {
+                "name": "ROIを描画"
+            },
+            "edgeDetectionFrameHalfHeight": {
+                "name": "エッジ検出フレームの高さの半分"
+            },
+            "fittingMethod": {
+                "name": "フィッティング方法"
+            }
+        }
+    },
+    "mmind::StepDetectLine": {
+        "groupInfos": {
+            "Visualization Settings": "可視化設定"
+        },
+        "properties": {
+            "drawDetectedLineSegment": {
+                "name": "検出された線分を描画"
+            },
+            "drawEdgeDetectionFrames": {
+                "name": "エッジ検出フレームを描画"
+            },
+            "drawEdgePoints": {
+                "name": "エッジポイントを描画"
+            },
+            "drawROI": {
+                "name": "ROIを描画"
+            },
+            "fittingMethod": {
+                "name": "フィッティング方法"
+            }
+        }
+    },
+    "mmind::StepDynamicInputPorts": {
+        "properties": {
+            "inputSize": {
+                "name": "ポート数 (1 ~ 16)"
+            },
+            "vectorLevel": {
+                "name": "配列におけるアンパックされた変数の次元"
+            }
+        }
+    },
+    "mmind::StepDynamicIoPorts": {
+        "groupInfos": {
+            "Ports Settings": "ポート設定"
+        },
+        "properties": {
+            "dynamicIoSize": {
+                "keyToolTip": "入力出力ポートの数です。",
+                "name": "ポート数  (1 ~ 15)"
+            },
+            "vectorLevel": {
+                "keyToolTip": "操作レイヤーが0の場合、操作はリスト内の各要素に対して実行されます。",
+                "name": "操作レイヤー",
+                "valueToolTip": "最も内側のレイヤーは0です。"
+            }
+        }
+    },
+    "mmind::StepEasyCreateStringList": {
+        "properties": {
+            "strings": {
+                "name": "文字列のリスト"
+            }
+        }
+    },
+    "mmind::StepEdgeDetector": {
+        "groupInfos": {
+            "Edge Threshold": "エッジのしきい値"
+        },
+        "properties": {
+            "averageEdgeThreshold": {
+                "name": "エッジ平均しきい値 (0~255)"
+            },
+            "fuseEdgeThreshold": {
+                "name": "エッジ融合しきい値 (0~255)"
+            }
+        }
+    },
+    "mmind::StepFilter": {
+        "properties": {
+            "reverseBoolList": {
+                "keyToolTip": "False：入力「BoolList」に「False」が含まれる項目をフィルタリングし、「True」の項目を返します。\nTrue：入力「BoolList」に含まれる「True」を持つ項目をフィルタリングし、「False」を持つ項目を返します。",
+                "name": "ブール値を反転するか",
+                "valueToolTip": "デフォルトはFalse。"
+            }
+        }
+    },
+    "mmind::StepFineClassifier": {
+        "properties": {
+            "confidenceThreshold": {
+                "name": "信頼度しきい値 (0 ~ 1.0)"
+            }
+        }
+    },
+    "mmind::StepFineRegistration": {
+        "groupInfos": {
+            "Matching Field": "マッチングフィールド",
+            "Model Weight in Validation": "検証時のモデルの重み",
+            "Output Settings": "出力設定",
+            "Results Visualization": "結果の可視化設定",
+            "Sample Settings": "サンプリング設定",
+            "Symmetry Settings": "対称性設定",
+            "Translation Settings": "並進設定",
+            "Validation Settings": "検証設定"
+        },
+        "properties": {
+            "angleStep": {
+                "keyToolTip": "対称角度ステップサイズは、初期方向を「最小回転角度」から「最大回転角度」に変更するために使用されます。",
+                "name": "対称角度ステップサイズ (0 ~ 360)"
+            },
+            "angleThreshold": {
+                "keyToolTip": "このパラメータは、互換性のために保持されます。",
+                "name": "角度のしきい値"
+            },
+            "applyAngleDeviationInValidation": {
+                "keyToolTip": "位置姿勢を評価するときは、対応するポイントペアの法線ベクトルの角度差を考慮します。\nこれをチェックすると、出力は低くなる傾向がありますが、より正確になります。",
+                "name": "結果評価時の点から法線ベクトルへの角度偏差を考慮"
+            },
+            "candidateTopNum": {
+                "keyToolTip": "各点群の出力位置姿勢の数です。",
+                "name": "単一点群の出力結果の数"
+            },
+            "confidenceThreshold": {
+                "keyToolTip": "結果の検証スコアがこのしきい値よりも大きい場合、結果は有効であると見なされます。\nこの値が高いほど、結果はより正確になる傾向があります。",
+                "name": "信頼度しきい値"
+            },
+            "correspondenceType": {
+                "name": "対応の設定"
+            },
+            "edgeSearchRadius": {
+                "keyToolTip": "このパラメータは、互換性のために保持されます。",
+                "name": "エッジサンプリング検索半径"
+            },
+            "fileOfModelFragmentsWithHighWeight": {
+                "keyToolTip": "モデルの一部の点の点群ファイルです。点群のこの部分は重みが高く、パラメータ「重み値」によって設定されます。",
+                "name": "モデルの重みファイル"
+            },
+            "fullConnect": {
+                "keyToolTip": "チェックを入れると、「X方向の並進範囲」*「Y方向の並進範囲」の大まかな位置姿勢が生成され、マッチングアルゴリズムに入力されます。\nこの値が高いほど、より適切なマッチング結果を取得する傾向があります。",
+                "name": "全てつなぐ"
+            },
+            "leafSize": {
+                "keyToolTip": "モデルとシーンの点群のダウンサンプリングに使用されるサンプリング間隔です。\n値が大きいほど、サンプリングされたポ点群の点数は少なくなります。そのため、推定位置姿勢の精度が低くなります。",
+                "name": "サンプリング間隔"
+            },
+            "maxAngle": {
+                "keyToolTip": "ヒントについては、「対称角度ステップサイズ」をご参照ください。",
+                "name": "最大回転角(-180 ~ 180)"
+            },
+            "minAngle": {
+                "keyToolTip": "ヒントについては、「対称角度ステップサイズ」をご参照ください。",
+                "name": "最小回転角(-180 ~ 180)"
+            },
+            "multiplyCorrespondingPointsRatioInScene": {
+                "keyToolTip": "チェックを入れると、マッチングスコアに、シーンの点に対応する点の比例係数が乗算されます。点群内の複数の対象物の位置姿勢を推定するのには適していません。",
+                "name": "スコアに対応する点がシーンの点群に占める比例をかける"
+            },
+            "rotationStrategy": {
+                "keyToolTip": "初期位置姿勢を変更する対称軸です。",
+                "name": "対称回転軸"
+            },
+            "sampler": {
+                "keyToolTip": "サンプリング方法です。\nこのパラメータは、互換性のために保持されます。",
+                "name": "サンプリング方法"
+            },
+            "searchNum": {
+                "keyToolTip": "このパラメータは、互換性のために保持されます。",
+                "name": "検索点数"
+            },
+            "searchRadiusWhenSetWeight": {
+                "keyToolTip": "重み半径を設定します。\nこの値が大きいほど、モデル内のより多くの点に設定された重みがあります。",
+                "name": "重み設定の検索半径"
+            },
+            "searchWithRadius": {
+                "keyToolTip": "このパラメータは、互換性のために保持されます。",
+                "name": "検索半径を使用"
+            },
+            "showOutputModelAndSceneCloud": {
+                "keyToolTip": "マッチングしたモデルトシーンの点群を表示します。",
+                "name": "マッチング結果を表示"
+            },
+            "showSampledModelCloud": {
+                "keyToolTip": "モデルのサンプリングされた点群を表示します。",
+                "name": "サンプリングされたモデル点群を表示"
+            },
+            "showSampledSceneCloud": {
+                "keyToolTip": "ダウンサンプリングされたシーンの点群を表示します。",
+                "name": "サンプリングされたシーンの点群を表示"
+            },
+            "showValidationPointCorrespondences": {
+                "keyToolTip": "モデルとシーンの点群の対応関係を表示します。",
+                "name": "モデルとシーンの点群の対応関係を表示"
+            },
+            "tranRangeX": {
+                "keyToolTip": "対象物座標系のx方向に沿った特定の範囲内の初期値を変換します。",
+                "name": "X方向の並進範囲",
+                "valueToolTip": "Xの正負方向の並進範囲です。"
+            },
+            "tranRangeY": {
+                "keyToolTip": "対象物座標系のY方向に沿った特定の範囲内の初期値を変換します。",
+                "name": "Y方向の並進範囲",
+                "valueToolTip": "Yの正負方向の並進範囲です。"
+            },
+            "tranStep": {
+                "keyToolTip": "シングルステップの並進ステップサイスです。",
+                "name": "並進ステップサイス"
+            },
+            "validationSearchRadius": {
+                "keyToolTip": "信頼度を計算するときの検索半径です。",
+                "name": "結果評価の検索半径"
+            },
+            "weightOfEachPoint": {
+                "keyToolTip": "モデルの重みファイル内の点の重みです。\nこの値が高いほど、重みモデルのマッチング結果が良くなります。",
+                "name": "重み値"
+            },
+            "wholeScene": {
+                "keyToolTip": "1つの点群に複数の対象物がマッチングする必要がある場合、チェックします。",
+                "name": "全体シーン"
+            }
+        }
+    },
+    "mmind::StepFlipAxisDirection": {
+        "groupInfos": {
+            "Axis Settings": "軸の設定"
+        },
+        "properties": {
+            "axisType": {
+                "keyToolTip": "反転する軸を選択します",
+                "name": "反転する軸"
+            },
+            "directionType": {
+                "keyToolTip": "パラメータ「正方向」は、ユーザーが位置姿勢のある軸を世界座標系の正方向に調整することを意味します。正方向との角度が90°以上の軸のみが調整されます。\nパラメータ「負方向」は、ユーザーが位置姿勢のある軸を世界座標系の負方向に調整することを意味します。負方向との角度が90°以上の軸のみが調整されます。\n例えば、パラメータの「反転する軸」が「Z」で、方向は「正」である場合、世界座標系Z軸正方向との角度が90°以下の位置姿勢Z軸は調整されず、90°以上の位置姿勢Z軸は基準軸を中心に180°回転します。",
+                "name": "方向のタイプ"
+            },
+            "rotateByAxis": {
+                "keyToolTip": "回転する軸を選択します。",
+                "name": "回転の基準軸"
+            }
+        }
+    },
+    "mmind::StepGeneralReadImage": {
+        "properties": {
+            "filePathType": {
+                "keyToolTip": "文字列で画像名を指定します。",
+                "name": "画像名のタイプ",
+                "valueToolTip": "フルパス：ファイルへの絶対パス;\nファイル名：拡張子を含む、ファイルの名前;\n ベース名: ファイル名に最初の'.' までのすべての文字列で構成されます（ただし、最初の'.' は含まれません）。\n\n例えば: \"D:/data/project.tar.gz\"\nフルパス: \"D:/data/project.tar.gz\"\nファイル名: \"project.tar.gz\" \n ベース名: \"project\""
+            },
+            "imageFilePath": {
+                "keyToolTip": "画像ファイルのパスです。",
+                "name": "画像ファイルのパス",
+                "valueToolTip": "画像ファイルのパス"
+            },
+            "imageFolderPath": {
+                "keyToolTip": "画像フォルダのパスです。",
+                "name": "画像フォルダのパス",
+                "valueToolTip": "これは画像フォルダのパスです。"
+            },
+            "imageFormat": {
+                "keyToolTip": "\"fromFile\"がfalseに設定している場合にのみ適用されます。\n画像ディレクトリから選択されたデータ形式の画像を読み込みます。",
+                "name": "画像のデータ形式",
+                "valueToolTip": "対応する画像のデータ形式。"
+            },
+            "imageSource": {
+                "keyToolTip": "ファイルから1枚の画像を読み込むか、フォルダー内の全ての画像を読み込みます。",
+                "name": "画像のソース",
+                "valueToolTip": "ファイル: 画像をファイルから取得します。\nディレクトリ: 画像をディレクトリから取得します。"
+            },
+            "parseAsDepthImage": {
+                "keyToolTip": "\"画像のデータ形式\"が\"PNG\"と設定している場合にのみ適用されます。\n一部の画像のデータ形式を、深度画像として解析することが可能です。（Mech-Visionでは画像のデータ形式が\"PNG\"である）。",
+                "name": "深度画像として解析",
+                "valueToolTip": "true：画像を深度画像として解析します。\nfalse: 通常の画像として解析します。"
+            },
+            "playMode": {
+                "keyToolTip": "\"fromFile\"が false、\"readAll\"が falseと設定している場合にのみ適用される。\nこのパラメータは、フォルダから画像を読み込む方法を管理しています。",
+                "name": "読み込みモード",
+                "valueToolTip": "Normal: ファイル名の並び順に画像を読み込み、最後の画像で読み込みが終了します。\nRepeatOne：現在の画像を繰り返し読み込みます。\nRepeatAll: ファイル名の並び順に繰り返し画像を読み込み、読み込みが終了しません。\nシャッフル：ランダムに画像を読み込みます。"
+            },
+            "readAll": {
+                "keyToolTip": "\"画像のデータ形式\"がfalseと設定している場合にのみ適用されます。\n画像ディレクトリから選択されたデータ形式のすべての画像を読み込みます。",
+                "name": "すべてを読み込む",
+                "valueToolTip": "true: 画像ディレクトリ内の全ての対応する画像を一括読み込み、まとめてアウトプットします。\nfalse: 画像ディレクトリ内の全ての対応する画像を一枚ずつ読み込み、単一画像としてアウトプットします。"
+            }
+        }
+    },
+    "mmind::StepGeneralReadPointCloud": {
+        "properties": {
+            "fileFormat": {
+                "name": "ファイルのデータ形式"
+            },
+            "fileName": {
+                "name": "ファイル名"
+            },
+            "folderPath": {
+                "name": "フォルダパス"
+            },
+            "pointCloudSource": {
+                "name": "点群のソース",
+                "valueToolTip": "File: ファイルから点群を取得します。\nDir: ディレクトリから点群を取得します。"
+            },
+            "pointCloudType": {
+                "name": "点群の種類"
+            }
+        }
+    },
+    "mmind::StepGenerateCloud": {
+        "groupInfos": {
+            "Background Removal Settings": "背景除去の設定"
+        },
+        "properties": {
+            "backgroundDepthThres": {
+                "keyToolTip": "背景深度変動しきい値です。背景画像と比較した深度の差さがこの値より小さい点は除外されます。",
+                "name": "背景深度の変動"
+            },
+            "depthBackgroundFileName": {
+                "keyToolTip": "深度背景画像のファイル名です。このパラメータの右側にある編集ボタンをクリックして、カメラから背景の深度画像を取得します。画像を撮影する前に、把持する対象物を除去してください。",
+                "name": "深度背景画像のファイル名",
+                "valueToolTip": "2D背景を設定"
+            },
+            "depthRoiFileName": {
+                "keyToolTip": "深度画像のROIファイルです。このパラメータの上部にある編集ボタンをクリックして、関心領域を手動で選択します。",
+                "name": "深度画像のROIファイル",
+                "valueToolTip": "2D ROIを設定"
+            },
+            "removeBackgroundByDepth": {
+                "keyToolTip": "背景除去を設定します。チェックすると、入力深度画像と背景深度画像を比較し、変動範囲内の深度差のある背景を除去します。",
+                "name": "深度画像による背景を除去"
+            }
+        }
+    },
+    "mmind::StepGenerateCloudWall": {
+        "groupInfos": {
+            "Cloud Wall Property": "側壁のプロパティ",
+            "Direction": "方向"
+        },
+        "properties": {
+            "height": {
+                "name": "側壁の高さ"
+            },
+            "leafSize": {
+                "name": "サンプリング間隔"
+            }
+        }
+    },
+    "mmind::StepGenerateTestImage": {
+        "properties": {
+            "height": {
+                "name": "高さ"
+            },
+            "imgType": {
+                "name": "画像種類"
+            },
+            "width": {
+                "name": "幅"
+            }
+        }
+    },
+    "mmind::StepGetHighestDepth": {
+        "groupInfos": {
+            "Highest Layer Settings": "最高層の設定"
+        },
+        "properties": {
+            "layerHeightTolerance": {
+                "name": "層の高さ"
+            }
+        }
+    },
+    "mmind::StepGetHighestLayer": {
+        "groupInfos": {
+            "Layer Settings": "レイヤー設定",
+            "Reference Direction": "基準方向"
+        },
+        "properties": {
+            "layerDiffTolerance": {
+                "keyToolTip": "最高レイヤーまでの距離がレイヤーの高さ * レイヤーの許容範囲よりも小さい場合、最高層とします。",
+                "name": "レイヤーの許容値(0.0 ~ 1.0)"
+            },
+            "layerHeight": {
+                "name": "レイヤーの高さ"
+            },
+            "onlyGetHighestOne": {
+                "keyToolTip": "チェックを入れると、指定された方向に沿って最高レイヤーの結果を取得します。そうでない場合は、最高レイヤーの結果を取得します。",
+                "name": "最高レイヤーのみを出力"
+            },
+            "x": {
+                "keyToolTip": "基準方向のX値です。",
+                "name": "X値"
+            },
+            "y": {
+                "keyToolTip": "基準方向のY値です。",
+                "name": "Y値"
+            },
+            "z": {
+                "keyToolTip": "基準方向のZ値です。",
+                "name": "Z値"
+            }
+        }
+    },
+    "mmind::StepGetHighestLayerClouds": {
+        "groupInfos": {
+            "Cloud Settings": "点群設定"
+        },
+        "properties": {
+            "maxSizeCloudNormalZDir": {
+                "keyToolTip": "maxSizeCloudNormalZDirを現在の座標の正または負の方向として指定されます。",
+                "name": "正と負の方向"
+            },
+            "useMaxSizeCloudNormal": {
+                "keyToolTip": "最大数の点群法線ベクトルを基準方向として使用されます。",
+                "name": "点数が最も多い点群の法線ベクトルを使用"
+            }
+        }
+    },
+    "mmind::StepGetHighestLayerPoses": {
+        "groupInfos": {
+            "Visualization Settings": "可視化設定"
+        },
+        "properties": {
+            "showCloudInSceneType": {
+                "name": "選択された座標系で点群を表示"
+            },
+            "showPosesType": {
+                "name": "位置姿勢の表示設定"
+            }
+        }
+    },
+    "mmind::StepGetValidClouds": {
+        "groupInfos": {
+            "Clustering Settings": "クラスター設定"
+        },
+        "properties": {
+            "clusterTolerance": {
+                "name": "隣接点の最大距離"
+            },
+            "mainCloudRatio": {
+                "name": "すべての点に対する最大クラスター内の点の最小比率"
+            },
+            "minClusterNum": {
+                "name": "点の最小個数"
+            }
+        }
+    },
+    "mmind::StepGraspPlaceEstimation": {
+        "groupInfos": {
+            "Advanced Settings": "詳細設定",
+            "Bin Settings": "箱の設定",
+            "Placement Method": "配置設定",
+            "Visualization": "可視化",
+            "Working Distance": "稼働距離"
+        },
+        "properties": {
+            "binHeight": {
+                "name": "高さ"
+            },
+            "binLength": {
+                "name": "長さ"
+            },
+            "binWidth": {
+                "name": "幅"
+            },
+            "cameraToPickAreaMax": {
+                "name": "最大稼働距離"
+            },
+            "cameraToPickAreaMin": {
+                "name": "最小稼働距離"
+            },
+            "collisionThresh": {
+                "name": "衝突のしきい値"
+            },
+            "developerMode": {
+                "name": "有効化"
+            },
+            "offsetZ": {
+                "name": "Zに沿ってオフセット"
+            },
+            "placeByDrop": {
+                "name": "ドロップによる配置を許可"
+            },
+            "safetyGap": {
+                "name": "対象物の配置間隔"
+            },
+            "samplePoints": {
+                "name": "点群のサンプリング数"
+            },
+            "useBinSetting": {
+                "name": "箱を使用"
+            }
+        }
+    },
+    "mmind::StepGraspPointPredictor": {
+        "groupInfos": {
+            "Depth Normalization Settings": "深度の正規化設定",
+            "Gripper Settings": "治具の設定",
+            "Output Settings": "出力設定",
+            "Parallel Jaw Settings": "平行グリッパーの設定",
+            "Prediction Method Settings": "予測方法の設定",
+            "Visualization Settings": "可視化設定"
+        },
+        "properties": {
+            "gaussianKSize": {
+                "name": "ガウスカーネルサイズ"
+            },
+            "gaussianSigma": {
+                "name": "ガウス標準偏差"
+            },
+            "globalMean": {
+                "name": "全体的な平均値"
+            },
+            "gripperType": {
+                "name": "治具のタイプ"
+            },
+            "methodType": {
+                "name": "予測方法"
+            },
+            "outputHeight": {
+                "name": "ヒートマップの高さ"
+            },
+            "outputWidth": {
+                "name": "ヒートマップの幅"
+            },
+            "rotationClassNum": {
+                "name": "回転角度のグループ数"
+            },
+            "showProcessedDepth": {
+                "name": "処理された後の深度画像を表示"
+            },
+            "visArrowThre": {
+                "name": "しきい値の可視化"
+            }
+        }
+    },
+    "mmind::StepGraspPoseEstimation": {
+        "groupInfos": {
+            "Bin Settings": "箱の設定",
+            "Contour Detection (Smart Placement, Special Shape)": "輪郭検出（自動配置と特殊形状部品）",
+            "Grasp-Pose Estimation": "把持位置姿勢の推定",
+            "Mask Pre-process": "マスクの前処理",
+            "Overlap Detection": "積み重ねられた物体の検出",
+            "Picking Settings": "把持設定",
+            "Pose Post-process": "位置姿勢の後処理",
+            "Pose Sort Logic": "位置姿勢のソート論理",
+            "Special Shape Filter": "特殊形状部品のフィルタリング",
+            "Sucker Configuration": "吸盤の設定",
+            "Visualization": "可視化設定",
+            "Working Distance": "稼働距離"
+        },
+        "properties": {
+            "adjustPose": {
+                "name": "対象物の寸法によって位置姿勢を補正"
+            },
+            "adjustZ": {
+                "name": "物体のZ方向の位置姿勢を調整"
+            },
+            "binLength": {
+                "name": "箱の長さ"
+            },
+            "binWidth": {
+                "name": "箱の幅"
+            },
+            "cameraToPickAreaMax": {
+                "name": "最大稼働距離"
+            },
+            "cameraToPickAreaMin": {
+                "name": "最小稼働距離"
+            },
+            "contourDetection": {
+                "name": "輪郭検出"
+            },
+            "contourModelPath": {
+                "name": "輪郭検出のモデルファイル"
+            },
+            "contourPrior": {
+                "name": "輪郭検出が優先"
+            },
+            "developerMode": {
+                "name": "可視化を有効にする"
+            },
+            "estimateSingleObjectSize": {
+                "name": "同じ種類の対象物の寸法を推定"
+            },
+            "lengthSegmentOne": {
+                "name": "短い/長い"
+            },
+            "longestBound": {
+                "name": "対象物の長辺"
+            },
+            "longestFilter": {
+                "name": "対象物の長辺フィルタリング"
+            },
+            "maskPointCluster": {
+                "name": "マスク内の点群クラスタリング"
+            },
+            "maxOverlapInstance": {
+                "name": "検出最大数"
+            },
+            "maxPoses": {
+                "name": "出力位置姿勢の最大数"
+            },
+            "objectDiagonalLen": {
+                "name": "物体の長さの重み"
+            },
+            "objectLengthSegment": {
+                "name": "物体マスク長さのセグメンテーション"
+            },
+            "objectSizePath": {
+                "name": "対象物の寸法のファイルパス"
+            },
+            "objectSizeSegment": {
+                "name": "物体マスクサイズのセグメンテーション"
+            },
+            "overlapDetection": {
+                "name": "積み重ねられた物体の検出"
+            },
+            "overlapModelPath": {
+                "name": "検出のモデルファイル"
+            },
+            "pickingMethod": {
+                "name": "把持方式"
+            },
+            "poseDirection": {
+                "name": "位置姿勢の向きの重み"
+            },
+            "poseHeight": {
+                "name": "位置姿勢の高さによって表示"
+            },
+            "poseModelPath": {
+                "name": "推定のモデルファイル"
+            },
+            "shortestBound": {
+                "name": "対象物の短辺"
+            },
+            "shortestFilter": {
+                "name": "対象物の短辺フィルタリング"
+            },
+            "showGraspType": {
+                "name": "把持のタイプを表示"
+            },
+            "showType": {
+                "name": "可視化のプロパティ"
+            },
+            "sizeSegmentOne": {
+                "name": "大い"
+            },
+            "sizeSegmentTwo": {
+                "name": "大い"
+            },
+            "suctionCupDiameter": {
+                "name": "吸盤のサイズの重み"
+            },
+            "useBinSetting": {
+                "name": "箱を使用"
+            },
+            "usePoseEstimator": {
+                "name": "ディープラーニングを使用"
+            },
+            "usePositionInfo": {
+                "name": "対象物の位置情報を使用"
+            },
+            "useSmartFilter": {
+                "name": "マスクのスマートフィルタリング"
+            }
+        }
+    },
+    "mmind::StepHdevEngine": {
+        "groupInfos": {
+            "Debugging Settings": "デバッグの設定",
+            "Input Settings": "入力の設定",
+            "Output Settings": "出力の設定",
+            "Program Settings": "プログラムの設定"
+        },
+        "properties": {
+            "extProcedurePath": {
+                "name": "外部プロシージャフォルダー"
+            },
+            "hDevProgramPath": {
+                "name": "hDevプログラムのパス"
+            },
+            "inputCtrlVarNames": {
+                "name": "入力コントロール変数名"
+            },
+            "inputIconicVarNames": {
+                "name": "入力画像変数名"
+            },
+            "inputPortsDesc": {
+                "name": "入力ポート名"
+            },
+            "onlineDebugging": {
+                "name": "オンラインデバッグ"
+            },
+            "outputCtrlVarNames": {
+                "name": "出力コントロール変数名"
+            },
+            "outputIconicVarNames": {
+                "name": "出力画像変数名"
+            },
+            "outputPortsDesc": {
+                "name": "出力ポート名"
+            },
+            "procedureName": {
+                "name": "プロシージャ名"
+            }
+        }
+    },
+    "mmind::StepImageShow": {
+        "properties": {
+            "displayType": {
+                "name": "表示のタイプ",
+                "valueToolTip": "MultiImges: 画像を表示します。\nImgAndPolyVerts: 画像と候補ポリゴンを表示します。"
+            }
+        }
+    },
+    "mmind::StepImgBalancer": {
+        "groupInfos": {
+            "Balancer Settings": "バランサーの設定"
+        },
+        "properties": {
+            "balancerType": {
+                "keyToolTip": "バランサーのタイプを選択します。",
+                "name": "バランサーのタイプ"
+            }
+        }
+    },
+    "mmind::StepImgLogicalOperator": {
+        "groupInfos": {
+            "Operation Settings": "演算設定",
+            "Usage Settings of Input Masks": "入力マスクの使用設定"
+        },
+        "properties": {
+            "logicalOperator": {
+                "keyToolTip": "マスクのビットの論理演算子を選択します。 Notが選択されている場合、操作は最初のマスクでのみ実行されます。 それ以外の場合、操作は2セットのマスクで実行されます。",
+                "name": "論理演算のタイプ"
+            },
+            "mappingType": {
+                "name": "マッピングタイプ",
+                "valueToolTip": "OneToOne: 2番目の入力のマスクをすべて使用します。\nFirstToAll:  2番目の入力の最初マスクのみを使用します。"
+            }
+        }
+    },
+    "mmind::StepImgSegment": {
+        "properties": {
+            "segmentType": {
+                "name": "分割タイプ"
+            }
+        }
+    },
+    "mmind::StepInstanceSegmentator": {
+        "groupInfos": {
+            "Acceptable Mean for Gray-scaled Input": "グレースケール入力の許容可能な平均値",
+            "Filtering Settings": "フィルタリング設定",
+            "Visualization Settings": "可視化設定"
+        },
+        "properties": {
+            "colorScheme": {
+                "keyToolTip": "配色を選択します。",
+                "name": "異なる対象物を可視化する方式",
+                "valueToolTip": "Threshold：信頼度によります。計算されたしきい値がしきい値より大きい場合、対応するインスタンスは緑色に表示されます。それ以外の場合は赤色で表示されます。\nInstances：各インスタンスは固有の色を持っています。\nClasses：同じラベルを持つインスタンスは同じ色になります。"
+            },
+            "displayBoundingBox": {
+                "name": "カスタマイズされたROIを表示"
+            },
+            "drawInstanceOnImage": {
+                "keyToolTip": "画像にインスタンスマスクと境界ボックスを描画します。",
+                "name": "画像で検出する対象物を描画"
+            },
+            "filterEdgeWorkpiece": {
+                "keyToolTip": "True：ワークのフィルタリングを有効にします。\nFalse: ワークピースのフィルタリングを行いません。",
+                "name": "画像の境界近くの対象物をフィルタリング"
+            },
+            "filterOverlappingObjectInstances": {
+                "name": "重なり合う物体マスクのフィルター処理"
+            },
+            "heightThres": {
+                "keyToolTip": "エッジから縦方向に最も近いワークの距離",
+                "name": "画像の上端と下端の幅"
+            },
+            "maxAverageGrayValue": {
+                "keyToolTip": "入力画像の平均グレー値が最大平均グレー値のしきい値より大きい場合、認識は行いません。",
+                "name": "最大値 (0 ~ 255)"
+            },
+            "maxOverlapRatio": {
+                "keyToolTip": "2つのマスクの重なり率が最大しきい値を超えた場合、信頼度の低いマスクがフィルタリングされます。",
+                "name": "最大重なり率"
+            },
+            "minAverageGrayValue": {
+                "keyToolTip": "入力画像の平均グレイ値が最小平均グレイしきい値より小さい場合、認識は行われない。",
+                "name": "最小値 (0 ~ 255)"
+            },
+            "widthThres": {
+                "keyToolTip": "ワークの横方向でエッジに最も近い距離",
+                "name": "画像の左端と右端の幅"
+            }
+        }
+    },
+    "mmind::StepInstanceSegmentatorCPU": {
+        "groupInfos": {
+            "Confidence Settings": "信頼度設定",
+            "Visualization Settings": "可視化設定"
+        },
+        "properties": {
+            "colorScheme": {
+                "name": "対象物の可視化方式を選択",
+                "valueToolTip": "配色方式を選択"
+            },
+            "confidenceThreshold": {
+                "name": "信頼度しきい値 (0 ~1.0)"
+            },
+            "drawBbox": {
+                "name": "画像で検出対象物の境界ボックスを描画"
+            },
+            "drawMask": {
+                "name": "画像で検出対象物を描画"
+            },
+            "fontScale": {
+                "name": "フォントサイズ"
+            },
+            "manuallyFontScale": {
+                "name": "カスタマイズのフォントサイズを使用"
+            },
+            "maxInstancesPerImage": {
+                "name": "認識対象物の最大数"
+            }
+        }
+    },
+    "mmind::StepJsEngine": {
+        "groupInfos": {
+            "Input & Output Settings": "入力と出力の設定",
+            "Run-time Settings": "動作設定",
+            "Script Settings": "スクリプトの設定"
+        },
+        "properties": {
+            "checkInputSizeEqual": {
+                "name": "入力リストの要素数が同じであることを確認"
+            },
+            "funcName": {
+                "name": "呼び出される関数名"
+            },
+            "importModules": {
+                "name": "インポートするモジュール名"
+            },
+            "inputs": {
+                "name": "入力"
+            },
+            "outputs": {
+                "name": "出力"
+            },
+            "predVarsFilePath": {
+                "name": "事前定義された変数を格納するファイルのパス"
+            },
+            "scriptFilePath": {
+                "name": "スクリプトファイルのパス"
+            }
+        }
+    },
+    "mmind::StepLabelFilter": {
+        "groupInfos": {
+            "File Settings": "ファイル設定",
+            "Input Type": "入力のタイプ"
+        },
+        "properties": {
+            "labelFile": {
+                "keyToolTip": "ラベルファイルのディレクトリ",
+                "name": "ラベルファイル"
+            },
+            "predInputType": {
+                "keyToolTip": "フィルタリングされた物体の種類を選択します。",
+                "name": "入力のタイプ"
+            }
+        }
+    },
+    "mmind::StepLabelFilterFlag": {
+        "properties": {
+            "labelFile": {
+                "keyToolTip": "ラベルファイルです。基準ラベルリストとして使用されます。",
+                "name": "ラベルファイル名",
+                "valueToolTip": "基準ラベルを設定"
+            }
+        }
+    },
+    "mmind::StepLabelMapping": {
+        "groupInfos": {
+            "File Settings": "ファイル設定",
+            "Ports Settings": "ポート設定"
+        },
+        "properties": {
+            "inputPortNum": {
+                "name": "入力ポート数(1–8)"
+            },
+            "labelFile": {
+                "name": "ラベルファイル",
+                "valueToolTip": "ラベルマッピングを設定"
+            }
+        }
+    },
+    "mmind::StepLaserProfiler": {
+        "properties": {
+            "cameraType": {
+                "name": "カメラタイプ"
+            }
+        }
+    },
+    "mmind::StepLineDetector": {
+        "groupInfos": {
+            "FastLineDetetor Settings": "FastLineDetetorの設定",
+            "Line Detector Setting": "直線検出器の設定",
+            "Line Properties": "直線プロパティ",
+            "LineSegmentDetector Settings": "LineSegmentDetectorの設定"
+        },
+        "properties": {
+            "angleTolerance": {
+                "name": "勾配方向の角度のしきい値"
+            },
+            "cannyTh1": {
+                "name": "低いしきい値(1 ~ 255)"
+            },
+            "cannyTh2": {
+                "name": "高いしきい値(1 ~ 255)"
+            },
+            "distanceThres": {
+                "name": "距離しきい値"
+            },
+            "filterLinesByMask": {
+                "name": "マスク外の線分を除去"
+            },
+            "gradientQuant": {
+                "name": "勾配量子化偏差 (1 ~ 10)"
+            },
+            "lineDetectorType": {
+                "name": "直線検出器タイプ"
+            },
+            "minLineLength": {
+                "name": "線分長さの最小しきい値"
+            },
+            "preserveColorContrast": {
+                "name": "色のコントラストを保持"
+            },
+            "scale": {
+                "name": "スケール比(0 ~ 1.0)"
+            },
+            "sigma_scale": {
+                "name": "ガウスカーネル標準偏差"
+            }
+        }
+    },
+    "mmind::StepLoad2dTrajectory": {
+        "groupInfos": {
+            "Depth Validation Settings": "深度の可視化設定",
+            "Point Validation Settings": "点の可視化設定",
+            "Trajectory Settings": "経路設定",
+            "Visualization Settings": "可視化設定"
+        },
+        "properties": {
+            "nearestDistThreshold": {
+                "name": "最近点の検索半径"
+            },
+            "searchKernelSize": {
+                "keyToolTip": "隣接する深度画像を検索するためのカーネルサイズです。",
+                "name": "検索するためのカーネルサイズ"
+            },
+            "showTrajImagScale": {
+                "keyToolTip": "可視化する場合に経路画像のスケーリングです。",
+                "name": "経路画像のスケーリング"
+            },
+            "traj2dJsonPath": {
+                "keyToolTip": "2D経路のjsonファイルパスです。",
+                "name": "2D経路のjsonファイルパス"
+            },
+            "useOffsetTrajs": {
+                "keyToolTip": "点群のオフセットを使用して経路位置姿勢を校正するかどうかを選択します。",
+                "name": "経路がオフセットによって校正されるか"
+            }
+        }
+    },
+    "mmind::StepLoadAndCalcTrackPoints": {
+        "groupInfos": {
+            "File Settings": "ファイル設定",
+            "Refinement Settings": "細分化設定",
+            "Transformation Settings": "変換設定"
+        },
+        "properties": {
+            "isRefineZ": {
+                "keyToolTip": "チェックを入れると、入力点群の位置姿勢の細分化されたZが使用されます。",
+                "name": "位置姿勢の細分化"
+            },
+            "maxRefineDis": {
+                "keyToolTip": "位置姿勢のZ値がこの値よりも大きい場合、元の値が細分化なしで使用されます。",
+                "name": "細分化の最大Z値"
+            },
+            "trackPointsFilePath": {
+                "keyToolTip": "このファイルに経路の位置姿勢が含まれています。",
+                "name": "経路ファイル名",
+                "valueToolTip": "移動経路ファイルの保存パス"
+            },
+            "transformType": {
+                "name": "変換タイプ",
+                "valueToolTip": "RigidTransform: 剛体変換。\nAffineTransform: 入力行列が剛体変換でない場合に選択されます。"
+            }
+        }
+    },
+    "mmind::StepMapMultiPickpoints": {
+        "groupInfos": {
+            "Import Labels (Optional）": "ラベルの読み込み（選択可能）",
+            "Poses Files Path": "位置姿勢ファイルパス"
+        },
+        "properties": {
+            "geoCenterPointPath": {
+                "keyToolTip": "このファイルには、マッチングモデルからの幾何学的中心上の位置姿勢が含まれています。",
+                "name": "幾何学的中心ファイル"
+            },
+            "labelFilePath": {
+                "keyToolTip": "位置姿勢のラベルファイルです。",
+                "name": "位置姿勢ラベルファイル"
+            },
+            "objPlacePointPath": {
+                "keyToolTip": "放置位置の位置姿勢を含むファイルです。\n通常、幾何学中心のファイルと同じです。",
+                "name": "放置位置姿勢ファイル"
+            },
+            "pickpointsPath": {
+                "keyToolTip": "このファイルには、マッチングモデルからの把持位置姿勢が含まれています。",
+                "name": "把持位置姿勢ファイル"
+            }
+        }
+    },
+    "mmind::StepMaskFilter": {
+        "groupInfos": {
+            "Threshold Settings": "しきい値の設定"
+        },
+        "properties": {
+            "maskAreaLowerThreshold": {
+                "name": "マスクの最小面積しきい値"
+            },
+            "maskAreaUpperThreshold": {
+                "name": "マスクの最大面積しきい値"
+            }
+        }
+    },
+    "mmind::StepMaskGridding": {
+        "properties": {
+            "grideSize": {
+                "name": "グリッドサイズ"
+            }
+        }
+    },
+    "mmind::StepMeasureCircle": {
+        "groupInfos": {
+            "Fitting Constraints": "フィッティングの制約"
+        },
+        "properties": {
+            "maxRadius": {
+                "name": "最大半径",
+                "valueToolTip": "検出された円は、半径の範囲 [ 最小半径, 最大半径 ]に基づいてフィルタリングされます。\nこの値は、対象物の実際の寸法と関係があります。例えば、対象物の実際の寸法は10mmの場合、半径の範囲は[8, 15]に設定することが可能です。画像から物理的な次元変換は、縮尺比によって行われています。"
+            },
+            "minContourRatio": {
+                "name": "フィッティングできた最小の点数比",
+                "valueToolTip": "全てのポイントの数に対するフィッティングできたポイントの数の比はこの比より小さい場合、カーブフィットした円が破棄されます。"
+            },
+            "minRadius": {
+                "name": "最小半径",
+                "valueToolTip": "検出された円は、半径の範囲 [ 最小半径, 最大半径 ] に基づいてフィルタリングされます。\nこの値は、対象物の実際の寸法と関係があります。例えば、対象物の実際の寸法は10mmの場合、半径の範囲は[8, 15]に設定することが可能です。画像から物理的な次元変換は、縮尺比によって行われています。"
+            }
+        }
+    },
+    "mmind::StepMeasureHeightDifferencePointToPoint": {
+        "properties": {
+            "basePoint": {
+                "name": "基準ポイント"
+            },
+            "detectPoint": {
+                "name": "検出ポイント"
+            },
+            "positionAndOrientationCorrection": {
+                "keyToolTip": "このパラメータにチェックを入れた場合、先の実行で設定したパラメータ内の点は、入力された2次元変換に従って、入力された画像中の対象物に合わせた位置と向きに変換されます。",
+                "name": "位置と向きを補正"
+            }
+        }
+    },
+    "mmind::StepMeasureHeightDifferences": {
+        "groupInfos": {
+            "Height Computation Settings": "高さの計算設定"
+        },
+        "properties": {
+            "maxClusterHeightDiff": {
+                "name": "クラスタリングの高さの最大差",
+                "valueToolTip": "点の深度値は、局所ポイントの平均深度によって計算されます。このパラメータは、使用される点間の最大深度差さを指定します。"
+            },
+            "maxSearchCount": {
+                "name": "最大検索数",
+                "valueToolTip": "点の深度値は、局所ポイントの平均深度によって計算されます。このパラメータは、深度値を計算するための点の最大数(ピクセル単位) を指定します。\n深度の計算に使用される点の数は、最大検索半径と最大検索数の両方によって制限されます。"
+            },
+            "maxSearchRadius": {
+                "name": "最大検索半径",
+                "valueToolTip": "点の深度値は、局所ポイントの平均深度によって計算されます。このパラメータは、深度値を計算するための領域の最大半径 (ピクセル単位) を指定します。\n深度の計算に使用される点の数は、最大検索半径と最大検索数の両方によって制限されます。"
+            }
+        }
+    },
+    "mmind::StepMeasureHeightDifferencesPointsToBaseline": {
+        "properties": {
+            "baseline": {
+                "name": "基準線"
+            },
+            "detectPoints": {
+                "name": "検出ポイント"
+            },
+            "pointConstraint": {
+                "name": "ポイント コンストレイント",
+                "valueToolTip": "検出ポイントを基準線上にあるとしたい場合は、吸着モードを使用してください。"
+            },
+            "positionAndOrientationCorrection": {
+                "keyToolTip": "このパラメータにチェックを入れた場合、先の実行で設定したパラメータ内の点や線は、入力された2次元変換に従って、入力された画像中の対象物に合わせた位置と向きに変換されます。",
+                "name": "位置と向きを補正"
+            }
+        }
+    },
+    "mmind::StepMeasureHeightDifferencesPointsToPlane": {
+        "properties": {
+            "basePoints": {
+                "name": "基準ポイント"
+            },
+            "detectPoints": {
+                "name": "検出ポイント"
+            },
+            "positionAndOrientationCorrection": {
+                "keyToolTip": "このパラメータにチェックを入れた場合、先の実行で設定したパラメータ内の点は、入力された2次元変換に従って、入力された画像中の対象物に合わせた位置と向きに変換されます。",
+                "name": "位置と向きを補正"
+            }
+        }
+    },
+    "mmind::StepMeasureLongestLine": {
+        "groupInfos": {
+            "Fitting Constraints": "フィッティングの制約"
+        },
+        "properties": {
+            "maxLineLength": {
+                "name": "線分の最大長さ",
+                "valueToolTip": "検出された線分は、長さの範囲 [ 線分の最短長さ, 線分の最大長さ ] に基づいてフィルタリングされます。\nこの値は、対象物の実際の寸法と関係があります。例えば、対象物の実際の寸法は10mmの場合、長さの範囲は[8, 15]に設定することが可能です。画像から物理的な次元変換は、縮尺比によって行われています。"
+            },
+            "minLineLength": {
+                "name": "線分の最短長さ",
+                "valueToolTip": "検出された線分は、長さの範囲 [ 線分の最短長さ, 線分の最大長さ ] に基づいてフィルタリングされます。\nこの値は、対象物の実際の寸法と関係があります。例えば、対象物の実際の寸法は10mmの場合、長さの範囲は[8, 15]に設定することが可能です。画像から物理的な次元変換は、縮尺比によって行われています。"
+            }
+        }
+    },
+    "mmind::StepMeasurePrimitives": {
+        "groupInfos": {
+            "Contour Extration Settings": "輪郭抽出設定"
+        },
+        "properties": {
+            "cannyHighThreshold": {
+                "name": "高いしきい値(0 ~ 255)"
+            },
+            "cannyLowThreshold": {
+                "name": "低いしきい値 (0 ~ 255)"
+            },
+            "edgeThickness": {
+                "name": "エッジの幅"
+            },
+            "maxFitError": {
+                "name": "フィッティングの最大誤差",
+                "valueToolTip": "点の平均フィッティング誤差です。値が小さいほどフィッティングポイントがフィッティング特徴に近いことを意味し、値が大きいほどノイズに対するロバスト性が高いことを意味します。"
+            },
+            "subPixelAlgo": {
+                "name": "輪郭抽出アルゴリズム"
+            }
+        }
+    },
+    "mmind::StepMeasurementWithAlignment": {
+        "properties": {
+            "positionAndOrientationCorrection": {
+                "keyToolTip": "チェックを入れると、前の実行で設定された点と線が入力された2D変換に従って、現在の実行で入力された画像内の対象物に適合する位置と向きに変換されます。",
+                "name": "位置と向きの校正"
+            },
+            "roi": {
+                "name": "ROI"
+            }
+        }
+    },
+    "mmind::StepMorphOperator": {
+        "properties": {
+            "morphOperatorType": {
+                "name": "モフォロジー変換",
+                "valueToolTip": "OpeningOperator（オープニング処理）：収縮（erosion）の後に膨張（dilation）をする処理。ノイズ除去に有効。\nDilateOperator（膨張処理）：物体の面積を大きくしたり、物体の壊れた部分を結合したりする。\nErodeOperator（収縮処理）：画像中の白色雑音(ノイズ)の除去やつながっている複数物体を分割する時などに有効である。\nClosingOperator（クロージング処理）：膨張（dilation）の後に収縮（erosion）をする処理。前景領域中の小さな(黒い)穴を埋めるのに役立つ。\nSkeleton：物体の輪郭（境界線）を抽出する。"
+            }
+        }
+    },
+    "mmind::StepMovePoseAlongSetDir": {
+        "groupInfos": {
+            "Customized Direction": "カスタマイズの方向",
+            "Translation Direction Settings": "並進方向の設定"
+        },
+        "properties": {
+            "axisTypeOfObjectCoordinate": {
+                "keyToolTip": "基準方向として使用される位置姿勢の指定軸。",
+                "name": "指定軸"
+            },
+            "mappingType": {
+                "name": "マッチングモード",
+                "valueToolTip": "FirstToAll: 最初の入力距離のみを使用して、元の位置姿勢を変換します。\nOneToOne: すべての入力距離を使用して、元の位置姿勢を1対1で変換します。"
+            },
+            "moveDis": {
+                "keyToolTip": "カスタマイズされた方向に沿った移動距離。\nこの値は、入力された並進距離がない場合にのみ使用されます。",
+                "name": "並進距離"
+            },
+            "referenceDirection": {
+                "name": "並進方向",
+                "valueToolTip": "CustomizedDirection：カスタマイズされた方向に沿って移動します。\nObjectAxis：位置姿勢の指定された軸の方向に沿って平行移動します。"
+            },
+            "x": {
+                "keyToolTip": "基準方向を構成するために使用する X 値。"
+            },
+            "y": {
+                "keyToolTip": "基準方向を構成するために使用する Y 値。"
+            },
+            "z": {
+                "keyToolTip": "基準方向を構成するために使用する Z 値。"
+            }
+        }
+    },
+    "mmind::StepNormalCalGPU": {
+        "groupInfos": {
+            "Calculation Settings": "計算設定",
+            "Concave & Convex": "凹凸点の除去設定",
+            "Removal of Sparse Points": "外れ値の除去"
+        },
+        "properties": {
+            "calNormRadius": {
+                "keyToolTip": "法線の計算に使用する検索半径。",
+                "name": "法線ベクトルを計算するときの半径"
+            },
+            "concaveRadius": {
+                "name": "凹凸点を除去するときの半径"
+            },
+            "concaveThreshold": {
+                "name": "凹点の除去しきい値"
+            },
+            "convexThreshold": {
+                "name": "凸点の除去しきい値"
+            },
+            "isBatched": {
+                "keyToolTip": "点群の数が多く、ビデオメモリが少ない場合は、このオプションをチェックしてください。",
+                "name": "バッチ処理するか"
+            },
+            "removeConvexAndConcave": {
+                "name": "凹凸点を除去するか"
+            },
+            "removeSparse": {
+                "name": "外れ値を除去"
+            },
+            "sparseCircleTime": {
+                "name": "サイクル回数"
+            },
+            "sparseRadius": {
+                "name": "外れ値の半径"
+            },
+            "sparseThreshold": {
+                "keyToolTip": "点群上のすべての点に対して、検索半径内の近傍点の数がこの値より少ない場合、この点はフィルタリングされます。",
+                "name": "外れ値のしきい値"
+            }
+        }
+    },
+    "mmind::StepNormalEstimation": {
+        "groupInfos": {
+            "Radius": "半径"
+        },
+        "properties": {
+            "searchRadius": {
+                "name": "検索半径"
+            }
+        }
+    },
+    "mmind::StepNumberComparison": {
+        "properties": {
+            "operation": {
+                "name": "演算タイプ"
+            },
+            "predefined": {
+                "name": "事前定義の被演算子"
+            }
+        }
+    },
+    "mmind::StepNumberLimit": {
+        "properties": {
+            "numberLimit": {
+                "keyToolTip": "出力の個数制限。",
+                "name": "出力サイズ"
+            }
+        }
+    },
+    "mmind::StepNumberOperations": {
+        "properties": {
+            "operand": {
+                "keyToolTip": "もしユーザーが最初の入力のすべての数値に1つの定数を加えたい場合は、ここで定数を設定し、2番目のポートは未接続のままにしておく必要があります。",
+                "name": "事前定義の被演算子"
+            },
+            "operationType": {
+                "keyToolTip": "加算／減算／乗算／除算。\n結果は、最初の入力に対して、2番目の入力を（加算／減算／乗算／除算）します。",
+                "name": "演算タイプ"
+            }
+        }
+    },
+    "mmind::StepObjectDetector": {
+        "groupInfos": {
+            "Visualization Settings": "可視化設定"
+        },
+        "properties": {
+            "boundingBoxMode": {
+                "name": "異なる対象物を可視化する方法"
+            },
+            "showBoundingBox": {
+                "name": "画像で検出対象物を絵画"
+            },
+            "showConfidence": {
+                "name": "画像で信頼度を表示"
+            }
+        }
+    },
+    "mmind::StepOpenVino": {
+        "groupInfos": {
+            "Model Settings": "モデル設定"
+        },
+        "properties": {
+            "modelPath": {
+                "name": "モデルファイル"
+            }
+        }
+    },
+    "mmind::StepPalletInfoRecognition": {
+        "groupInfos": {
+            "Pallet Setting": "パレット設定"
+        },
+        "properties": {
+            "overlapRatioBetweenObjectAndHighestLayerMask": {
+                "name": "対象物がパレットの最高層点群と重複面積の比率しきい値"
+            }
+        }
+    },
+    "mmind::StepPeriodicTrigger": {
+        "groupInfos": {
+            "Interval Time": "時間間隔",
+            "Trigger Counts": "トリガー回数"
+        },
+        "properties": {
+            "currentCount": {
+                "name": "現時点でのトリガー数"
+            },
+            "intervalMs": {
+                "keyToolTip": "トリガー間隔ごとに信号をトリガーします。",
+                "name": "トリガー間隔"
+            },
+            "maxTriggerConuts": {
+                "keyToolTip": "最大トリガー回数が-1に設定された場合、サイクルトリガーは、ユーザーが「停止」ボタンを押したときにのみ停止します。",
+                "name": "最大トリガー回数"
+            }
+        }
+    },
+    "mmind::StepPickPointVerification": {
+        "groupInfos": {
+            "File Settings": "ファイルの設定"
+        },
+        "properties": {
+            "pickpointSettingJsonFile": {
+                "keyToolTip": "ピックポイントが含まれているファイルです。",
+                "name": "ピックポイントを格納するファイルの名前"
+            }
+        }
+    },
+    "mmind::StepPointsFilter": {
+        "properties": {
+            "pointsFilterType": {
+                "keyToolTip": "StatisticalOutlierFilter: 点群との距離が指定された範囲を超えた点を、この方法で除去します。点群に明らかな外れ値がある場合に使用することをお薦めします。\nNormalsFilter: 法線ベクトルが基準方向との角度が指定された範囲を超えた点を、この方法で除去します。密接している物体を分割する時にこの方法を推奨します。",
+                "name": "点フィルター方法のタイプ"
+            }
+        }
+    },
+    "mmind::StepPoseAdjustmentCollection": {
+        "properties": {
+            "advOperations": {
+                "name": "詳細なパラメータグループ"
+            },
+            "configPath": {
+                "name": "コンフィグファイルパス"
+            },
+            "entryPortsDesc": {
+                "name": "入力ポートのディスクリプション"
+            },
+            "exitPortsDesc": {
+                "name": "出力ポートのディスクリプション"
+            },
+            "operations": {
+                "name": "演算子ステップ",
+                "valueToolTip": "位置姿勢ステップ・エディタを開く"
+            },
+            "stepsCompactDescs": {
+                "name": "内部サブステップの完全なディスクリプション"
+            },
+            "stepsIODescs": {
+                "name": "内部サブステップIOつなぎのディスクリプション"
+            }
+        }
+    },
+    "mmind::StepPoseCombine": {
+        "properties": {
+            "translationStrategy": {
+                "keyToolTip": "4番目の入力位置姿勢で使用する軸を指定します。",
+                "name": "4番目の入力の使用する軸"
+            }
+        }
+    },
+    "mmind::StepPoseDisAlongAxis": {
+        "properties": {
+            "axisCombinationStrategy": {
+                "keyToolTip": "ワールド座標系の指定した軸か軸の組み合わせである方向の距離を計算します。",
+                "name": "軸または軸の組合せを指定",
+                "valueToolTip": "ワールド座標系の指定した軸か軸の組み合わせである方向の距離を計算します。"
+            }
+        }
+    },
+    "mmind::StepPoseFilter": {
+        "groupInfos": {
+            "Custum Property": "カスタマイズのプロパティ",
+            "Reference Direction": "基準方向",
+            "Threshold Setting": "しきい値の設定"
+        },
+        "properties": {
+            "angleThreshold": {
+                "name": "角度のしきい値"
+            },
+            "dirX": {
+                "name": "X値"
+            },
+            "dirY": {
+                "name": "Y値"
+            },
+            "dirZ": {
+                "name": "Z値"
+            },
+            "filterOutAllPoses": {
+                "name": "全ての位置姿勢を除去"
+            }
+        }
+    },
+    "mmind::StepPoseInROI": {
+        "properties": {
+            "inputPosesCoordType": {
+                "name": "入力位置姿勢の座標系"
+            }
+        }
+    },
+    "mmind::StepPoseNMS": {
+        "groupInfos": {
+            "Neighboring Poses Search Settings": "近傍位置姿勢の検索設定",
+            "Threshold Settings": "しきい値の設定"
+        },
+        "properties": {
+            "scoreRatioThreshold": {
+                "keyToolTip": "スコアがこのしきい値より小さい位置姿勢は、フィルタリングされます。\n正規化スコアがこのしきい値より大きい位置姿勢は、Non Maxium Suppression(NMS)を行います。\n正規化スコアは，現在の位置姿勢のスコアの2乗をすべての位置姿勢のスコアの2乗の合計で割ったものです。",
+                "name": "スコア比のしきい値(0 ~ 1)"
+            },
+            "searchRadiusNMS": {
+                "keyToolTip": "最大スコアを持つローカル位置姿勢を探索するために使用される半径。",
+                "name": "ローカル検索半径"
+            }
+        }
+    },
+    "mmind::StepPoseNumLimit": {
+        "properties": {
+            "poseNumLimit": {
+                "keyToolTip": "出力位置姿勢の個数制限。",
+                "name": "出力位置姿勢の個数"
+            }
+        }
+    },
+    "mmind::StepPoseRotation": {
+        "groupInfos": {
+            "Reference Direction": "基準方向",
+            "Rotation Angle Settings": "回転角の設定"
+        },
+        "properties": {
+            "rotAngle": {
+                "keyToolTip": "自己の座標系での基準方向周りの回転。",
+                "name": "回転角度"
+            }
+        }
+    },
+    "mmind::StepPoseSmooth": {
+        "groupInfos": {
+            "Gaussian Filter Settings": "ガウスフィルターの設定"
+        },
+        "properties": {
+            "SmoothType": {
+                "keyToolTip": "指定された軸に沿った並進は平滑化されます。",
+                "name": "平滑化する軸"
+            },
+            "gaussianFilterRadius": {
+                "keyToolTip": "平滑化するためのガウスカーネル サイズです。",
+                "name": "カーネルサイズ",
+                "valueToolTip": "最後のカーネルサイズは2 * カーネルサイズ + 1となります。"
+            },
+            "gaussianFilterSigma": {
+                "keyToolTip": "X方向とY方向のガウスカーネル標準偏差です。",
+                "name": "標準偏差"
+            }
+        }
+    },
+    "mmind::StepPoseVisualizer": {
+        "groupInfos": {
+            "Visualization Settings": "可視化設定"
+        },
+        "properties": {
+            "showCloudInSceneType": {
+                "name": "選択された座標系で点群を表示"
+            },
+            "showPosesType": {
+                "keyToolTip": "位置姿勢を見える化：処理済み位置姿勢（デフォルト）、処理前の位置姿勢、処理前と処理済みすべての位置姿勢を表示します。",
+                "name": "位置姿勢表示の設定"
+            }
+        }
+    },
+    "mmind::StepProcedureOut": {
+        "properties": {
+            "outputKeysJoined": {
+                "keyToolTip": "出力キーは「;」（セミコロン）でつなぎます。 「出力タイプ」が「動的（Dynamic）」の場合に有効になります。",
+                "name": "ポート名をカスタマイズ",
+                "valueToolTip": "外部通信への出力データタイプを設定\n\nMech-Vizと通信するキーです。\nposes: 対象物の位置姿勢を認識する配列です。例えば、[[1,1,0.5,1,0,0,0]]。必須。\nlabels: 対象物のラベル（文字列）の配列です。例えば、[\"big\", \"small\"]。長さ: posesと同じであるか、0です。選択可能。\nsizes（元の名前はsizeVec）: 対象物の3D寸法の配列です。例えば、 [[0.4,0.2,0.1]]。長さ: posesと同じであるか、0です。選択可能。\noffsets: 物体座標系で定義された、対象物把持点オフセット位置姿勢の配列です。長さ: posesと同じであるか、0です。選択可能。\nobjectIndexes（元の名前はboxIdx）: 対象物のインデックス配列です。長さ: posesと同じであるか、0です。選択可能。\npickBoxPoses: ボックス位置姿勢の配列です。一番目はボックスで、その後のはボックスの壁（boxface-1などの名前が付けられている）です。pickBoxSizesも同様です。選択可能。\npickBoxSizes: ボックス3D寸法の配列です。長さがpickBoxPoses未満の場合、これらのサイズは更新されません。選択可能。"
+            },
+            "outputType": {
+                "name": "ポートタイプ",
+                "valueToolTip": "Predefined: 開発者が事前設定されたポートを使用します。\nDynamic: 設定によってポートをカスタマイズします。"
+            }
+        }
+    },
+    "mmind::StepPyEngine": {
+        "properties": {
+            "funcName": {
+                "name": "呼び出される関数名"
+            },
+            "inputs": {
+                "name": "入力ポート",
+                "valueToolTip": "このパラメータは、入力ポートを定義するために使われています。\nセミコロンで異なるポート名を区切ってください。例えば、画像ポートと番号リストポートを定義する場合、Image;NumberListと入力してください。"
+            },
+            "outputs": {
+                "valueToolTip": "このパラメータは、出力ポートを定義するために使われています。\nセミコロンで異なるポート名を区切ってください。例えば、画像ポートと番号リストポートを定義する場合、Image;NumberListと出力してください。"
+            },
+            "scriptFilePath": {
+                "name": "スクリプトファイルのパス"
+            }
+        }
+    },
+    "mmind::StepReadImage": {
+        "groupInfos": {
+            "Image File Settings": "画像ファイル設定",
+            "Reading Settings": "読み取り設定"
+        },
+        "properties": {
+            "colorImgExt": {
+                "name": "画像のファイル形式"
+            },
+            "colorImgPath": {
+                "name": "画像のファイルパス"
+            },
+            "isDepth": {
+                "name": "深度画像であるか"
+            },
+            "outputAllAtOnce": {
+                "name": "一度にすべて出力"
+            },
+            "outputPathType": {
+                "name": "出力パスのタイプ"
+            }
+        }
+    },
+    "mmind::StepReadModelAndGeoCenter": {
+        "groupInfos": {
+            "Cloud Orientation Calculation": "点群の点が位置する平面の方向を計算",
+            "Model Settings": "モデル設定"
+        },
+        "properties": {
+            "geometryCenterFile": {
+                "keyToolTip": "json形式の幾何学的中心ファイルです。",
+                "name": "幾何学的中心ファイル (必須)",
+                "valueToolTip": "幾何学的中心のファイルパス"
+            },
+            "modelFile": {
+                "keyToolTip": "ply形式のモデルの点群ファイルです。",
+                "name": "モデルファイル (必須)",
+                "valueToolTip": "モデル点群のファイルパス"
+            },
+            "modelLabelFile": {
+                "keyToolTip": "json形式のモデルラベルのファイルです。",
+                "name": "モデルラベルファイル(任意)",
+                "valueToolTip": "ラベルファイルパス（選択可能）"
+            },
+            "modelSelection": {
+                "keyToolTip": "モデルライブラリからモデルを選択します。",
+                "name": "モデル選択"
+            },
+            "pointOrientationCalcMode": {
+                "keyToolTip": "点群内の点を計算するための方法です。\n• Origin: 入力点群の法線を使用します。\n• StandardMode: CPUで入力点群の法線を再計算します。法線のない場合は推奨です。\n• EdgeTangent: 入力エッジ点群の接線を計算します。平面物体のエッジ点群をマッチングする場合に推奨します。平面物体の表と裏、または外側の輪郭が互いに鏡像になっている様々物体の表と裏を区別できます。\n• EdgeNormal: 入力エッジ点群の法線を計算します。平面物体のエッジ点群をマッチングする場合に推奨します。\n\nEdgeTangetまたはEdgeNormal方法を使用する場合、各エッジ点群に複数の物体が含まれていないことを確認してください（各物体の点群は適切に分割されていること）。",
+                "name": "点が位置する平面の方向の計算方法"
+            },
+            "searchPtsSizeForCalcOrientation": {
+                "keyToolTip": "点の方向を計算するため隣接点の数です。",
+                "name": "選択された隣接点の数"
+            }
+        }
+    },
+    "mmind::StepReadModelAndGeoCenterV2": {
+        "groupInfos": {
+            "Model Settings": "モデル設定"
+        },
+        "properties": {
+            "geoCenterFileName": {
+                "keyToolTip": "JSON形式のファイルです。",
+                "name": "幾何学的中心ファイル",
+                "valueToolTip": "幾何学的中心のファイルパス"
+            },
+            "modelFileName": {
+                "keyToolTip": ".ply形式のファイルです。",
+                "name": "モデルファイル",
+                "valueToolTip": "モデル点群のファイルパス"
+            },
+            "modelSelection": {
+                "keyToolTip": "モデルライブラリからモデルを選択します。",
+                "name": "モデル選択"
+            }
+        }
+    },
+    "mmind::StepReadObjectSizes": {
+        "groupInfos": {
+            "Box Dimension Settings": "箱の寸法設定",
+            "Box Size Settings": "箱の寸法設定",
+            "Read Settings": "読込の設定"
+        },
+        "properties": {
+            "autoGenerateBoxSizes": {
+                "name": "箱のサイズを自動で生成"
+            },
+            "boxSizeListJson": {
+                "keyToolTip": "ファイルの内容が[0.4,0.3]の場合、ボックスの長さは0.4、ボックスの幅は0.3です。",
+                "name": "箱の寸法ファイル"
+            },
+            "getSizeFromProperty": {
+                "name": "パラメータから対象物の寸法を読み取る"
+            },
+            "xLen": {
+                "name": "X軸における長さ"
+            },
+            "yLen": {
+                "name": "Y軸における長さ"
+            },
+            "zLen": {
+                "name": "Z軸における長さ"
+            }
+        }
+    },
+    "mmind::StepReadPointCloud": {
+        "groupInfos": {
+            "Point Cloud File Setting": "点群ファイル設定"
+        },
+        "properties": {
+            "fileName": {
+                "name": "点群ファイル名"
+            }
+        }
+    },
+    "mmind::StepReadPoses": {
+        "properties": {
+            "poseVecFile": {
+                "keyToolTip": "(1) 「poses.json」のような相対パスでもかまいません。ステップ実行時に、現在のプロジェクトディレクトリの下にあるファイルを読み込みます。\n(2) 絶対パスも可能です。",
+                "name": "位置姿勢のファイル",
+                "valueToolTip": "位置姿勢ファイルのパス\n\n拡張子は'.json'である必要があります。"
+            }
+        }
+    },
+    "mmind::StepReadRoiCenter": {
+        "properties": {
+            "roiCoordType": {
+                "name": "ROIの座標系"
+            }
+        }
+    },
+    "mmind::StepReadSTL": {
+        "properties": {
+            "downSample": {
+                "name": "ダウンサンプリングを使用"
+            },
+            "leafSize": {
+                "name": "リーフサイズ"
+            },
+            "ratioScale": {
+                "name": "スケーリング比"
+            },
+            "samplePointSize": {
+                "name": "サンプリングポイントの数"
+            },
+            "stlPath": {
+                "name": "STL ファイル名",
+                "valueToolTip": "STLファイルまたはSTLファイルを含んでいるディレクトリです。"
+            }
+        }
+    },
+    "mmind::StepRecordCriterionPoseAndCalcTransformation": {
+        "properties": {
+            "criterionCreated": {
+                "name": "基準位置姿勢が作成済み"
+            }
+        }
+    },
+    "mmind::StepRectTemplatesGenerator": {
+        "groupInfos": {
+            "Template Property": "テンプレートのプロパティ"
+        },
+        "properties": {
+            "templateDiagonalQuantization": {
+                "name": "テンプレートの対角線を量子化した後のセグメント数"
+            }
+        }
+    },
+    "mmind::StepRectifyTrackPointsPoses": {
+        "groupInfos": {
+            "Rotation Settings": "回転設定"
+        },
+        "properties": {
+            "lessRotAroundZAxis": {
+                "keyToolTip": "チェックを入れると、Z軸を中心に回転した位置姿勢の変化が少なくなります。",
+                "name": "Z軸の回転を少なくする"
+            },
+            "moveDisAlongZAxis": {
+                "keyToolTip": "回転後のZ軸に沿った移動距離です。",
+                "name": "回転後のZ方向の移動距離"
+            },
+            "rotAngleAroundTrackDirection": {
+                "keyToolTip": "正しい経路方向を到達するために、XOY平面上で経路方向を中心に位置姿勢を回転させます。",
+                "name": "回転角度"
+            }
+        }
+    },
+    "mmind::StepRectifyTrajPoseBaseFlange": {
+        "properties": {
+            "clockwiseType": {
+                "keyToolTip": "現在の動作に従い、ロボットアームの動作方向です。",
+                "name": "動作方向"
+            },
+            "isLastJointAngleIncreasingWhenClockwise": {
+                "name": "時計回りの動作中に最後関節の角度増分が正である",
+                "valueToolTip": "時計回りの動作中に最後関節の角度増分が正の場合はチェックを入れます。そうではない場合はチェックを外します。"
+            },
+            "priorMoveLastJointAngle": {
+                "keyToolTip": "現在の動作に従い、最後の関節の角度増分です。",
+                "name": "角度増分"
+            },
+            "robotType": {
+                "keyToolTip": "対応する設定を読み込むために、ロボットタイプを設定します。",
+                "name": "ロボットタイプ"
+            }
+        }
+    },
+    "mmind::StepRectifyTranslationZ": {
+        "groupInfos": {
+            "Adjustment Settings": "調整設定",
+            "Calculation Settings": "計算設定",
+            "Cloud Capturing Settings": "点群取得の設定"
+        },
+        "properties": {
+            "localXoySearchRadius": {
+                "name": "XOY平面の半径"
+            },
+            "rectifyMethod": {
+                "name": "補正設定"
+            },
+            "referenceZAxis": {
+                "name": "基準Z軸"
+            },
+            "selectedRefZ": {
+                "name": "選択されたZ値"
+            }
+        }
+    },
+    "mmind::StepRemoveCloudPoints": {
+        "properties": {
+            "searchRadius": {
+                "name": "検索半径"
+            }
+        }
+    },
+    "mmind::StepRemoveOverlappedPolygons": {
+        "groupInfos": {
+            "Inspection Criteria": "重複検査設定",
+            "Mask Settings": "マスク設定",
+            "Output Strategy": "出力戦略"
+        },
+        "properties": {
+            "maskUsage": {
+                "name": "入力マスクの使用方式"
+            },
+            "positionRestraint": {
+                "name": "位置制限"
+            },
+            "reachedOutRatioMaxThre": {
+                "name": "エッジを超えた比率の最大しきい値(0 ~ 1.0)"
+            },
+            "reachedOutRatioMinThre": {
+                "name": "エッジを超えた比率の最小しきい値(0 ~ 1.0)"
+            },
+            "rectOverlapRatioThre": {
+                "name": "ポリゴンの最大重複比"
+            }
+        }
+    },
+    "mmind::StepRemoveOverlappingObjects": {
+        "groupInfos": {
+            "Advanced Calculation Settings": "詳細設定",
+            "Algorithm Settings": "アルゴリズム設定",
+            "Cloud Resolution Settings": "点群の解像度設定",
+            "Expansion Settings": "寸法拡張設定",
+            "Object Height Settings": "対象物高さの設定",
+            "Threshold Settings": "しきい値設定"
+        },
+        "properties": {
+            "algorithmType": {
+                "keyToolTip": "重複対象物を除去するアルゴリズムタイプを選択します。\n詳細については、値のツールチップをチェックしてください。",
+                "name": "アルゴリズムタイプ",
+                "valueToolTip": "BoundingBoxOfObjectIn3DBased: このタイプは、3D対象物の境界を使用して重複を判断します。梱包箱など、3Dモデルを持たない対象物向けに設計されています。\nProjectionOfObjectIn2DBased: このタイプは、対象物の点群の2D投影を使用して、重複を判断します。"
+            },
+            "depthImgDilateKernelSize": {
+                "keyToolTip": "この値は、深度画像を拡張するために使用されるカーネルのサイズです。",
+                "name": "深度画像拡張カーネルサイズ"
+            },
+            "expandSizeRatioInX": {
+                "keyToolTip": "点群の境界ボックスは、X方向に沿った拡張率です。",
+                "name": "境界ボックスのX方向の拡張率"
+            },
+            "expandSizeRatioInY": {
+                "keyToolTip": "点群の境界ボックスは、Y方向に沿った拡張率です。",
+                "name": "境界ボックスのY方向の拡張率"
+            },
+            "expandSizeRatioInZ": {
+                "keyToolTip": "点群の境界ボックスは、Z方向に沿った拡張率です。",
+                "name": "境界ボックスのZ方向の拡張率"
+            },
+            "leafSize": {
+                "keyToolTip": "対象物の境界ボックスの解像度です。",
+                "name": "サンプリング間隔"
+            },
+            "maskClosingKernelSize": {
+                "keyToolTip": "この値は、3D点から2D平面に投影される画像を閉じるためのカーネルサイズです。",
+                "name": "マスクClosing処理のカーネルサイズ"
+            },
+            "objectHeightSetting": {
+                "keyToolTip": "対象物高さの計算方法を選択します。",
+                "name": "対象物高さの計算方法",
+                "valueToolTip": "UsingInputCloudHeigjt: 入力点群の高さを使用することを選択した場合、対象物の高さは入力点群に従って自動的に計算されます。これは、非平面対象物に適しています。\nUsingSpecifiedHeight: 指定された高さを使用する場合、対象物の高さは指定された高さに設定されます。これは、平面対象物に適しています"
+            },
+            "overlapRatioThreshold": {
+                "keyToolTip": "対象物が他の対象物と重複比率のしきい値です。この値を超えると、対象物は重複として判断されます。",
+                "name": "重複比率のしきい値 (0 ~ 1.0)"
+            },
+            "specifiedHeight": {
+                "keyToolTip": "指定された高さの値です。",
+                "name": "指定された高さ"
+            }
+        }
+    },
+    "mmind::StepRemovePolygonsOutsideMask": {
+        "properties": {
+            "maskUsage": {
+                "name": "入力マスクの使用方式"
+            },
+            "overlapRatioThre": {
+                "name": "ポリゴンとマスクの重複面積の最小面積比 (0 ~ 1.0)"
+            }
+        }
+    },
+    "mmind::StepRepeatAccStats": {
+        "groupInfos": {
+            "Data for Making Statistics": "統計用のデータ",
+            "Statistics Saving": "統計情報を保存"
+        },
+        "properties": {
+            "displacementThreshold": {
+                "keyToolTip": "入力した位置姿勢の位置座標の偏差の上限値です。\n現在の入力と最後の入力との差はしきい値を超えた場合、このステップではエラーメッセージが表示されます。例えば、このパラメータが0.1に設定され、最後に入力された位置姿勢のx座標が1であり、現時点で入力された位置姿勢のx座標が0.7の場合、このステップではエラーメッセージが表示されます。",
+                "name": "許容範囲内位置座標の偏差のしきい値[0~100]"
+            },
+            "eulerAngleThreshold": {
+                "keyToolTip": "入力した位置姿勢のオイラー角の偏差の上限値です。\n現在の入力と最後の入力との差はしきい値を超えた場合、このステップではエラーメッセージが表示されます。例えば、このパラメータが5に設定され、最後に入力されたオイラー角（α、β、γ）のα値が30であり、現時点で入力されたオイラー角（α、β、γ）のα値が36の場合、このステップではエラーメッセージが表示されます。",
+                "name": "許容範囲内オイラー角の偏差のしきい値[0~100]"
+            },
+            "fileNamePrefix": {
+                "keyToolTip": "保存されたファイルのファイル名のプレフィックスです。",
+                "name": "ファイル名のプレフィックスの設定"
+            },
+            "outputDescription": {
+                "name": "出力の説明"
+            },
+            "precision": {
+                "keyToolTip": "統計用データを保存するために保留した小数点以下の桁数です。範囲 [0, 8]",
+                "name": "小数点以下の桁数を設定 [0~8］"
+            },
+            "predInputType": {
+                "name": "入力データの種類",
+                "valueToolTip": "PoseListInput: 一つの位置姿勢のリスト，または複数の位置姿勢のリストを入力してください。\nNumberListInput: その他の種類のデータを入力してください。"
+            },
+            "restart": {
+                "keyToolTip": "チェックを入れる、出力統計に \"再起動\"マークが追加されます。その後、このステップが1回実行できたら、このパラメータのチェックが外されます。",
+                "name": "再起動"
+            },
+            "saveDirPath": {
+                "keyToolTip": "ディレクトリのパスを保存します。",
+                "name": "ディレクトリのパスを保存"
+            }
+        }
+    },
+    "mmind::StepReplaceElementInVector": {
+        "properties": {
+            "elementToReplace": {
+                "name": "置換要素"
+            },
+            "vectorLevel": {
+                "name": "リストで操作される要素の次元"
+            }
+        }
+    },
+    "mmind::StepRotPoseToGoalDirection": {
+        "groupInfos": {
+            "Goal Direction Settings": "目標軸の方向設定",
+            "Rotation Settings": "回転設定",
+            "Symmetry Settings": "対称性設定",
+            "When Directions Came From Input": "方向が入力からの場合"
+        },
+        "properties": {
+            "considerRotationalSymmetry": {
+                "name": "対象物の対称性を考慮する必要あり"
+            },
+            "coordinateType": {
+                "name": "座標系のタイプ"
+            },
+            "customizedDir": {
+                "name": "カスタムの基準方向"
+            },
+            "directionSourceType": {
+                "name": "入力データのタイプ"
+            },
+            "fixedAxis": {
+                "name": "固定軸"
+            },
+            "goalAxis": {
+                "name": "目標軸の方向"
+            },
+            "ignoreZeroNormDirection": {
+                "name": "ゼロノルムの無効な方向を無視"
+            },
+            "rotatedAxis": {
+                "name": "回転する軸"
+            },
+            "symmetryAngle": {
+                "name": "対称角度 (0 ~ 360)"
+            }
+        }
+    },
+    "mmind::StepRotSetAxisToAlignDir": {
+        "groupInfos": {
+            "Axis Settings": "軸の設定",
+            "Reference Direction Settings": "基準方向の設定",
+            "Reference Point Settings": "基準点の設定",
+            "Reference Poses Usage": "基準位置姿勢の使用方法"
+        },
+        "properties": {
+            "alignToAxis": {
+                "keyToolTip": "この軸は基準方向です。",
+                "name": "基準位置姿勢の軸の方向"
+            },
+            "basePointX": {
+                "name": "X"
+            },
+            "basePointY": {
+                "name": "Y"
+            },
+            "basePointZ": {
+                "name": "Z"
+            },
+            "fixedAxis": {
+                "keyToolTip": "固定軸",
+                "name": "固定軸"
+            },
+            "mappingType": {
+                "keyToolTip": "マッピングの方法は，元の位置姿勢と基準位置姿勢との間の回転行列の計算方法と関連しています。",
+                "name": "マッピングタイプ",
+                "valueToolTip": "FirstToAll: すべての元の位置姿勢の決定軸を、カスタム入力の最初の位置姿勢の設定軸に合わせます。\nOneToOne: カスタム入力の基準位置姿勢の対応する軸に、元の位置姿勢の決定された軸を1つずつ合わせます。"
+            },
+            "relativeZValue": {
+                "name": "相対Z値"
+            },
+            "setAxis": {
+                "keyToolTip": "基準方向と一致するように回転させる軸を指定します。",
+                "name": "軸を回転"
+            },
+            "useBasePoint": {
+                "keyToolTip": "基準方向の算出に基点を使用する場合のみ選択します。\n注）構築される方向は、入力位置姿勢を起点とし、基準点を指します。",
+                "name": "基準点を使用",
+                "valueToolTip": "True：基準ポイントと元の位置姿勢を使用して、方向を構築します。\nFalse：基準方向を使用します。"
+            },
+            "useRelativeZ": {
+                "keyToolTip": "基準点のZ値を置き換えます。基準点のZ値＝元のポーズのZ値＋相対値",
+                "name": "相対Z値を使用"
+            }
+        }
+    },
+    "mmind::StepSaveAsRoi": {
+        "groupInfos": {
+            "3D ROI Dimension Settings": "3D ROIのサイズ設定",
+            "Save Settings": "保存の設定"
+        },
+        "properties": {
+            "halfXLen": {
+                "name": "X軸の半分の長さ"
+            },
+            "halfYLen": {
+                "name": "Y軸の半分の長さ"
+            },
+            "halfZLen": {
+                "name": "Z軸の半分の長さ"
+            },
+            "savePath": {
+                "name": "3D ROIの保存ファイル"
+            }
+        }
+    },
+    "mmind::StepSaveImage": {
+        "groupInfos": {
+            "Date Related Settings": "日付関連設定",
+            "Directory Settings": "ディレクトリ設定",
+            "File Name Settings": "ファイル名設定",
+            "Image Index Settings": "画像インデックス設定",
+            "Save Contents Settings": "保存内容の設定"
+        },
+        "properties": {
+            "autoDeleteExpiredFolders": {
+                "keyToolTip": "サブディレクトリの数が「最大サブフォルダ数」を超えると、古いサブディレクトリが自動的に削除されます。",
+                "name": "時限切れのフォルダを自動削除"
+            },
+            "autoOverwriteExpiredImgs": {
+                "name": "同名画像を自動上書き"
+            },
+            "createSubDirByDate": {
+                "keyToolTip": "チェックを入れた場合、サブディレクトリが作成され、現時点での日付で名前が付けられます。",
+                "name": "日付サブフォルダを作成"
+            },
+            "customSavingIndex": {
+                "name": "開始番号をカスタマイズ"
+            },
+            "fileNamePrefix": {
+                "keyToolTip": "接頭辞（プレフィックス）を設定します。デフォルトでは、カラー画像はrgb_image_xxx 、深度画像はdepth_image_xxx となります。",
+                "name": "画像ファイル名の接頭辞をカスタマイズ"
+            },
+            "maxImgNum": {
+                "keyToolTip": "画像数が最大値を超えた場合、次の画像インデックスを0にリセットします。",
+                "name": "最大画像数"
+            },
+            "notSaveIfUsingVirtualCam": {
+                "keyToolTip": "プロジェクトが仮想カメラを使用している場合、入力画像は保存されません。",
+                "name": "仮想カメラ使用時に保存しない"
+            },
+            "saveCameraParas": {
+                "name": "カメラパラメータを保存"
+            },
+            "saveColorImgAsPNG": {
+                "name": "カラー画像をPNG形式で保存"
+            },
+            "saveDir": {
+                "keyToolTip": "画像を保存するディレクトリのパスです。",
+                "name": "保存用ディレクトリのパス"
+            },
+            "saveExpiredDays": {
+                "keyToolTip": "「最大サブフォルダ数」の最新のデータが保存されます。",
+                "name": "最大サブフォルダ数"
+            },
+            "saveFlangePose": {
+                "keyToolTip": "チェックを入れることで、フランジ位置姿勢を保存します。\nチェックを外すことで、フランジ位置姿勢を保存しません。",
+                "name": "フランジ位置姿勢を保存",
+                "valueToolTip": "アイインハンド:チェックを入れます;\nノンアイインハンド:チェックを外します;"
+            },
+            "savingIndex": {
+                "name": "現在保存する画像の番号"
+            },
+            "subFoldersJoined": {
+                "keyToolTip": "サブフォルダは「；」（スペースなし）で結合されます。画像番号は、最初のサブフォルダで自動設定されます。",
+                "name": "サブフォルダ名",
+                "valueToolTip": "例：深度;色"
+            },
+            "targetName": {
+                "name": "対象物の名前",
+                "valueToolTip": "対象物の名前が空白になっていない場合、targetName という名前を付けたサブディレクトリを作成します。"
+            }
+        }
+    },
+    "mmind::StepSaveResult": {
+        "groupInfos": {
+            "Directory Settings": "ディレクトリ設定",
+            "File Name Settings": "ファイル名設定",
+            "Point Cloud File Settings": "点群ファイル設定",
+            "Saving Order Settings": "保存モード設定"
+        },
+        "properties": {
+            "SaveMode": {
+                "name": "保存モード",
+                "valueToolTip": "OrderByDateTime：\n最終ファイル名= \"保存パス \"+\"/\"+\"年 \"+\"月 \"+\"/\"+\"接頭辞 \"+\"_\"+\"時間 \"+\"拡張子\""
+            },
+            "fileNamePrefix": {
+                "name": "ファイル名接頭辞"
+            },
+            "fileNameSupplement": {
+                "name": "ファイル名の補足"
+            },
+            "outputPathType": {
+                "name": "出力パスのタイプ"
+            },
+            "pointCloudFileType": {
+                "name": "点群ファイルタイプ"
+            },
+            "saveDirPath": {
+                "name": "パスの保存"
+            }
+        }
+    },
+    "mmind::StepSaveTrajectoryPoints": {
+        "groupInfos": {
+            "Trajectory File Setting": "経路点ファイルの設定"
+        },
+        "properties": {
+            "saveFilePath": {
+                "keyToolTip": "経路点ファイルを保存するファイルのパスです。",
+                "name": "保存用ファイルのパス"
+            }
+        }
+    },
+    "mmind::StepScaleROI": {
+        "groupInfos": {
+            "Color ROI Scaling": "カラー画像のROIスケーリング設定",
+            "Ideal Destination Resolution": "出力画像の理想的な長さと幅の設定",
+            "Padding Color": "画像を目標サイズにパッド"
+        },
+        "properties": {
+            "autoRoiScale": {
+                "name": "自動スケーリング"
+            },
+            "b": {
+                "name": "B (0 ~ 255)"
+            },
+            "g": {
+                "name": "G (0 ~ 255)"
+            },
+            "height": {
+                "name": "長さ"
+            },
+            "inputPortNum": {
+                "keyToolTip": "画像入力ポートの数です。",
+                "name": "入力ポート数(1 ~ 8)"
+            },
+            "isPadding": {
+                "keyToolTip": "拡大縮小された画像をパディングカラーで「Dest resolution」にパディングするようにチェックされています。入力画像にチャンネルが1つしかない場合、パディング値は（r、g、b）の平均になります。\nチェックを外すと、ROI内で画像を拡大縮小する際にストレッチ（アスペクト比が変更されない）がないため、出力画像の解像度が「Dest resolution」とわずかに異なる場合があります。",
+                "name": "パディング"
+            },
+            "r": {
+                "name": "R (0 ~ 255)"
+            },
+            "roiRectType": {
+                "name": "カラーマ画像のROI領域を更新する方法",
+                "valueToolTip": "Origin: 設定に従ってカラーROIを抽出します。\nAdapativeModifiedRoiOriginP: 画像の境界線でカラーROIを調整します。\nBoundRect: 入力画像の外接長方形の領域を抽出します。"
+            },
+            "roiScale": {
+                "name": "カスタムズーム係数"
+            },
+            "roiSettings": {
+                "name": "カラー画像のROI設定",
+                "valueToolTip": "ROIByFile：ファイルからカラー画像のROIを読み込みます。\nROIByParam: パラメータを通じてカラー画像のROIを設定します。"
+            },
+            "sameAsRoiSettings": {
+                "name": "入力カラー画像ROIと同じ長さと幅（スケーリングなし）"
+            },
+            "width": {
+                "name": "幅"
+            }
+        }
+    },
+    "mmind::StepSegmentDepthInRoi": {
+        "groupInfos": {
+            "Segmentation Settings": "分割設定"
+        },
+        "properties": {
+            "depthRoiPath": {
+                "keyToolTip": "深度画像を含むROIファイル名です。",
+                "name": "深度画像のROIファイル",
+                "valueToolTip": "2D ROIを設定"
+            },
+            "objectsMinArea": {
+                "name": "対象物の最小面積"
+            },
+            "objectsMinHeightDiff": {
+                "name": "隣接するピクセル領域間の最大値の差"
+            }
+        }
+    },
+    "mmind::StepSetQuaternion": {
+        "groupInfos": {
+            "Quaternion": "四元数"
+        }
+    },
+    "mmind::StepSetTranslation": {
+        "groupInfos": {
+            "Reference Direction": "基準方向",
+            "Strategy": "戦略"
+        },
+        "properties": {
+            "translationStrategy": {
+                "name": "位置選択の戦略"
+            }
+        }
+    },
+    "mmind::StepShapeDetector": {
+        "groupInfos": {
+            "Candidates Filter ": "候補形状フィルター",
+            "Cylinder Property": "円柱のプロパティ",
+            "Detection Property": "検出のプロパティ",
+            "Shape Type": "形状のタイプ"
+        },
+        "properties": {
+            "candidateTopNum": {
+                "name": "出力結果の数"
+            },
+            "cloudResolution": {
+                "name": "点群量子化の解像度"
+            },
+            "clusterEpsilon": {
+                "name": "クラスタリングの最小間隔"
+            },
+            "cylinder": {
+                "name": "円柱"
+            },
+            "detector": {
+                "name": "検出のアルゴリズム"
+            },
+            "epsilon": {
+                "name": "点群変動の誤差"
+            },
+            "ifOptimizeCylinderCoefficients": {
+                "name": "円柱の面の形状パラメータを最適化するか"
+            },
+            "maxRadius": {
+                "name": "円柱の最大半径"
+            },
+            "minCoverageRatio": {
+                "name": "最小重複率 (0 ~ 1.0)"
+            },
+            "minMeanAngleError": {
+                "name": "最小平均角度誤差 (0 ~ 90)"
+            },
+            "minMeanDistError": {
+                "name": "最小平均距離誤差 (0 ~ 1.0)"
+            },
+            "minRadius": {
+                "name": "円柱の最小半径"
+            },
+            "normalDeviation": {
+                "name": "法線ベクトルの偏差の最大しきい値"
+            },
+            "plane": {
+                "name": "平面"
+            },
+            "sortBySize": {
+                "name": "点群の数によってソートするか"
+            },
+            "sphere": {
+                "name": "球"
+            },
+            "successProbability": {
+                "name": "検出の成功率(0 ~ 1.0)"
+            }
+        }
+    },
+    "mmind::StepShowCloud": {
+        "groupInfos": {
+            "Normal Vector Visualization Settings": "法線ベクトルの可視化設定",
+            "Z Value Visualization Settings": "Z値の可視化設定"
+        },
+        "properties": {
+            "lowerBound": {
+                "keyToolTip": "この値は、色を付けるZ方向の最小値（0）を表します。",
+                "name": "下限"
+            },
+            "normalDisplaySparsity": {
+                "keyToolTip": "記入された数値は点群の間隔点数です。数値が高いほど、表示される法線ベクトルは疎らになります。",
+                "name": "法線ベクトルの表示間隔"
+            },
+            "showCurvature": {
+                "keyToolTip": "曲率を異なる色に表示します（大、中、小の曲率はそれぞれ赤、青、緑に表示されます）。",
+                "name": "曲率を表示"
+            },
+            "showNormal": {
+                "keyToolTip": "チェックを入れると、点群の法線ベクトルが表示されます。",
+                "name": "法線ベクトルを表示"
+            },
+            "upperBound": {
+                "keyToolTip": "この値は、色を付けるZ方向の最大値（255）を表します。",
+                "name": "上限"
+            },
+            "visualizeZValue": {
+                "keyToolTip": "チェックを入れると、点群をZ値によって異なるグレースケールで表示されます。",
+                "name": "値を可視化"
+            }
+        }
+    },
+    "mmind::StepSort2dPose": {
+        "properties": {
+            "isAscending": {
+                "keyToolTip": "チェックボックスにチェックを入れると、位置姿勢が昇順で並べ替えます。",
+                "name": "昇順"
+            },
+            "sortMethod": {
+                "keyToolTip": "位置姿勢をソート(並べ替え)する方法を選択します。",
+                "name": "ソート順",
+                "valueToolTip": "NoSort: ソート操作をしません。\nSort_BY_X: 位置姿勢を位置姿勢が平行移動したX値に基づいてソートします。\nSort_BY_Y: 位置姿勢を位置姿勢が平行移動したY値に基づいてソートします。"
+            }
+        }
+    },
+    "mmind::StepSort3dPose": {
+        "groupInfos": {
+            "Reference Direction": "基準方向",
+            "Reference Poses": "基準位置姿勢",
+            "Sorting Strategy Settings": "ソート方法の設定"
+        },
+        "properties": {
+            "baseX": {
+                "keyToolTip": "ユーザーは、この基準点（X、Y、Z）までの距離で位置姿勢をソートすることができます。",
+                "name": "X値"
+            },
+            "baseY": {
+                "keyToolTip": "ユーザーは、この基準点（X、Y、Z）までの距離で位置姿勢をソートすることができます。",
+                "name": "Y値"
+            },
+            "baseZ": {
+                "keyToolTip": "ユーザーは、この基準点（X、Y、Z）までの距離で位置姿勢をソートすることができます。",
+                "name": "Z値"
+            },
+            "dirX": {
+                "keyToolTip": "ユーザーは、位置姿勢とこの基準方向（X、Y、Z）の間に含まれる角度で位置姿勢をソートすることができます。\n注意：夾角は、位置姿勢の並進移​​動ベクトルと基準方向の間の角度として定義されます。",
+                "name": "X方向"
+            },
+            "dirY": {
+                "keyToolTip": "ユーザーは、位置姿勢とこの基準方向（X、Y、Z）の間に含まれる角度で位置姿勢をソートすることができます。\n注意：夾角は、位置姿勢の並進移​​動ベクトルと基準方向の間の角度として定義されます。",
+                "name": "Y方向"
+            },
+            "dirZ": {
+                "keyToolTip": "ユーザーは、位置姿勢とこの基準方向（X、Y、Z）の間に含まれる角度で位置姿勢をソートすることができます。\n注意：夾角は、位置姿勢の並進移​​動ベクトルと基準方向の間の角度として定義されます。",
+                "name": "Z方向"
+            },
+            "isAscending": {
+                "keyToolTip": "チェックにすると、位置姿勢のスコアが昇順でソートされます。",
+                "name": "昇順でソート"
+            },
+            "sortMethod": {
+                "keyToolTip": "ソート方法を選択します。",
+                "name": "ソート方法",
+                "valueToolTip": "NONE: 操作なし。\nSORT_BY_X: 位置姿勢変換のX値に基づいて位置姿勢をソートします。\nSORT_BY_Y: 位置姿勢変換のY値に基づいて位置姿勢をソートします。\nSORT_BY_Z: 位置姿勢変換のZ値に基づいて位置姿勢をソートします。\nSORT_BY_DIS2BasePt: 基準位置姿勢と入力位置姿勢の間の距離に基づいて位置姿勢をソートします。\nSORT_BY_DIS2BasePtOnXYPlane: XY平面に基準位置姿勢と入力位置姿勢の間の距離に基づいて位置姿勢をソートします。\nSORT_BY_CONFIDENCE: スコアに基づいて位置姿勢をソートします。\nSORT_BY_CUSTOM_DIR: カスタマイズされた方向に沿った位置姿勢変換に基づいて位置姿勢をソートします。\nSORT_BY_DIAGONAL_LENGTH: 入力ディメンションの対角線の長さに基づいて位置姿勢をソートします。"
+            }
+        }
+    },
+    "mmind::StepSortAndStratify": {
+        "properties": {
+            "isAscending": {
+                "name": "昇順"
+            },
+            "layerInterval": {
+                "name": "階層間隔"
+            }
+        }
+    },
+    "mmind::StepSortClouds": {
+        "groupInfos": {
+            "Reference Point": "基準点",
+            "Sorting Strategy Settings": "ソート戦略の設定"
+        },
+        "properties": {
+            "axisForSorting": {
+                "name": "ソート戦略"
+            },
+            "baseX": {
+                "name": "X値"
+            },
+            "baseY": {
+                "name": "Y値"
+            },
+            "baseZ": {
+                "name": "Z値"
+            },
+            "isAscending": {
+                "name": "昇順でソート"
+            },
+            "refPointForSorting": {
+                "name": "点群を表示する点"
+            }
+        }
+    },
+    "mmind::StepSortCriteriaIndex": {
+        "properties": {
+            "isAscending": {
+                "name": "昇順",
+                "valueToolTip": "チェックを入れると、要素が昇順で並び替えたときの添え字がアウトプットされます。"
+            }
+        }
+    },
+    "mmind::StepStraightenRingShapedImageRegion": {
+        "groupInfos": {
+            "Ring-Shaped Region Settings": "リング形状領域の設定",
+            "Scanning Direction": "スキャン方向"
+        },
+        "properties": {
+            "Clockwise": {
+                "name": "時計回り"
+            },
+            "angleSpan": {
+                "name": "角度範囲"
+            },
+            "centerX": {
+                "name": "中心X"
+            },
+            "centerY": {
+                "name": "中心Y"
+            },
+            "interpolation": {
+                "name": "補間方法"
+            },
+            "positionAndOrientationCorrection": {
+                "name": "位置と向きを校正"
+            },
+            "radialDirection": {
+                "name": "半径方向"
+            },
+            "radius": {
+                "name": "半径"
+            },
+            "radiusScale": {
+                "name": "半径のスケーリング比"
+            },
+            "startAngle": {
+                "name": "開始角度"
+            }
+        }
+    },
+    "mmind::StepTemplateMatching": {
+        "groupInfos": {
+            "Match Settings": "マッチング設定",
+            "Refinement Settings": "校正の設定",
+            "Template Settings": "テンプレート設定"
+        },
+        "properties": {
+            "angleStep": {
+                "name": "角度のステップサイズ"
+            },
+            "beginAngle": {
+                "name": "開始角度"
+            },
+            "beginScale": {
+                "name": "開始スケール"
+            },
+            "cannyHighThreshold": {
+                "name": "エッジ抽出の上限しきい値"
+            },
+            "cannyLowThreshold": {
+                "name": "エッジ抽出の下限しきい値"
+            },
+            "downsampleSteps": {
+                "name": "ダウンサンプリングのステップサイズ"
+            },
+            "endAngle": {
+                "name": "終了角度"
+            },
+            "endScale": {
+                "name": "終了スケール"
+            },
+            "fastTemplateFeatureExtraction": {
+                "name": "テンプレート特徴をクイック抽出"
+            },
+            "gradientMagnitudeLowerThreshold": {
+                "name": "勾配の大きさの下限しきい値"
+            },
+            "icpModelDownsampleStep": {
+                "name": "テンプレートダウンサンプリングのステップサイズ"
+            },
+            "icpSceneDownsampleStep": {
+                "name": "画像ダウンサンプリングのステップサイズ"
+            },
+            "matchingScorelowerThresold": {
+                "name": "マッチングスコアの下限しきい値"
+            },
+            "maxNumberOfMatches": {
+                "name": "マッチング結果の最大数"
+            },
+            "nmsKernelSize": {
+                "name": "NMSカーネルサイズ"
+            },
+            "numberOfTemplateFeatures": {
+                "name": "テンプレート特徴のピクセル数"
+            },
+            "overlapRatioUpperThreshold": {
+                "name": "重複比率の上限しきい値"
+            },
+            "paddingSize": {
+                "name": "パディングピクセル数の上限しきい値"
+            },
+            "pathOfTemplateFeatureFiles": {
+                "name": "テンプレート特徴のファイルパス"
+            },
+            "pathOfTemplateImage": {
+                "name": "テンプレート画像のファイルパス"
+            },
+            "pathOfTemplateMask": {
+                "name": "テンプレートマスクのファイルパス"
+            },
+            "scaleStep": {
+                "name": "スケールのステップサイズ"
+            },
+            "searchRadius": {
+                "name": "検索半径"
+            },
+            "skipLowestLevel": {
+                "name": "最下層をスキップ"
+            },
+            "templateFeaturesAlreadyExtracted": {
+                "name": "テンプレート特徴が設定済み"
+            },
+            "tileGrayScaleLowerThrehsold": {
+                "name": "ブロックグレー値の下限しきい値"
+            },
+            "useNonRigidRefinement": {
+                "name": "非剛体の高精度位置姿勢推定を使用"
+            }
+        }
+    },
+    "mmind::StepTriggerControlByFlag": {
+        "properties": {
+            "triggerType": {
+                "name": "トリガーのタイプ"
+            }
+        }
+    },
+    "mmind::StepUnpack": {
+        "properties": {
+            "allowUnpackedDataExceedingOutputSize": {
+                "name": "解凍されたデータが出力の数を超えることを許可"
+            },
+            "outputSize": {
+                "name": "出力の数"
+            }
+        }
+    },
+    "mmind::StepValueScale": {
+        "properties": {
+            "inputScaleUsage": {
+                "name": "入力比率の使用方式"
+            },
+            "scale": {
+                "name": "スケーリング比"
+            }
+        }
+    },
+    "mmind::StepVaryingNormalArea": {
+        "properties": {
+            "kernelSize": {
+                "name": "カーネルサイズ"
+            },
+            "threshold": {
+                "name": "しきい値"
+            }
+        }
+    },
+    "mmind::StepVertexDetector": {
+        "groupInfos": {
+            "VisualizationSettings": "可視化設定"
+        },
+        "properties": {
+            "drawBaseline": {
+                "name": "ベースラインを描画"
+            },
+            "drawEdgePoints": {
+                "name": "エッジポイントを描画"
+            },
+            "drawRoi": {
+                "name": "ROIを描画"
+            },
+            "drawVertex": {
+                "name": "頂点を描画"
+            }
+        }
+    },
+    "mmind::Threshold": {
+        "properties": {
+            "threImgType": {
+                "name": "画像タイプ"
+            },
+            "threOperationType": {
+                "name": "分割操作のタイプ"
+            },
+            "threshold": {
+                "name": "しきい値"
+            }
+        }
+    },
+    "mmind::UniformSampler": {
+        "groupInfos": {
+            "Sampling Settings": "サンプリング設定"
+        },
+        "properties": {
+            "leafSize": {
+                "name": "サンプリング間隔"
+            }
+        }
+    },
+    "mmind::VirtualCamera": {
+        "properties": {
+            "dataPath": {
+                "name": "画像のデータパス",
+                "valueToolTip": "「ステレオモード」は:\nActiveモードでは:\n深度画像とカラー画像ファイルのパス、又は深度画像とカラー画像、フランジ位置姿勢（EyeInHandモード）のサブファイルのパスを含みます。\nPossiveモードでは:\n左、右画像のサブファイルのパスを含みます。\nActiveAssistedPassiveモードでは:\n左、右カラー画像と深度画像のサブファイルのパスを含みます。"
+            },
+            "filePathType": {
+                "keyToolTip": "画像名タイプ",
+                "name": "画像名タイプ",
+                "valueToolTip": "フルパス:完全なファイルの絶対パス。\nファイルフルネーム:サフィックス名が付く完全なファイル名。\nファイル名:ファイルの最初の「．」の前の名前。\n\n例:「D:/data/project.tar.gz」\nフルパス:「D:/data/project.tar.gz」\nファイル名:「project.tar.gz」\nベースネーム:「project」"
+            },
+            "needRectify": {
+                "name": "ベースライン補正"
+            },
+            "playMode": {
+                "name": "読み取りモード",
+                "valueToolTip": "ノーマル:ファイル名の順番に従ってフォルダにある画像を読み取り、最後の画像に終了します。\n一枚繰り返し:現在の画像を繰り返し読み取ります。\n全て繰り返し:ファイル名の順番に従ってフォルダにある画像を繰り返し読み取り、終了しません。\nランダム読み取り:フォルダにある画像をランダムに読み取ります。"
+            },
+            "startImgIdx": {
+                "name": "最初の画像インデックス"
+            }
+        }
+    },
+    "mmind::VoxelGridSampler": {
+        "groupInfos": {
+            "Sampling Settings": "サンプリング設定"
+        },
+        "properties": {
+            "leafSize": {
+                "name": "サンプリング間隔"
+            }
+        }
+    },
+    "subgroup_infos": {
+        "2.5D Measuring": "2.5D 測定",
+        "2D Matching": "2Dマッチング",
+        "2D Measuring": "2D測定",
+        "2D Pose": "2D位置姿勢",
+        "3D Length / Distance": "3D長さ/距離",
+        "Add / Remove Areas in Masks": "マスク内のエリアを追加/除去",
+        "Adjust Orientation": "方向を調整",
+        "Adjust Trajectory": "経路を調整",
+        "Adjust Translation": "並進を調整",
+        "Adjust Translation & Orientation": "並進/方向を調整",
+        "Arrange by Index": "インデックスによって整理",
+        "Calc Mask Property": "マスク属性を計算",
+        "Calc Pose": "位置姿勢を計算",
+        "Capture from Camera": "カメラから取得",
+        "Change Data Dimension": "データディメンションを変更",
+        "Circle": "円",
+        "Cluster": "クラスタリング",
+        "Collect / Remove": "取得/除去",
+        "Color Image Processing": "カラー画像の処理",
+        "Convenient Helpers": "クイック設定",
+        "Conversion": "類型変換",
+        "Coordination Transform": "座標系変換",
+        "Defect Detection": "欠陥検出",
+        "Detect Edges": "エッジ検出",
+        "Extract Points by Geometry": "幾何学による点群を抽出",
+        "Generate Pose / Offset": "位置姿勢/オフセットを生成",
+        "Generate Template": "テンプレートを生成",
+        "Generate Trajectory": "経路生成",
+        "Global Dimensioning and Tolerancing": "幾何公差",
+        "Image": "画像",
+        "Image - Image": "画像 - 画像",
+        "Image - Point Cloud": "画像 - 点群",
+        "Image Classification": "画像分類",
+        "Image Transform": "画像変換",
+        "Instance Segmentation": "インスタンスセグメンテーション",
+        "Inversion": "逆変換",
+        "Line": "直線",
+        "Load Trajectory": "経路を読み込む",
+        "Mask Logical Operation": "マスクの論理演算",
+        "Merge": "マージ",
+        "Normal / Curvature": "法線ベクトル/曲率",
+        "Novel Objects Picking": "未知対象物の把持",
+        "Object Detection": "対象物検出",
+        "Others": "ほか",
+        "Pose": "位置姿勢",
+        "Pose Composition & Decomposition": "位置姿勢を合成/分解",
+        "Pose Rotation": "位置姿勢を回転",
+        "Pose Sorting": "位置姿勢をソート",
+        "Pose Transformation": "位置姿勢を変換",
+        "Pose Translation": "位置姿勢を並進",
+        "Procedure Out": "出力",
+        "Read": "読み取る",
+        "Remove Points": "点を除去",
+        "Remove Polygons": "ポリゴンを除去",
+        "Reshape / Transform / Move": "変形/変換/移動",
+        "Save": "保存",
+        "Segment Area": "分割領域",
+        "Sort": "ソート",
+        "Step IO": "ステップIO",
+        "Supplement": "補足ステップ",
+        "Trigger": "トリガー",
+        "Validate": "検証",
+        "Validate Masks by Poses": "位置姿勢によってマスクをフィルタリング",
+        "Validate and Get Clouds": "点群を検証して取得",
+        "Vector3D Composition & Decomposition": "3Dベクトルを合成/分解",
+        "Vector3D Related": "3Dベクトル演算"
+    }
+}
