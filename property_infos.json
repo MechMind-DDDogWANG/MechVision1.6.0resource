@@ -13220,7 +13220,7 @@
                 "nkernelSize"
             ],
             "High Gradient Filter": [
-                "thresholdIgnore",
+                "",
                 "thresholdRemove"
             ],
             "Remove Sparse Filter": [
@@ -13262,7 +13262,7 @@
                 "minimum": 0,
                 "singleStep": 1
             },
-            "thresholdIgnore": {
+            "": {
                 "keyToolTip": "If the gradient of a pixel is larger this thresholdRemove and the gradient of its neighbor pixel is larger than this threshold, this neighbor pixel's value are set to be zero."
             },
             "thresholdRemove": {

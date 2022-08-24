@@ -1495,15 +1495,33 @@
             "Hough Circles Parameters": "\nハフ変換による円検出のパラメータ"
         },
         "properties": {
+            "accumulatorThres": {
+                "name": "積算器の閾値"
+            },
             "closingOperateSize": {
                 "keyToolTip": "閉じる操作のカーネルサイズ。",
                 "name": "クロージングオペレートサイズ"
             },
+            "difValue": {
+                "name": "差分"
+            },
             "dp": {
-                "name": "Dp"
+                "name": "画像の解像度と積算器の解像度の比"
             },
             "edgeGradientThres": {
                 "name": "エッジ勾配の閾値"
+            },
+            "maxRadius": {
+                "name": "最大半径"
+            },
+            "minRadius": {
+                "name": "最小半径"
+            },
+            "stdDiameterOfCircle": {
+                "name": "円の標準直径"
+            },
+            "stdThickness": {
+                "name": "標準厚さ"
             }
         }
     },
@@ -1586,6 +1604,26 @@
         "properties": {
             "areaType": {
                 "name": "計算方法"
+            }
+        }
+    },
+    "mmind::StepCalcMaskDistance": {
+        "properties": {
+            "distanceMode": {
+                "name": "距離モード"
+            },
+            "maskAreaMinThres": {
+                "name": "マスク面積の最小閾値"
+            },
+            "pixelDistanceThres": {
+                "name": "マスク距離の閾値"
+            }
+        }
+    },
+    "mmind::StepCalcNonzeroCenter": {
+        "properties": {
+            "centerType": {
+                "name": "中心のタイプ"
             }
         }
     },
@@ -2051,6 +2089,27 @@
     "mmind::StepCloudFilterByModelAndPose": {
         "groupInfos": {
             "Searching Radius": "検索半径"
+        },
+        "properties": {
+            "filterRadiusThre": {
+                "name": "フィルター半径の閾値"
+            }
+        }
+    },
+    "mmind::StepCloudNumLimit": {
+        "groupInfos": {
+            "Remove Last N Clouds": "最後のN番目の点群を削除"
+        },
+        "properties": {
+            "cloudNumLimit": {
+                "name": "点群数の制限"
+            },
+            "removeLast": {
+                "name": "最後の点群を削除"
+            },
+            "removeNum": {
+                "name": "削除する点群の数"
+            }
         }
     },
     "mmind::StepCloudPreprocessing": {
@@ -2285,6 +2344,24 @@
             }
         }
     },
+    "mmind::StepConvertImgEdgeToThreedEdges": {
+        "properties": {
+            "calcEdgeNormal": {
+                "keyToolTip": "チェックを入れたら、法線は算出されます。",
+                "name": "法線を算出"
+            },
+            "epsilon": {
+                "name": "誤差の許容範囲"
+            },
+            "iterations": {
+                "keyToolTip": "使用する最大反復回数です。",
+                "name": "反復回数"
+            },
+            "searchRadius": {
+                "name": "検索半径"
+            }
+        }
+    },
     "mmind::StepCoordsTransform": {
         "groupInfos": {
             "Transformation Settings": "変換設定"
@@ -2486,6 +2563,19 @@
             }
         }
     },
+    "mmind::StepDepthEncoding": {
+        "groupInfos": {
+            "Depth Clipping Range": "深度クリッピング範囲"
+        },
+        "properties": {
+            "lowerBound": {
+                "name": "下界"
+            },
+            "upperBound": {
+                "name": "上界"
+            }
+        }
+    },
     "mmind::StepDepthImgValidation": {
         "groupInfos": {
             "Depth Range Settings": "深度範囲の設定"
@@ -2529,6 +2619,19 @@
             },
             "binSideWallThickness": {
                 "name": "箱側面の厚さ"
+            }
+        }
+    },
+    "mmind::StepDetectBinInscribedRectSidesDeprecated": {
+        "properties": {
+            "binHeight": {
+                "name": "実際の箱の高さ"
+            },
+            "neighborDepthSearchSize": {
+                "name": "近くの深度値のカーネルサイズを探す"
+            },
+            "thickness": {
+                "name": "厚さ"
             }
         }
     },
@@ -2576,6 +2679,94 @@
             },
             "fittingMethod": {
                 "name": "フィッティング方法"
+            }
+        }
+    },
+    "mmind::StepDrawInfoOnImage": {
+        "groupInfos": {
+            "Information Settings": "情報設定",
+            "Label": "ラベル",
+            "Pattern Properties": "パターンパラメータ",
+            "Visualization Settings": "可視化設定"
+        },
+        "properties": {
+            "drawArrow": {
+                "name": "軌跡の方向を描画"
+            },
+            "drawingLabels": {
+                "name": "ラベルファイル名"
+            },
+            "fontScale": {
+                "name": "文字サイズ"
+            },
+            "infoType": {
+                "name": "情報タイプ"
+            },
+            "onlyDrawSpecificLabel": {
+                "name": "指定されたラベルのみ描画"
+            },
+            "poseColor": {
+                "name": "ドットカラー"
+            },
+            "radius": {
+                "name": "ドット半径"
+            },
+            "thickness": {
+                "name": "線の太さ"
+            }
+        }
+    },
+    "mmind::StepDrawInfosOnImage": {
+        "properties": {
+            "B": {
+                "name": "青"
+            },
+            "G": {
+                "name": "緑"
+            },
+            "R": {
+                "name": "赤"
+            },
+            "drawArrow": {
+                "name": "矢印を作る"
+            },
+            "drawingLabels": {
+                "name": "ラベル名"
+            },
+            "fontScale": {
+                "name": "文字サイズ"
+            },
+            "onlyDrawSpecificLabel": {
+                "name": "特定のラベルのみ作る"
+            },
+            "radius": {
+                "name": "半径"
+            },
+            "simpleDraw": {
+                "name": "簡単に作る"
+            },
+            "thickness": {
+                "name": "厚さ"
+            }
+        }
+    },
+    "mmind::StepDrawMinAreaRectOnImage": {
+        "groupInfos": {
+            "Display Settings": "ディスプレイの設定"
+        },
+        "properties": {
+            "drawIndex": {
+                "name": "四角形のインデックスを表示"
+            },
+            "drawInfoWithSameColor": {
+                "name": "同じ色の長方形の情報を表示"
+            }
+        }
+    },
+    "mmind::StepDrawPolysVert": {
+        "properties": {
+            "outputSingleMask": {
+                "name": "多角形の複数のマスクを1つにまとめる"
             }
         }
     },
@@ -2972,6 +3163,13 @@
             }
         }
     },
+    "mmind::StepGetHighestScoreResult": {
+        "properties": {
+            "scoreThre": {
+                "name": "スコアの閾値"
+            }
+        }
+    },
     "mmind::StepGetValidClouds": {
         "groupInfos": {
             "Clustering Settings": "クラスター設定"
@@ -3249,6 +3447,19 @@
             }
         }
     },
+    "mmind::StepHistogramMatcher": {
+        "properties": {
+            "labelsFile": {
+                "name": "ラベルファイル"
+            },
+            "modelHistogramPath": {
+                "name": "モデルヒストグラムのパス"
+            },
+            "threshold": {
+                "name": "閾値"
+            }
+        }
+    },
     "mmind::StepImageShow": {
         "properties": {
             "displayType": {
@@ -3381,6 +3592,13 @@
             }
         }
     },
+    "mmind::StepJoinLabels": {
+        "properties": {
+            "connector": {
+                "name": "コネクタ"
+            }
+        }
+    },
     "mmind::StepJsEngine": {
         "groupInfos": {
             "Input & Output Settings": "入力と出力の設定",
@@ -3423,7 +3641,7 @@
             },
             "predInputType": {
                 "keyToolTip": "フィルタリングされた物体の種類を選択します。",
-                "name": "入力のタイプ"
+                "name": "フィルタリングするオブジェクトのタイプ"
             }
         }
     },
@@ -3597,6 +3815,22 @@
         "properties": {
             "grideSize": {
                 "name": "グリッドサイズ"
+            }
+        }
+    },
+    "mmind::StepMaskToMinAreaRect": {
+        "groupInfos": {
+            "Gradient Mask Settings": "グラデーションマスクの設定"
+        },
+        "properties": {
+            "grayDirection": {
+                "name": "出力画像のタイプ"
+            },
+            "grayOffset": {
+                "name": "最小グレイ値"
+            },
+            "sizeOffset": {
+                "name": "境界線の偏り"
             }
         }
     },
@@ -3882,6 +4116,39 @@
             }
         }
     },
+    "mmind::StepOrthographicProjection": {
+        "groupInfos": {
+            "Orthographic Projection Seetings": "正投影の設定"
+        },
+        "properties": {
+            "maxPtX": {
+                "name": "最大点のX値"
+            },
+            "maxPtY": {
+                "name": "最大点のY値"
+            },
+            "minPtX": {
+                "name": "最小点のX値"
+            },
+            "minPtY": {
+                "name": "最小点のY値"
+            },
+            "orthographicBorderSize": {
+                "name": "正投影で生成したマスクの境界の幅"
+            },
+            "orthographicScaleRatio": {
+                "name": "正投影の縮尺"
+            },
+            "useSpecifiedMaxPt": {
+                "name": "指定した最大点を使用",
+                "valueToolTip": "ボックスにチェックを入れたら、ユーザーはパラメータで最大点を指定することができます。そうでない場合は、入力点群によって最大点が計算されます。\nステップの出力情報で指定した値を調べることができます。"
+            },
+            "useSpecifiedMinPt": {
+                "name": "指定した最小点を使用",
+                "valueToolTip": "ボックスにチェックを入れたら、ユーザーはパラメータで最小点を指定することができます。そうでない場合は、入力点群によって最小点が計算されます。\nステップの出力情報で指定した値を調べることができます。"
+            }
+        }
+    },
     "mmind::StepPalletInfoRecognition": {
         "groupInfos": {
             "Pallet Setting": "パレット設定"
@@ -3927,6 +4194,13 @@
             "pointsFilterType": {
                 "keyToolTip": "StatisticalOutlierFilter: 点群との距離が指定された範囲を超えた点を、この方法で除去します。点群に明らかな外れ値がある場合に使用することをお薦めします。\nNormalsFilter: 法線ベクトルが基準方向との角度が指定された範囲を超えた点を、この方法で除去します。密接している物体を分割する時にこの方法を推奨します。",
                 "name": "点フィルター方法のタイプ"
+            }
+        }
+    },
+    "mmind::StepPose2DToPose3DBaseOrthographicProjection": {
+        "properties": {
+            "neighborDepthSearchKernelSize": {
+                "name": "近くの深度値のカーネルサイズを探す"
             }
         }
     },
@@ -4334,10 +4608,25 @@
             }
         }
     },
+    "mmind::StepRemoveCloud": {
+        "properties": {
+            "searchRadius": {
+                "name": "検索半径"
+            }
+        }
+    },
     "mmind::StepRemoveCloudPoints": {
         "properties": {
             "searchRadius": {
                 "name": "検索半径"
+            }
+        }
+    },
+    "mmind::StepRemoveNoiseInMasks": {
+        "properties": {
+            "areaThres": {
+                "name": "面積の閾値",
+                "valueToolTip": "通常は、[50, 1000]範囲内の入力が可能で、この値はカメラの解像度に関連します。"
             }
         }
     },
@@ -4867,6 +5156,48 @@
             }
         }
     },
+    "mmind::StepSmoothDepthMap": {
+        "groupInfos": {
+            "Bilateral Filter": " バイラテラルフィルタ",
+            "Conditional Mean Filter": "条件付き平均値のフィルタ",
+            "General Settings": "一般設定",
+            "High Gradient Filter": "高勾配フィルター",
+            "Remove Sparse Filter": "スパースフィルタ削除フィルター",
+            "Smoothing Method": "円滑化手法"
+        },
+        "properties": {
+            "distancePixelRatio": {
+                "name": "深度と画素数との比"
+            },
+            "distanceThreshold": {
+                "name": "深度閾値"
+            },
+            "nkernelSize": {
+                "name": "カーネルサイズ"
+            },
+            "numPixels": {
+                "name": "画素数の数"
+            },
+            "sigmaDepth": {
+                "name": "シグマ深度"
+            },
+            "sigmaSpace": {
+                "name": "シグマ地域"
+            },
+            "smoothType": {
+                "name": "円滑化タイプ"
+            },
+            "threshold": {
+                "name": "円滑化閾値"
+            },
+            "thresholdIgnore": {
+                "name": "無視閾値"
+            },
+            "thresholdRemove": {
+                "name": "削除閾値"
+            }
+        }
+    },
     "mmind::StepSort2dPose": {
         "properties": {
             "isAscending": {
@@ -5094,6 +5425,36 @@
             }
         }
     },
+    "mmind::StepTrajMatching": {
+        "groupInfos": {
+            "Affine": "アフィン",
+            "Deform": "デフォーム",
+            "General Settings": "一般設定"
+        },
+        "properties": {
+            "beta": {
+                "name": "ベータ"
+            },
+            "lambda": {
+                "name": "ラムダ"
+            },
+            "maxIterations": {
+                "name": "最大値反復回数"
+            },
+            "methodType": {
+                "name": "手法タイプ"
+            },
+            "modelDirName": {
+                "name": "モデルディレクトリ名"
+            },
+            "tolerance": {
+                "name": "許容範囲"
+            },
+            "validDistance": {
+                "name": "有効距離"
+            }
+        }
+    },
     "mmind::StepTriggerControlByFlag": {
         "properties": {
             "triggerType": {
@@ -5118,6 +5479,13 @@
             },
             "scale": {
                 "name": "スケーリング比"
+            }
+        }
+    },
+    "mmind::StepVariantsToLabels": {
+        "properties": {
+            "precision": {
+                "name": "小数点以下の桁数"
             }
         }
     },
@@ -5147,6 +5515,34 @@
             },
             "drawVertex": {
                 "name": "頂点を描画"
+            }
+        }
+    },
+    "mmind::StepVisualizeDepthInRange": {
+        "properties": {
+            "clippingMaximum": {
+                "name": "クリッピング最大値"
+            },
+            "clippingMinimum": {
+                "name": "クリッピング最小値"
+            },
+            "depthMaximum": {
+                "name": "深度最大値"
+            },
+            "depthMinimum": {
+                "name": "深度最小値"
+            },
+            "roi": {
+                "name": "関心領域"
+            },
+            "toGray": {
+                "name": "グレースケールへの変換"
+            },
+            "visDepthRange": {
+                "name": "可視化深度範囲"
+            },
+            "visualSettingType": {
+                "name": "可視化設定タイプ"
             }
         }
     },
