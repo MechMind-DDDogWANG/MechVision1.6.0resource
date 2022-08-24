@@ -1045,9 +1045,11 @@
             "Contour Settings": "輪郭設定",
             "Morphological Operation Settings": "モルフォロジー操作の設定"
         },
+        "keywords": "2D境界推定",
         "properties": {
             "ContourRetrievalMode": {
-                "name": "輪郭の検索方法"
+                "name": "輪郭の検索方法",
+                "valueToolTip": "CV_RETR_EXTERNAL: 極端な外側の輪郭のみを取得します．\nCV_RETR_LIST: 階層的な関係を一切持たずに，すべての輪郭を取得します．\nCV_RETR_CCOMP: すべての輪郭を取得し，それらを2階層構造にします．\nCV_RETR_TREE: すべての輪郭を抽出し，それらを階層化した完全な輪郭を再構成します．"
             },
             "dilateSize": {
                 "name": "拡張カーネルサイズ"
@@ -1062,6 +1064,7 @@
                 "name": "カスタムの輪郭層"
             },
             "lineSize": {
+                "keyToolTip": "2D点を3D点に変換する際の輪郭線の幅。",
                 "name": "2D線の幅"
             },
             "minContourSize": {
@@ -1101,6 +1104,7 @@
             "Boundary Estimation Settings": "境界推定設定",
             "Neighbour Search Settings": "近傍検索の設定"
         },
+        "keywords": "3D境界推定",
         "properties": {
             "angleThreshold": {
                 "keyToolTip": "点の法線と隣の点の法線とのなす角がこの値より大きいとき、その点は境界点として認識されます。",
@@ -1432,6 +1436,7 @@
         }
     },
     "mmind::StepCalcCloudCurvature": {
+        "keywords": "点群の曲率計算",
         "properties": {
             "measurement": {
                 "name": "出力タイプ"
@@ -1559,6 +1564,13 @@
             "distanceType": {
                 "keyToolTip": "NONE: 空のリストを出力します。\nDis2ReferencePose: 三次元空間において入力した位置姿勢と基準位置姿勢との距離を計算します。\nDis2ReferencePoseOnXYPlane: XY平面において入力した位置姿勢と基準位置姿勢との距離を計算します。",
                 "name": "距離の種類"
+            }
+        }
+    },
+    "mmind::StepCalcEdgePointsNormal": {
+        "properties": {
+            "knn": {
+                "name": "k近傍法（KNN）"
             }
         }
     },
@@ -1732,6 +1744,7 @@
             "Pose Calculation Settings": "位置姿勢計算の設定",
             "Reference Direction": "基準方向"
         },
+        "keywords": "平面上の点群から位置姿勢と大きさを計算する/位置姿勢と大きさを計算する/大きさを計算する",
         "properties": {
             "alignSearchRadius": {
                 "name": "エッジに揃えられた検索半径"
@@ -1894,6 +1907,7 @@
             "Box Dimensions' Settings": "箱の寸法設定",
             "Usage Settings of Input Clouds": "入力点群の使用方式設定"
         },
+        "keywords": "直方体内の点群を抽出",
         "properties": {
             "halfX": {
                 "name": "X軸における長さの半分"
@@ -1917,6 +1931,7 @@
             "Usage Settings for Input Clouds": "入力点群の使用方式設定",
             "Z Direction Properties": "Z方向のプロパティ"
         },
+        "keywords": "円柱以内の点群を抽出/設定した円柱以内の点群を抽出",
         "properties": {
             "endAngle": {
                 "name": "終了角度"
@@ -2029,6 +2044,7 @@
         }
     },
     "mmind::StepCloudCluster": {
+        "keywords": "点群クラスタリング/測定/",
         "properties": {
             "cloudClusterType": {
                 "name": "クラスターアルゴリズム",
@@ -2054,6 +2070,7 @@
         }
     },
     "mmind::StepCloudPreprocessing": {
+        "keywords": "点群前処理",
         "properties": {
             "cloudPreprocessingType": {
                 "name": "法線ベクトルの計算方法",
@@ -2081,9 +2098,18 @@
         }
     },
     "mmind::StepCloudSampler": {
+        "keywords": "点群サンプラー/測定",
         "properties": {
             "samplerType": {
                 "name": "サンプラータイプ"
+            }
+        }
+    },
+    "mmind::StepCloudScale": {
+        "properties": {
+            "ratioScale": {
+                "keyToolTip": "各点の座標（x, y, z）に ratioScale を掛ける。",
+                "name": "縮尺"
             }
         }
     },
@@ -2139,6 +2165,30 @@
             },
             "widthDiffUpperRatioThre": {
                 "name": "比率の上限しきい値"
+            }
+        }
+    },
+    "mmind::StepCloudSmoothAndNormalEstimation": {
+        "groupInfos": {
+            "Smoothing Settings": "平滑化の設定"
+        },
+        "properties": {
+            "computeNormals": {
+                "keyToolTip": "法線は平滑化された後、点群によって再計算されます。",
+                "name": "法線の計算"
+            },
+            "numThreads": {
+                "keyToolTip": "使用するハードウェアスレッドの最大数。",
+                "name": "スレッドの数"
+            },
+            "polynomialOrder": {
+                "keyToolTip": "フィッティングするための多項式の次数。",
+                "name": "多項式次数",
+                "valueToolTip": "推奨値(3,4,5)"
+            },
+            "searchRadius": {
+                "keyToolTip": "フィッティングに用いる k-nearest neigbors を決定するための球の半径。",
+                "name": "検索半径"
             }
         }
     },
@@ -2579,6 +2629,56 @@
             }
         }
     },
+    "mmind::StepDetectObscuredObjects": {
+        "groupInfos": {
+            "Obscured Object 2D Shape Settings": "遮蔽された対象物の2D形状の設定",
+            "Obscured Object NMS Settings": "遮蔽された対象物のNMS設定",
+            "Obscured Object Pose Settings": "遮蔽された対象物の位置姿勢設定",
+            "Orthographic Projection Settings": "正投影の設定",
+            "Traversation Seetings": "トラバーサルの設定"
+        },
+        "properties": {
+            "angleStep": {
+                "name": "回転のステップ"
+            },
+            "aspectThreshold": {
+                "name": "縦横比"
+            },
+            "borderSize": {
+                "name": "境界のサイズ"
+            },
+            "closingOperateSize": {
+                "name": "閉じる動作した後のカーネルのサイズ"
+            },
+            "defaultObscuredObjectsPoseZ": {
+                "name": "対象物の位置姿勢の高さのデフォルト値"
+            },
+            "distanceFromPalletToCamera": {
+                "name": "パレットからカメラまでの距離"
+            },
+            "maxArea": {
+                "name": "最大面積"
+            },
+            "minArea": {
+                "name": "最小面積"
+            },
+            "ratioOfHighestNeighborHeight": {
+                "name": "近くの最高物体に対する高さの比率"
+            },
+            "searchNeighborRadius": {
+                "name": "隣接物体の検索半径"
+            },
+            "topNLargestArea": {
+                "name": "面積が最大N個の物体まで保留"
+            },
+            "translationStep": {
+                "name": "並進のステップ"
+            },
+            "useHighestNeighbor": {
+                "name": "近くの最高物体に基づく位置姿勢を求める"
+            }
+        }
+    },
     "mmind::StepDynamicInputPorts": {
         "properties": {
             "inputSize": {
@@ -2887,6 +2987,128 @@
             },
             "leafSize": {
                 "name": "サンプリング間隔"
+            },
+            "x": {
+                "name": "X"
+            },
+            "y": {
+                "name": "Y"
+            },
+            "z": {
+                "name": "Z"
+            }
+        }
+    },
+    "mmind::StepGenerateCylinderModel": {
+        "groupInfos": {
+            "Cylindrical Properties": "円筒形点群のパラメータ"
+        },
+        "properties": {
+            "diameter": {
+                "name": "直径"
+            },
+            "leafSize": {
+                "name": "サンプリング間隔"
+            },
+            "length": {
+                "name": "長さ"
+            }
+        }
+    },
+    "mmind::StepGenerateEndFaceModel": {
+        "groupInfos": {
+            "Geometric Settings": "幾何学的な設定",
+            "Point Cloud Settings": "点群の設定"
+        },
+        "properties": {
+            "centerZValue": {
+                "name": "点群のZ値"
+            },
+            "endAngle": {
+                "name": "エンド角度"
+            },
+            "innerRadius": {
+                "name": "内円の半径"
+            },
+            "normalVectorDirection": {
+                "name": "法線ベクトルの方向"
+            },
+            "outerRadius": {
+                "name": "外円の半径"
+            },
+            "samplingInterval": {
+                "name": "サンプリング間隔"
+            },
+            "startAngle": {
+                "name": "スタート角度"
+            }
+        }
+    },
+    "mmind::StepGenerateModelCloud": {
+        "groupInfos": {
+            "Model Cloud Settings": "モデル点群の設定",
+            "Template Image Property": "テンプレート画像のパラメータ"
+        },
+        "properties": {
+            "horizontalFlipTemplateImage": {
+                "name": "テンプレート画像を水平回転"
+            },
+            "scale": {
+                "name": "スケール"
+            },
+            "useBoundary": {
+                "name": "エッジテンプレート"
+            }
+        }
+    },
+    "mmind::StepGenerateRingModel": {
+        "groupInfos": {
+            "Circle Properties": "円のパラメータ",
+            "Height Difference between Rings Properties": "リングの高低差",
+            "Ring 1 Properties": "リング1のパラメータ",
+            "Ring 2 Properties": "リング2のパラメータ",
+            "Ring 3 Properties": "リング3のパラメータ",
+            "Ring Properties": "リングのパラメータ"
+        },
+        "properties": {
+            "heightDif1": {
+                "name": "リング1とリング2の違い"
+            },
+            "heightDif2": {
+                "name": "リング2とリング3の違い"
+            },
+            "innerRadius": {
+                "name": "内円の半径"
+            },
+            "innerRadius1": {
+                "name": "内円の半径"
+            },
+            "innerRadius2": {
+                "name": "内円の半径"
+            },
+            "innerRadius3": {
+                "name": "内円の半径"
+            },
+            "leafSize": {
+                "name": "テンプレート点群のサンプリング間隔"
+            },
+            "modelType": {
+                "name": "モデルタイプ"
+            },
+            "outerRadius": {
+                "name": "外円の半径"
+            },
+            "outerRadius1": {
+                "name": "外円の半径"
+            },
+            "outerRadius2": {
+                "name": "外円の半径"
+            },
+            "outerRadius3": {
+                "name": "外円の半径"
+            },
+            "radius": {
+                "name": "半径"
             }
         }
     },
@@ -2976,6 +3198,7 @@
         "groupInfos": {
             "Clustering Settings": "クラスター設定"
         },
+        "keywords": "有効な点群を取得する/フィルター",
         "properties": {
             "clusterTolerance": {
                 "name": "隣接点の最大距離"
@@ -2985,6 +3208,46 @@
             },
             "minClusterNum": {
                 "name": "点の最小個数"
+            }
+        }
+    },
+    "mmind::StepGetValidRingClouds": {
+        "groupInfos": {
+            "Clustering": "クラスタリング",
+            "Distance Thresholding": "距離しきい値",
+            "Reference Direction": "基準方向",
+            "Ring Mask Processing Settings": "リングマスク処理の設定"
+        },
+        "properties": {
+            "clusterTolerance": {
+                "name": "クラスターの許容"
+            },
+            "dilateSize": {
+                "name": "膨張サイズ"
+            },
+            "distanceFromHighestZ": {
+                "name": "最高Zからの距離"
+            },
+            "erodeSize": {
+                "name": "食込むサイズ"
+            },
+            "main_normal_x": {
+                "name": "主法線x"
+            },
+            "main_normal_y": {
+                "name": "主法線y"
+            },
+            "main_normal_z": {
+                "name": "主法線z"
+            },
+            "maxClusterNum": {
+                "name": "クラスターの最大数"
+            },
+            "minClusterNum": {
+                "name": "クラスターの最小数"
+            },
+            "useAutoMainNormal": {
+                "name": "主法線を自動使用"
             }
         }
     },
@@ -3733,11 +3996,72 @@
             }
         }
     },
+    "mmind::StepMergeSameHeightClouds": {
+        "groupInfos": {
+            "Calc Height Settings": "高さの計算設定",
+            "Customized Direction": "カスタマイズされた方向",
+            "Direction of Calculating Height": "高さ計算の方向"
+        },
+        "keywords": "同じ高さの点群をマージする",
+        "properties": {
+            "cloudDirectionType": {
+                "name": "基準方向タイプ"
+            },
+            "cloudHeightErrorTolerance": {
+                "name": "高さの許容範囲"
+            },
+            "maxSizeCloudNormalZDir": {
+                "name": "法線のZ軸方向に沿ったカスタム方向"
+            },
+            "x": {
+                "keyToolTip": "高さの計算に使用する。",
+                "name": "X"
+            },
+            "y": {
+                "keyToolTip": "高さの計算に使用する。",
+                "name": "Y"
+            },
+            "z": {
+                "keyToolTip": "高さの計算に使用する。",
+                "name": "Z"
+            }
+        }
+    },
     "mmind::StepMorphOperator": {
         "properties": {
             "morphOperatorType": {
                 "name": "モフォロジー変換",
                 "valueToolTip": "OpeningOperator（オープニング処理）：収縮（erosion）の後に膨張（dilation）をする処理。ノイズ除去に有効。\nDilateOperator（膨張処理）：物体の面積を大きくしたり、物体の壊れた部分を結合したりする。\nErodeOperator（収縮処理）：画像中の白色雑音(ノイズ)の除去やつながっている複数物体を分割する時などに有効である。\nClosingOperator（クロージング処理）：膨張（dilation）の後に収縮（erosion）をする処理。前景領域中の小さな(黒い)穴を埋めるのに役立つ。\nSkeleton：物体の輪郭（境界線）を抽出する。"
+            }
+        }
+    },
+    "mmind::StepMoveCloudAlongSetDir": {
+        "groupInfos": {
+            "Coordinate Setting": "座標設定",
+            "Mapping Method Setting": "マーピング方法の設定",
+            "Translation Setting": "並進設定"
+        },
+        "properties": {
+            "axisTypeOfObjectCoordinate": {
+                "name": "オブジェクト座標軸のタイプ"
+            },
+            "coordinateType": {
+                "name": "座標タイプ"
+            },
+            "mappingType": {
+                "name": "マーピングのタイプ"
+            },
+            "moveDis": {
+                "name": "移動距離"
+            },
+            "x": {
+                "name": "X"
+            },
+            "y": {
+                "name": "Y"
+            },
+            "z": {
+                "name": "Z"
             }
         }
     },
@@ -3923,6 +4247,7 @@
         }
     },
     "mmind::StepPointsFilter": {
+        "keywords": "測定",
         "properties": {
             "pointsFilterType": {
                 "keyToolTip": "StatisticalOutlierFilter: 点群との距離が指定された範囲を超えた点を、この方法で除去します。点群に明らかな外れ値がある場合に使用することをお薦めします。\nNormalsFilter: 法線ベクトルが基準方向との角度が指定された範囲を超えた点を、この方法で除去します。密接している物体を分割する時にこの方法を推奨します。",
@@ -5091,6 +5416,25 @@
             },
             "useNonRigidRefinement": {
                 "name": "非剛体の高精度位置姿勢推定を使用"
+            }
+        }
+    },
+    "mmind::StepTransformPlaneCloudToAlignDirection": {
+        "properties": {
+            "useCloudCenter": {
+                "name": "点群中心を使用"
+            },
+            "x": {
+                "keyToolTip": "方向Zのx値",
+                "name": "X"
+            },
+            "y": {
+                "keyToolTip": "方向Zのy値",
+                "name": "Y"
+            },
+            "z": {
+                "keyToolTip": "方向Zのz値",
+                "name": "Z"
             }
         }
     },
