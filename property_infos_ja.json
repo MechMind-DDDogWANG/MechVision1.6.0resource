@@ -1071,7 +1071,65 @@
     },
     "mmind::Step2dCamera": {
         "groupInfos": {
-            "Camera Settings": "カメラ設定"
+            "Camera Settings": "カメラ設定",
+            "Gray Value Range Settings範囲": "グレー値範囲設定",
+            "Hdr Imaging": "HDRイメージング"
+        },
+        "properties": {
+            "cameraType": {
+                "name": "カメラタイプ"
+            },
+            "exposureBegin": {
+                "name": "多重露光下限値"
+            },
+            "exposureEnd": {
+                "name": "多重露光上限値"
+            },
+            "exposureMultiple": {
+                "name": "露出倍数"
+            },
+            "exposureTime": {
+                "name": "露出時間"
+            },
+            "ip": {
+                "name": "IP"
+            },
+            "isAutoExposure": {
+                "name": "自動露出"
+            },
+            "isOutputGrayImage": {
+                "name": "グレースケールを出力"
+            },
+            "isSoftwareTrigger": {
+                "name": "ソフトウェアトリガ"
+            },
+            "limitAverageGrayValueOfOutputImage": {
+                "name": "出力画像の平均グレー値の制限"
+            },
+            "maxGrayValue": {
+                "name": "グレー値の最大値"
+            },
+            "maxIterationNums": {
+                "name": "最大反復回数"
+            },
+            "maxRecaptureTime": {
+                "name": "最大撮り直し回数"
+            },
+            "meanGrayValue": {
+                "name": "平均グレー値"
+            },
+            "minGrayValue": {
+                "name": "グレー値の最小値"
+            },
+            "timeoutMs": {
+                "name": "タイムアウト"
+            },
+            "useHdrImaging": {
+                "name": "多重露光とHDRが融合した画像を使用"
+            },
+            "useToneMapping": {
+                "name": "トーンマッピングの使用"
+            }
         }
     },
     "mmind::Step2dCircleDetector": {
@@ -1317,6 +1375,15 @@
             },
             "unknownDimensionFilterType": {
                 "name": "箱寸法のフィルタータイプが未知"
+            },
+            "x": {
+                "name": "X値"
+            },
+            "y": {
+                "name": "Y値"
+            },
+            "z": {
+                "name": "Z値"
             }
         }
     },
@@ -1353,6 +1420,22 @@
             },
             "sizeRatioOfRemainingBoxToStandardBox": {
                 "name": "標準箱の寸法領域に対する残りの領域の比率"
+            }
+        }
+    },
+    "mmind::StepBridge": {
+        "properties": {
+            "maxTimeOutInSec": {
+                "name": "タイムアウトの最大値[s]"
+            },
+            "portsList": {
+                "name": "ステップポートリスト"
+            },
+            "runLastProjectInCurrentThread": {
+                "name": "現在のスレッドで最後のプロジェクトを実行"
+            },
+            "stopEarly": {
+                "name": "プロジェクトの呼び出しを急停止"
             }
         }
     },
@@ -1522,6 +1605,110 @@
             },
             "stdThickness": {
                 "name": "標準厚さ"
+            }
+        }
+    },
+    "mmind::StepCalcDisparitySGBM": {
+        "groupInfos": {
+            "Match Settings": "マッチング設定",
+            "Occlusion Check": "オクルージョンチェック",
+            "Post-processing Settings": "位置姿勢処理設定",
+            "Visual & Debug": "可視化＆デバッグ"
+        },
+        "properties": {
+            "P1": {
+                "name": "P1"
+            },
+            "P2": {
+                "name": "P2"
+            },
+            "SADWindowSize": {
+                "name": "マッチングウィンドウサイズ"
+            },
+            "depthRadius": {
+                "name": "深度半径"
+            },
+            "lambda": {
+                "name": "エッジリザベーション係数 (8000 ~ 20000)"
+            },
+            "matchMode": {
+                "name": "マッチングモード",
+                "valueToolTip": "デフォルト設定の使用を推奨します。"
+            },
+            "maxDepth": {
+                "name": "深度の最大値"
+            },
+            "minDepth": {
+                "name": "深度の最小値"
+            },
+            "nonZeroCountRatio": {
+                "name": "ゼロでない計数比"
+            },
+            "occInterpolation": {
+                "name": "オクルージョン フィルタ補間法"
+            },
+            "occKernelSize": {
+                "name": "オクルージョンカーネルサイズ"
+            },
+            "occLRCheckDispThres": {
+                "name": "オクルージョン フィルタ左右視差の上限値"
+            },
+            "postProcessingMode": {
+                "name": "位置姿勢処理モード"
+            },
+            "preFilterCap": {
+                "name": "前処理で勾配の閾値の上限"
+            },
+            "rightMatcherType": {
+                "name": "アシストライト・マッチ・レフト・タイプ"
+            },
+            "showOcclusionCheck": {
+                "name": "オクルージョンチェックの効果を表す"
+            },
+            "showOriginLRImgs": {
+                "name": "マッチングで使われる左右の画像を表示"
+            },
+            "showPreprocessEffects": {
+                "name": "前処理効果を表す"
+            },
+            "showSpeckleRemoval": {
+                "name": "スペックルフィルタリングの効果を表す"
+            },
+            "showWlsComponetBasedRemoval": {
+                "name": "除去に基づいてWLSの成分を表す"
+            },
+            "showWlsEffects": {
+                "name": "カラー画像に対してWLSフィルタリングの効果を表す"
+            },
+            "sigma": {
+                "name": "カラー画像ぼかし係数"
+            },
+            "sigmaXYRatio": {
+                "name": "カラー画像ぼかし係数XY値比"
+            },
+            "speckleRange": {
+                "name": "同じスペックルウィンドウ内近くの画素の最大視差値の差"
+            },
+            "speckleWindowSize": {
+                "name": "スペックルウィンドウサイズの最大面積"
+            },
+            "useGray": {
+                "name": "グレースケールを用いてマッチングする"
+            },
+            "useOcclutionFilter": {
+                "name": "オクルージョン フィルタを使用"
+            },
+            "visualScale": {
+                "name": "可視化ウィンドウの縮尺"
+            },
+            "visualSpeckleAreaThres": {
+                "name": "可視化スペックルフィルタリングのウィンドウサイズの最大面積"
+            },
+            "windowSize": {
+                "name": "ウィンドウサイズ"
+            },
+            "wlsCheckMode": {
+                "name": "WLSバリデーションモード"
             }
         }
     },
@@ -1733,6 +1920,9 @@
             "scoreType": {
                 "name": "スコアタイプ"
             },
+            "secondToMaxRatio": {
+                "name": "第二最大半径"
+            },
             "showArea": {
                 "name": "輪郭面積を表示"
             },
@@ -1757,6 +1947,9 @@
             },
             "treatContourAsConcaveIfHasHole": {
                 "name": "連結領域に穴がある場合は凹面と見なす"
+            },
+            "useApproximatedTheta": {
+                "name": "シータの近似値を使う"
             },
             "useContourApproximateDir": {
                 "name": "主方向を位置姿勢のX軸として使用"
@@ -2344,6 +2537,16 @@
             }
         }
     },
+    "mmind::StepCompareDepth": {
+        "properties": {
+            "downDif": {
+                "name": "深度値差の下限値"
+            },
+            "upperDif": {
+                "name": "深度値差の上限値"
+            }
+        }
+    },
     "mmind::StepConvertImgEdgeToThreedEdges": {
         "properties": {
             "calcEdgeNormal": {
@@ -2609,6 +2812,54 @@
             }
         }
     },
+    "mmind::StepDetectBinFourSides": {
+        "groupInfos": {
+            "Bin Location Settings": "箱の位置設定",
+            "Collision Model Settings": "衝突モデルの設定",
+            "Corner Detection Settings": "コーナー検出設定"
+        },
+        "properties": {
+            "binHeight": {
+                "name": "箱の高さ"
+            },
+            "binLength": {
+                "name": "箱の長さ"
+            },
+            "binWidth": {
+                "name": "箱の幅"
+            },
+            "blockSize": {
+                "name": "ブロックサイズ"
+            },
+            "centerAwayCamera": {
+                "name": "箱の中心からカメラまでの高低差"
+            },
+            "k": {
+                "name": "K値"
+            },
+            "margin": {
+                "name": "マージン"
+            },
+            "maxCorners": {
+                "name": "最大コーナー数"
+            },
+            "minDistance": {
+                "name": "最短距離"
+            },
+            "neighborDepthSearchSize": {
+                "name": "近くの深度値のカーネルサイズを検索"
+            },
+            "qualityLevel": {
+                "name": "品質レベル"
+            },
+            "thickness": {
+                "name": "厚さ"
+            },
+            "useHarrisDetector": {
+                "name": "Harrisコーナー検出器を使用"
+            }
+        }
+    },
     "mmind::StepDetectBinInscribedRectSides": {
         "groupInfos": {
             "Bin Size Settings": "箱のサイズ設定"
@@ -2632,6 +2883,29 @@
             },
             "thickness": {
                 "name": "厚さ"
+            }
+        }
+    },
+    "mmind::StepDetectBinTwoSides": {
+        "groupInfos": {
+            "Bin Settings": "箱の設定",
+            "Collision Model Settings": "衝突モデル設定"
+        },
+        "properties": {
+            "boxAlignType": {
+                "name": "整列タイプ"
+            },
+            "boxLength": {
+                "name": "長さ"
+            },
+            "boxWidth": {
+                "name": "幅"
+            },
+            "edgeWidth": {
+                "name": "箱の側壁の幅"
+            },
+            "moveYDis": {
+                "name": "変位"
             }
         }
     },
@@ -2816,12 +3090,63 @@
             }
         }
     },
+    "mmind::StepExtrCaliOfStructuredLightSensor": {
+        "properties": {
+            "planeCloudNoiseRange": {
+                "name": "平面点群ノイズの範囲"
+            }
+        }
+    },
     "mmind::StepFilter": {
         "properties": {
             "reverseBoolList": {
                 "keyToolTip": "False：入力「BoolList」に「False」が含まれる項目をフィルタリングし、「True」の項目を返します。\nTrue：入力「BoolList」に含まれる「True」を持つ項目をフィルタリングし、「False」を持つ項目を返します。",
                 "name": "ブール値を反転するか",
                 "valueToolTip": "デフォルトはFalse。"
+            }
+        }
+    },
+    "mmind::StepFilterPosesOutsideBin": {
+        "groupInfos": {
+            "Collision Box Size Settings": "衝突の箱のサイズ設定",
+            "Collision Model Settings": "衝突モデル設定",
+            "Custom Settings": "カスタム設定",
+            "Filtering Settings": "フィルタリングの設定",
+            "Out-of-bin Checking": "箱外チェック"
+        },
+        "properties": {
+            "alignType": {
+                "name": "整列タイプ"
+            },
+            "boxHeight": {
+                "name": "箱の高さ"
+            },
+            "boxLength": {
+                "name": "箱の長さ"
+            },
+            "boxWidth": {
+                "name": "箱の幅"
+            },
+            "edgeWidth": {
+                "name": "側壁の幅"
+            },
+            "moveYDis": {
+                "name": "変位"
+            },
+            "removedNum": {
+                "name": "バウンディングボックス外と判定する点群の数の閾値"
+            },
+            "removedRatio": {
+                "name": "バウンディングボックス外と判定する点群の比の閾値"
+            },
+            "thresholdType": {
+                "name": "フィルター閾値タイプ"
+            },
+            "useOutOfBinWeights": {
+                "name": "対象物がバウンディングボックス外と判定される重み付けの使用"
+            },
+            "weightsScale": {
+                "name": "バウンディングボックス外重み付け比率"
             }
         }
     },
@@ -3243,6 +3568,9 @@
             "Visualization Settings": "可視化設定"
         },
         "properties": {
+            "depthRefPercentile": {
+                "name": "深度参照比率"
+            },
             "gaussianKSize": {
                 "name": "ガウスカーネルサイズ"
             },
@@ -3967,6 +4295,13 @@
             }
         }
     },
+    "mmind::StepMergeDepthImages": {
+        "properties": {
+            "mode": {
+                "name": "モード"
+            }
+        }
+    },
     "mmind::StepMorphOperator": {
         "properties": {
             "morphOperatorType": {
@@ -4057,6 +4392,22 @@
         "properties": {
             "searchRadius": {
                 "name": "検索半径"
+            }
+        }
+    },
+    "mmind::StepNotify": {
+        "properties": {
+            "actionWhenFailed": {
+                "name": "送信失敗した際のメッセージフォーマット"
+            },
+            "message": {
+                "name": "メッセージ"
+            },
+            "serviceName": {
+                "name": "サービス名"
+            },
+            "timeout": {
+                "name": "タイムアウト"
             }
         }
     },
@@ -4156,6 +4507,13 @@
         "properties": {
             "overlapRatioBetweenObjectAndHighestLayerMask": {
                 "name": "対象物がパレットの最高層点群と重複面積の比率しきい値"
+            }
+        }
+    },
+    "mmind::StepParamsCompensation": {
+        "properties": {
+            "targetReference": {
+                "name": "ターゲット基準"
             }
         }
     },
