@@ -1308,6 +1308,50 @@
             }
         }
     },
+    "mmind::StepAdjustPosesToPointCloudSurface": {
+        "groupInfos": {
+            "Adjust Method Settings": "調整する手法の設定",
+            "Point Cloud Range Settings": "点群の範囲設定"
+        },
+        "properties": {
+            "adjustMethod": {
+                "name": "位置姿勢の調整方法"
+            },
+            "coordinateType": {
+                "name": "座標系タイプ"
+            },
+            "extractPointCloudMethod": {
+                "name": "点群の取得方法"
+            },
+            "innerRadius": {
+                "name": "内半径"
+            },
+            "mappingType": {
+                "name": "マッピングタイプ"
+            },
+            "maxZ": {
+                "name": "Zの最大値"
+            },
+            "minZ": {
+                "name": "Zの最小値"
+            },
+            "outerRadius": {
+                "name": "外半径"
+            },
+            "percent": {
+                "name": "パーセント"
+            },
+            "x": {
+                "name": "X"
+            },
+            "y": {
+                "name": "Y"
+            },
+            "z": {
+                "name": "Z"
+            }
+        }
+    },
     "mmind::StepAutoTrajectory": {
         "groupInfos": {
             "Cloud Mask Processing Settings": "点群マスクの処理設定",
@@ -1587,6 +1631,13 @@
             "specifiedAxis": {
                 "keyToolTip": "2 つの入力位置姿勢の指定された軸の間の角度を計算します。",
                 "name": "指定軸"
+            }
+        }
+    },
+    "mmind::StepCalcAngleWrtVector3d": {
+        "properties": {
+            "predefinedVector": {
+                "name": "指定された三次元ベクトル"
             }
         }
     },
@@ -2147,6 +2198,22 @@
                 "name": "Y"
             },
             "z": {
+                "name": "Z"
+            }
+        }
+    },
+    "mmind::StepCalcProjectionLengthAlongRefDir": {
+        "groupInfos": {
+            "Reference Direction": "基準方向"
+        },
+        "properties": {
+            "dirX": {
+                "name": "X"
+            },
+            "dirY": {
+                "name": "Y"
+            },
+            "dirZ": {
                 "name": "Z"
             }
         }
@@ -3422,10 +3489,83 @@
             }
         }
     },
+    "mmind::StepEasyCoordsTransform": {
+        "groupInfos": {
+            "Transform Settings": "変換の設定"
+        },
+        "properties": {
+            "transformType": {
+                "name": "変換タイプ"
+            }
+        }
+    },
+    "mmind::StepEasyCreateIndexList": {
+        "properties": {
+            "n": {
+                "name": "総数 N"
+            }
+        }
+    },
+    "mmind::StepEasyCreateNumberList": {
+        "properties": {
+            "end": {
+                "name": "最終値"
+            },
+            "inputType": {
+                "name": "入力タイプ"
+            },
+            "numbers": {
+                "name": "数値リスト"
+            },
+            "start": {
+                "name": "初期値"
+            },
+            "stepSize": {
+                "name": "ステップの長さ"
+            }
+        }
+    },
+    "mmind::StepEasyCreatePoses": {
+        "properties": {
+            "vectors": {
+                "name": "位置姿勢のリスト"
+            }
+        }
+    },
+    "mmind::StepEasyCreateQuaternions": {
+        "properties": {
+            "vectors": {
+                "name": "回転ベクトルのリスト"
+            }
+        }
+    },
     "mmind::StepEasyCreateStringList": {
         "properties": {
             "strings": {
                 "name": "文字列のリスト"
+            }
+        }
+    },
+    "mmind::StepEasyCreateVector3ds": {
+        "properties": {
+            "needNormalize": {
+                "name": "単位ベクトルを求め"
+            },
+            "vectors": {
+                "name": "三次元ベクトルのリスト"
+            }
+        }
+    },
+    "mmind::StepEasyPointTo": {
+        "properties": {
+            "fixedAxis": {
+                "name": "固定させる軸"
+            },
+            "referencePoint": {
+                "name": "基準ポイント"
+            },
+            "rotatedAxis": {
+                "name": "回転させる軸"
             }
         }
     },
@@ -3762,6 +3902,41 @@
             }
         }
     },
+    "mmind::StepGenerateAndCheckOffsetPoses": {
+        "groupInfos": {
+            "Object Dimensions Settings": "対象物の寸法設定",
+            "Offset Translation Settings": "オフセット変位量の設定"
+        },
+        "properties": {
+            "diffThre": {
+                "name": "最大寸法差"
+            },
+            "expandRatioForOriginRange": {
+                "name": "検索半径の拡大率"
+            },
+            "objectLength": {
+                "name": "対象物の長さ"
+            },
+            "objectWidth": {
+                "name": "対象物の幅"
+            },
+            "offsetX": {
+                "name": "X軸方向のオフセット"
+            },
+            "offsetY": {
+                "name": "Y軸方向のオフセット"
+            },
+            "offsetZ": {
+                "name": "Z軸方向のオフセット"
+            },
+            "symmetry": {
+                "name": "対称性"
+            },
+            "yParallelToLongSide": {
+                "name": "長辺と平行するY軸"
+            }
+        }
+    },
     "mmind::StepGenerateCloud": {
         "groupInfos": {
             "Background Removal Settings": "背景除去の設定"
@@ -3869,6 +4044,55 @@
             },
             "useBoundary": {
                 "name": "エッジテンプレート"
+            }
+        }
+    },
+    "mmind::StepGeneratePickPoint": {
+        "groupInfos": {
+            "Image Settings": "画像の設定",
+            "Max Overlapping Area Search Settings": "最大オーバーラップ領域検索設定",
+            "Output Settins": "出力設定",
+            "Pick Point Generation Settings": "ピックポイントの生成設定",
+            "Pick Point Settings": "ピックポイントの設定",
+            "Sucker Settings": "吸盤の設定",
+            "Threshold Settings": "閾値の設定"
+        },
+        "properties": {
+            "candidateTopNum": {
+                "name": "ピックポイントの最大数"
+            },
+            "centerX": {
+                "name": "ピックポイントのX座標"
+            },
+            "centerY": {
+                "name": "ピックポイントのY座標"
+            },
+            "horizontalFlipTemplateImage": {
+                "name": "テンプレート画像を水平方向に反転"
+            },
+            "offsetAngle": {
+                "name": "ピックポイントの角度オフセット"
+            },
+            "overlapRatioThresh": {
+                "name": "オーバーラップ比の閾値"
+            },
+            "pickPointType": {
+                "name": "ピックポイントの生成方法"
+            },
+            "rotateStep": {
+                "name": "回転のステップの長さ"
+            },
+            "scale": {
+                "name": "縮尺"
+            },
+            "suckerLength": {
+                "name": "吸盤の長さ"
+            },
+            "suckerWidth": {
+                "name": "吸盤の幅"
+            },
+            "translateStep": {
+                "name": "平行移動のステップの長さ"
             }
         }
     },
@@ -4511,6 +4735,13 @@
             }
         }
     },
+    "mmind::StepIsGreaterThanZThreshold": {
+        "properties": {
+            "zThreshold": {
+                "name": "閾値"
+            }
+        }
+    },
     "mmind::StepJoinLabels": {
         "properties": {
             "connector": {
@@ -4545,6 +4776,19 @@
             },
             "scriptFilePath": {
                 "name": "スクリプトファイルのパス"
+            }
+        }
+    },
+    "mmind::StepKeepPosesDistributedInRegularPolygon": {
+        "properties": {
+            "angleDiffThre": {
+                "name": "最大角度差"
+            },
+            "disThreRatio": {
+                "name": "最大距離比"
+            },
+            "sidesNum": {
+                "name": "边数"
             }
         }
     },
@@ -4715,6 +4959,48 @@
         "properties": {
             "ROI": {
                 "name": "ROI"
+            },
+    "mmind::StepMakePosePointToRefPlace": {
+        "groupInfos": {
+            "Input Check Settings": "入力確認設定",
+            "Reference Translation Settings": "基準位置の設定",
+            "Rotation Settings": "回転の設定",
+            "Symmetry Settings": "対称性の設定",
+            "When Reference Points Came From Input": "基準点が入力から取得した場合"
+        },
+        "properties": {
+            "considerRotationalSymmetry": {
+                "name": "対象物の対称性を考慮"
+            },
+            "coordinateType": {
+                "name": "座標系のタイプ"
+            },
+            "fixedAxis": {
+                "name": "固定させる軸"
+            },
+            "ignoreZeroNormDirection": {
+                "name": "基準点が位置姿勢の中心と一致する場合は無視"
+            },
+            "pointSourceType": {
+                "name": "入力データの種類"
+            },
+            "relativeFlags": {
+                "name": "相対変位"
+            },
+            "rotatedAxis": {
+                "name": "回転させる軸"
+            },
+            "symmetryAngle": {
+                "name": "対称な角(0 ~ 360)"
+            },
+            "x": {
+                "name": "X"
+            },
+            "y": {
+                "name": "Y"
+            },
+            "z": {
+                "name": "Z"
             }
         }
     },
@@ -5233,10 +5519,72 @@
             }
         }
     },
+    "mmind::StepPose2DEvaluation": {
+        "groupInfos": {
+            "Evalution Criteria": "評価基準",
+            "Visualization Settings": "可視化設定"
+        },
+        "properties": {
+            "backgroundImage": {
+                "name": "背景画像"
+            },
+            "dotRadius": {
+                "name": "ドット半径"
+            },
+            "gtInputType": {
+                "name": "真値のソース"
+            },
+            "imgSavePath": {
+                "name": "保存用画像ファイル名"
+            },
+            "isSaveImg": {
+                "name": "画像を保存"
+            },
+            "jsonPath": {
+                "name": "真値のファイル"
+            },
+            "lineLength": {
+                "name": "線の長さ"
+            },
+            "lineWidth": {
+                "name": "線の太さ"
+            },
+            "maxCenterPointDist": {
+                "name": "距離の閾値"
+            },
+            "maxDegError": {
+                "name": "角度の閾値"
+            }
+        }
+    },
     "mmind::StepPose2DToPose3DBaseOrthographicProjection": {
         "properties": {
             "neighborDepthSearchKernelSize": {
                 "name": "近くの深度値のカーネルサイズを探す"
+            }
+        }
+    },
+    "mmind::StepPose2EulerAngles": {
+        "groupInfos": {
+            "Angle Settings": "角度の設定",
+            "Reference Coordinate System Settings": "基準座標系の設定",
+            "Rotation Axis Settings": "回転軸の設定"
+        },
+        "properties": {
+            "axis0": {
+                "name": "Axis 1"
+            },
+            "axis1": {
+                "name": "Axis 2"
+            },
+            "axis2": {
+                "name": "Axis 3"
+            },
+            "coordSysType": {
+                "name": "回転基準座標系"
+            },
+            "eulerAnglesType": {
+                "name": "角度の単位"
             }
         }
     },
@@ -5314,6 +5662,20 @@
             }
         }
     },
+    "mmind::StepPoseMultiplyPose": {
+        "properties": {
+            "predefined": {
+                "name": "指定された変換"
+            }
+        }
+    },
+    "mmind::StepPoseMultiplyQuaternion": {
+        "properties": {
+            "predefined": {
+                "name": "指定された変換"
+            }
+        }
+    },
     "mmind::StepPoseNMS": {
         "groupInfos": {
             "Neighboring Poses Search Settings": "近傍位置姿勢の検索設定",
@@ -5338,6 +5700,52 @@
             }
         }
     },
+    "mmind::StepPoseOffsetInCylinder": {
+        "groupInfos": {
+            "Cylinder Properties": "\n円柱のプロパティ",
+            "Pose Compensation Method": "位置姿勢補正の方法",
+            "Usage Settings for Input Clouds": "入力点群の利用設定"
+        },
+        "properties": {
+            "allUseFirstCloud": {
+                "name": "最初の点群のみを使用"
+            },
+            "useCenter": {
+                "name": "点群の中心を用いて対象物が円柱の中に入っているかどうかをかどうかを判断する"
+            },
+            "useLocalZAxis": {
+                "name": "円柱範囲内のポイントを用いた変位量を計算"
+            },
+            "xoyDisMaxThre": {
+                "name": "外半径"
+            },
+            "xoyDisMinThre": {
+                "name": "内半径"
+            },
+            "zDisMaxThre": {
+                "name": "円柱座標系におけるZの最大値"
+            },
+            "zDisMinThre": {
+                "name": "円柱座標系におけるZの最小値"
+            }
+        }
+    },
+    "mmind::StepPoseRevolve": {
+        "groupInfos": {
+            "Revolution Settings": "回転数設定"
+        },
+        "properties": {
+            "angleInterval": {
+                "name": "角度間隔 (0 ~ 360)"
+            },
+            "maxRevolveThreshold": {
+                "name": "最大初期角度"
+            },
+            "minRevolveThreshold": {
+                "name": "最小初期角度"
+            }
+        }
+    },
     "mmind::StepPoseRotation": {
         "groupInfos": {
             "Reference Direction": "基準方向",
@@ -5347,6 +5755,15 @@
             "rotAngle": {
                 "keyToolTip": "自己の座標系での基準方向周りの回転。",
                 "name": "回転角度"
+            },
+            "x": {
+                "name": "X"
+            },
+            "y": {
+                "name": "Y"
+            },
+            "z": {
+                "name": "Z"
             }
         }
     },
@@ -5367,6 +5784,20 @@
             "gaussianFilterSigma": {
                 "keyToolTip": "X方向とY方向のガウスカーネル標準偏差です。",
                 "name": "標準偏差"
+            }
+        }
+    },
+    "mmind::StepPoseSortByNumList": {
+        "properties": {
+            "sortOrder": {
+                "name": "並び替え方式"
+            }
+        }
+    },
+    "mmind::StepPoseSortBySelfInfo": {
+        "properties": {
+            "axisType": {
+                "name": "並び替えた値"
             }
         }
     },
@@ -5411,6 +5842,23 @@
             },
             "scriptFilePath": {
                 "name": "スクリプトファイルのパス"
+            }
+        }
+    },
+    "mmind::StepQuaternionCompositionFromAxisAngle": {
+        "properties": {
+            "angle": {
+                "name": "角度"
+            },
+            "axis": {
+                "name": "軸"
+            }
+        }
+    },
+    "mmind::StepQuaternionCompositionFromTwoAxis": {
+        "properties": {
+            "combinationType": {
+                "name": "入力軸の組み合わせの種類"
             }
         }
     },
@@ -5584,6 +6032,51 @@
             }
         }
     },
+    "mmind::StepRectifyPoseAccordingToTilt": {
+        "groupInfos": {
+            "Tilt Translation Ratio": "傾斜平行移動比"
+        },
+        "properties": {
+            "tranDisScaleTiltInward": {
+                "name": "内向き"
+            },
+            "tranDisScaleTiltOutward": {
+                "name": "外向き"
+            }
+        }
+    },
+    "mmind::StepRectifyPoseByOffset": {
+        "properties": {
+            "additionalOfffset": {
+                "name": "余分なオフセット"
+            },
+            "cylinderLength": {
+                "name": "閾値"
+            },
+            "cylinderLengthThreRatio": {
+                "name": "閾値比"
+            },
+            "suckerCoverNextCylinderLengthRatio": {
+                "name": "円柱点群の閾値比"
+            },
+            "suckerLength": {
+                "name": "吸盤の長さ"
+            }
+        }
+    },
+    "mmind::StepRectifyRingPose": {
+        "properties": {
+            "angleSplit": {
+                "name": "角度分割"
+            },
+            "circleFitIterations": {
+                "name": "円のフィット反復回数"
+            },
+            "minContourLength": {
+                "name": "最小輪郭長さ"
+            }
+        }
+    },
     "mmind::StepRectifyTrackPointsPoses": {
         "groupInfos": {
             "Rotation Settings": "回転設定"
@@ -5744,6 +6237,16 @@
             }
         }
     },
+    "mmind::StepRemoveOverlappingPoses": {
+        "groupInfos": {
+            "Threshold Settings": "閾値の設定"
+        },
+        "properties": {
+            "distThre": {
+                "name": "他の位置姿勢との最小許容距離"
+            }
+        }
+    },
     "mmind::StepRemovePolygonsOutsideMask": {
         "properties": {
             "maskUsage": {
@@ -5751,6 +6254,19 @@
             },
             "overlapRatioThre": {
                 "name": "ポリゴンとマスクの重複面積の最小面積比 (0 ~ 1.0)"
+            }
+        }
+    },
+    "mmind::StepRemovePosesInsideCones": {
+        "properties": {
+            "bigRadius": {
+                "name": "大半径"
+            },
+            "theta": {
+                "name": "θ"
+            },
+            "zDirDiffThre": {
+                "name": "Z軸間の角度の閾値"
             }
         }
     },
@@ -5800,6 +6316,30 @@
             },
             "vectorLevel": {
                 "name": "リストで操作される要素の次元"
+            }
+        }
+    },
+    "mmind::StepRotPoseAroundAxisAngle": {
+        "groupInfos": {
+            "Angle Settings": "角度の設定",
+            "Axis Settings": "軸の設定",
+            "Coordinate Settings": "座標系の設定"
+        },
+        "properties": {
+            "angle": {
+                "name": "角度"
+            },
+            "axisType": {
+                "name": "軸のタイプ"
+            },
+            "coordinateType": {
+                "name": "座標系のタイプ"
+            },
+            "customizedDir": {
+                "name": "カスタマイズされた基準方向"
+            },
+            "ignoreZeroNormDirection": {
+                "name": "長さが0で無効な方向ベクトルを無視する"
             }
         }
     },
@@ -5885,6 +6425,54 @@
             "useRelativeZ": {
                 "keyToolTip": "基準点のZ値を置き換えます。基準点のZ値＝元のポーズのZ値＋相対値",
                 "name": "相対Z値を使用"
+            },
+            "x": {
+                "name": "X"
+            },
+            "y": {
+                "name": "Y"
+            },
+            "z": {
+                "name": "Z"
+            }
+        }
+    },
+    "mmind::StepRotatePosesLocally": {
+        "properties": {
+            "axisType": {
+                "name": "回転させる軸のタイプ"
+            },
+            "degree": {
+                "name": "度"
+            }
+        }
+    },
+    "mmind::StepRotateToInputDirections": {
+        "properties": {
+            "customizedDir": {
+                "name": "カスタマイズされた基準方向"
+            },
+            "fixedAxis": {
+                "name": "固定させる軸"
+            },
+            "rotatedAxis": {
+                "name": "回転させる軸"
+            }
+        }
+    },
+    "mmind::StepRotateToInputDirectionsWithAngleStep": {
+        "properties": {
+            "customizedDir": {
+                "name": "カスタマイズされた基準方向"
+            },
+            "fixedAxis": {
+                "name": "固定させる軸"
+            },
+            "rotatedAxis": {
+                "name": "回転させる軸"
+            },
+            "symmetryAngle": {
+                "name": "対称な角(0 ~ 360)"
             }
         }
     },
@@ -6099,6 +6687,20 @@
     "mmind::StepSetQuaternion": {
         "groupInfos": {
             "Quaternion": "四元数"
+        },
+        "properties": {
+            "w": {
+                "name": "W"
+            },
+            "x": {
+                "name": "X"
+            },
+            "y": {
+                "name": "Y"
+            },
+            "z": {
+                "name": "Z"
+            }
         }
     },
     "mmind::StepSetTranslation": {
@@ -6202,6 +6804,22 @@
             "visualizeZValue": {
                 "keyToolTip": "チェックを入れると、点群をZ値によって異なるグレースケールで表示されます。",
                 "name": "値を可視化"
+            }
+        }
+    },
+    "mmind::StepSimpleArithmeticOpWithVector3d": {
+        "properties": {
+            "inputSource": {
+                "name": "入力のソース"
+            },
+            "operationType": {
+                "name": "操作のタイプ"
+            },
+            "predefinedNumber": {
+                "name": "指定された値"
+            },
+            "predefinedVector": {
+                "name": "指定された三次元ベクトル"
             }
         }
     },
@@ -6504,6 +7122,50 @@
             }
         }
     },
+    "mmind::StepTransPoseByDirectionAndDist": {
+        "groupInfos": {
+            "Coordinate Settings": "座標系の設定",
+            "Direction Settings": "方向の設定",
+            "Distance Settings": "距離の設定"
+        },
+        "properties": {
+            "axisType": {
+                "name": "軸のタイプ"
+            },
+            "coordinateType": {
+                "name": "座標系のタイプ"
+            },
+            "customizedDir": {
+                "name": "カスタマイズされた基準方向"
+            },
+            "ignoreZeroNormDirection": {
+                "name": "長さが0で無効な方向ベクトルを無視する"
+            },
+            "moveDistance": {
+                "name": "移動距離"
+            }
+        }
+    },
+    "mmind::StepTransPosesAlongCustomDirectionByInputDists": {
+        "properties": {
+            "customizedDir": {
+                "name": "カスタマイズされた基準方向"
+            },
+            "moveDistance": {
+                "name": "移動距離"
+            }
+        }
+    },
+    "mmind::StepTransPosesLocallyByDists": {
+        "properties": {
+            "axisType": {
+                "name": "軸のタイプ"
+            },
+            "moveDistance": {
+                "name": "移動距離"
+            }
+        }
+    },
     "mmind::StepTransformPlaneCloudToAlignDirection": {
         "properties": {
             "useCloudCenter": {
@@ -6564,6 +7226,20 @@
             },
             "threshold": {
                 "name": "しきい値"
+            }
+        }
+    },
+    "mmind::StepVector3dCrossVecotr3d": {
+        "properties": {
+            "predefinedVector": {
+                "name": "指定された三次元ベクトル"
+            }
+        }
+    },
+    "mmind::StepVector3dDotWithVector3d": {
+        "properties": {
+            "predefinedVector": {
+                "name": "指定された三次元ベクトル"
             }
         }
     },

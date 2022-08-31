@@ -305,7 +305,7 @@
                 "valueToolTip": "Select camera"
             },
             "cameraParameterGroupName": {
-				"name": "Camera Calibration Parameters",
+                "name": "Camera Calibration Parameters",
                 "subtype": 3
             },
             "reconnectTimes": {
@@ -1398,8 +1398,8 @@
         "properties": {
             "configGroup": {
                 "infrequentlyUsed": true,
-				"name": "Camera Config Group",
                 "keyToolTip": "This setting should be used with a running Mech-Eye camera.\nIf Mech-Eye has a specific configuration for black objects called 'black'; and another specific configuration for white objects called 'white', then here user can input the configuration name to use the specific settings in Mech-Eye.\nSuitable for a case where multiple vision projects is using same Mech-Eye camera, and each of the project needs to detect objects with various colors. Then vision project can set to their own camera configuration through here.",
+                "name": "Camera Config Group",
                 "subtype": 3,
                 "valueToolTip": "Default is empty input, so as to use the current configuration from Mech-Eye."
             },
@@ -2635,7 +2635,7 @@
                 "validateByPrincipalAxisAngleMinimum"
             ]
         },
-		"icon_name": "Blob Analysis",
+        "icon_name": "Blob Analysis",
         "properties": {
             "binaryThreshold": {
                 "name": "Binarization Threshold",
@@ -4071,9 +4071,6 @@
     },
     "mmind::StepCaliperBaseClass": {
         "properties": {
-            "edgeSelection": {
-                "keyToolTip": "This parameter sets which detected edge point should be selected as the edge point for fitting in a single edge detection frame."
-            },
             "edgeDetectionFrameHalfWidth": {
                 "keyToolTip": "Half the width of the edge detection frames. When the edge is not clear, the value can be increased appropriately. When the edge is clear, the value can be decreased appropriately.",
                 "maximum": 1000,
@@ -4082,6 +4079,9 @@
             "edgePolarityType": {
                 "keyToolTip": "This parameter sets which type of grayscale changes from top to bottom in the vertical direction within the edge detection frames will be regarded as object edges.",
                 "singleStep": 0
+            },
+            "edgeSelection": {
+                "keyToolTip": "This parameter sets which detected edge point should be selected as the edge point for fitting in a single edge detection frame."
             },
             "grayscaleChangeLowerThreshold": {
                 "keyToolTip": "Points with grayscale changes above this threshold within the edge detection frames will be regarded as object edge points.",
@@ -5588,7 +5588,7 @@
                 "stringFileFilter": "Models Package (*.dlkpack)",
                 "subtype": 2
             },
-			"modelType": {
+            "modelType": {
                 "name": "modelType"
             },
             "objConfidenceThreshold": {
@@ -9288,7 +9288,7 @@
         },
         "icon_name": "Instance Segmentation",
         "infrequentlyUsed": true,
-		"keywords": "mask/measure",
+        "keywords": "mask/measure",
         "properties": {
             "colorScheme": {
                 "infrequentlyUsed": false,
@@ -10868,22 +10868,17 @@
         "deprecatedType": true,
         "developingType": true,
         "groupInfos": {
-            "Evaluation Criteria": [
-                "maxCenterPointDist",
-                "maxDegError"
-            ],
-            "Ground Truth Settings": [
-                "gtInputType"
-            ],
-            "Saving Settings": [
-                "isSaveImg",
-                "imgSavePath"
-            ],
-            "Visualization Settings": [
+            "Evalution Criteria": [
                 "lineLength",
                 "dotRadius",
                 "lineWidth",
-                "backgroundImage"
+                "backgroundImage",
+                "maxCenterPointDist",
+                "maxDegError"
+            ],
+            "Visualization Settings": [
+                "isSaveImg",
+                "imgSavePath"
             ]
         },
         "infrequentlyUsed": true,
@@ -13220,7 +13215,6 @@
                 "nkernelSize"
             ],
             "High Gradient Filter": [
-                "",
                 "thresholdRemove"
             ],
             "Remove Sparse Filter": [
@@ -13261,9 +13255,6 @@
                 "keyToolTip": "If depth value is threshold  pixels larger than orign pixel,the pixel will be ignored.",
                 "minimum": 0,
                 "singleStep": 1
-            },
-            "": {
-                "keyToolTip": "If the gradient of a pixel is larger this thresholdRemove and the gradient of its neighbor pixel is larger than this threshold, this neighbor pixel's value are set to be zero."
             },
             "thresholdRemove": {
                 "keyToolTip": "If the gradient of a pixel is larger this threshold and the gradient of its neighbor pixel is larger than thresholdIgnore, this neighbor pixel's value are set to be zero."
