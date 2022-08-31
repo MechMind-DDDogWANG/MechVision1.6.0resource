@@ -1384,6 +1384,29 @@
             }
         }
     },
+    "mmind::StepBgSubtraction": {
+        "groupInfos": {
+            "Post Processing Settings": "後処理の設定",
+            "Subtractor Properties": "減算器プロパティ"
+        },
+        "properties": {
+            "areaThres": {
+                "name": "面積のしきい値"
+            },
+            "kernelSize": {
+                "name": "カーネルサイズ"
+            },
+            "niters": {
+                "name": "モルフォロジーの操作回数"
+            },
+            "subtractorType": {
+                "name": "減算器タイプ"
+            },
+            "useRefinement": {
+                "name": "後処理使用する"
+            }
+        }
+    },
     "mmind::StepBinaryClassifier": {
         "groupInfos": {
             "Threshold Settings": "しきい値設定"
@@ -1392,6 +1415,114 @@
             "multiThreshold": {
                 "keyToolTip": "入力データのしきい値。\nしきい値はセミコロン「；」で区切ります。",
                 "name": "各ポートの入力データのしきい値"
+            }
+        }
+    },
+    "mmind::StepBlobAnalysis": {
+        "groupInfos": {
+            "Detection Settings": "検出設定",
+            "Filtering Settings": "フィルタリング設定",
+            "Validation Settings": "検証の設定"
+        },
+        "properties": {
+            "binaryThreshold": {
+                "name": "二値化しきい値"
+            },
+            "connectivity": {
+                "name": "連結性"
+            },
+            "contourRetrievalMode": {
+                "name": "輪郭抽出方法"
+            },
+            "filterAreaByMaximum": {
+                "name": "面積上限"
+            },
+            "filterAreaByMinimum": {
+                "name": "面積下限"
+            },
+            "filterByArea": {
+                "name": "面積によるフィルタリング"
+            },
+            "filterByCircularity": {
+                "name": "円形度によるフィルタリング"
+            },
+            "filterByCircularityMaximum": {
+                "name": "円形度上限値"
+            },
+            "filterByCircularityMinimum": {
+                "name": "円形度下限値"
+            },
+            "filterByPerimeter": {
+                "name": "外周によるフィルタリング"
+            },
+            "filterByPerimeterMaximum": {
+                "name": "外周上限"
+            },
+            "filterByPerimeterMinimum": {
+                "name": "外周下限"
+            },
+            "filterByPrincipalAxisAngle": {
+                "name": "主軸の向きによるフィルタリング"
+            },
+            "filterByPrincipalAxisAngleMaximum": {
+                "name": "主軸角度の上限値"
+            },
+            "filterByPrincipalAxisAngleMinimum": {
+                "name": "主軸角度の下限値"
+            },
+            "filterByRectAngle": {
+                "name": "最小外接矩形の向きによるフィルタリング"
+            },
+            "filterByRectAngleMaximum": {
+                "name": "矩形角度上限値"
+            },
+            "filterByRectAngleMinimum": {
+                "name": "矩形角度下限値"
+            },
+            "filterByRectangularity": {
+                "name": "矩形によるフィルタリング"
+            },
+            "filterByRectangularityMaximum": {
+                "name": "矩形度上限値"
+            },
+            "filterByRectangularityMinimum": {
+                "name": "矩形度下限値"
+            },
+            "polarity": {
+                "name": "ブロブ領域選択"
+            },
+            "sortCriteria": {
+                "name": "ソート基準"
+            },
+            "thresholdMethod": {
+                "name": "二値化しきい値の設定"
+            },
+            "validateByArea": {
+                "name": "面積による検証"
+            },
+            "validateByAreaMaximum": {
+                "name": "面積上限"
+            },
+            "validateByAreaMinimum": {
+                "name": "面積下限"
+            },
+            "validateByCircularity": {
+                "name": "円形度による検証"
+            },
+            "validateByCircularityMaximum": {
+                "name": "円形度上限値"
+            },
+            "validateByCircularityMinimum": {
+                "name": "円形度下限値"
+            },
+            "validateByPrincipalAxisAngle": {
+                "name": "主軸の向きによる検証"
+            },
+            "validateByPrincipalAxisAngleMaximum": {
+                "name": "主軸角度の上限値"
+            },
+            "validateByPrincipalAxisAngleMinimum": {
+                "name": "主軸角度の下限値"
             }
         }
     },
@@ -1883,6 +2014,13 @@
             },
             "maxIterations": {
                 "name": "最大反復回数"
+            }
+        }
+    },
+    "mmind::StepCalcPixelSizeAtSpecifiedHeight": {
+        "properties": {
+            "height": {
+                "name": "高さ"
             }
         }
     },
@@ -2653,6 +2791,45 @@
             }
         }
     },
+    "mmind::StepCoherentLineDrawing": {
+        "groupInfos": {
+            "Edge Tangent Flow": "エッジタンジェントフロー",
+            "Flow-based Difference-of-Gaussians": "フローベースのガウス差分",
+            "Visualization Settings": "可視化設定"
+        },
+        "properties": {
+            "CLD_iter": {
+                "name": "CLD_iter"
+            },
+            "ETF_iter": {
+                "name": "ETF_iter"
+            },
+            "ETF_kernel": {
+                "name": "ETFカーネル"
+            },
+            "rho": {
+                "name": "rho"
+            },
+            "showCoherentLineImg": {
+                "name": "コヒーレントライン画像表示"
+            },
+            "showEdgeTangentArrowImg": {
+                "name": "エッジタンジェントアロー画像表示"
+            },
+            "showEdgeTangentFlowImg": {
+                "name": "エッジタンジェントフロー画像表示"
+            },
+            "sigma_c": {
+                "name": "sigma c"
+            },
+            "sigma_m": {
+                "name": "sigma m"
+            },
+            "tau": {
+                "name": "tau"
+            }
+        }
+    },
     "mmind::StepCompareDepth": {
         "properties": {
             "downDif": {
@@ -2724,6 +2901,13 @@
         "properties": {
             "vectorLevel": {
                 "name": "配列内の操作変数の次元"
+            }
+        }
+    },
+    "mmind::StepCropImage": {
+        "properties": {
+            "roi": {
+                "name": "ROI"
             }
         }
     },
@@ -3050,6 +3234,28 @@
             }
         }
     },
+    "mmind::StepDetectFiducialMarker": {
+        "properties": {
+            "markerSize": {
+                "name": "マーカーサイズ"
+            },
+            "markerType": {
+                "name": "マーカータイプ"
+            },
+            "parametersCompensationDirectory": {
+                "name": "パラメーター補正フォルダ"
+            },
+            "refinementSearchSize": {
+                "name": "絞り込み検索サイズ"
+            },
+            "saveAsParametersCompensationFormat": {
+                "name": "パラメータ補正形式で保存"
+            },
+            "targetReference": {
+                "name": "参考目標"
+            }
+        }
+    },
     "mmind::StepDetectLine": {
         "groupInfos": {
             "Visualization Settings": "可視化設定"
@@ -3069,6 +3275,33 @@
             },
             "fittingMethod": {
                 "name": "フィッティング方法"
+            }
+        }
+    },
+    "mmind::StepDetectNLargestRectanglesInMask": {
+        "groupInfos": {
+            "Rectangle NMS Settings ": "矩形NMSの設定",
+            "Rectangle Shape Settings": "矩形サイズの設定",
+            "Traversation Settings": "走査の設定"
+        },
+        "properties": {
+            "angleStep": {
+                "name": "角度ステップ（0〜360）"
+            },
+            "aspectThreshold": {
+                "name": "縦横比のしきい値"
+            },
+            "maxArea": {
+                "name": "最大面積"
+            },
+            "minArea": {
+                "name": "最小面積"
+            },
+            "topNLargestArea": {
+                "name": "最大N個面積"
+            },
+            "translationStep": {
+                "name": "変換ステップ"
             }
         }
     },
@@ -3119,6 +3352,26 @@
             },
             "useHighestNeighbor": {
                 "name": "近くの最高物体に基づく位置姿勢を求める"
+            }
+        }
+    },
+    "mmind::StepDetectShapeFeatureOfRegion": {
+        "properties": {
+            "filledRegionFeature": {
+                "name": "塗りつぶしエリアの特徴"
+            },
+            "regionFeatureType": {
+                "name": "エリア特徴タイプ"
+            }
+        }
+    },
+    "mmind::StepDeterminePixelSize": {
+        "properties": {
+            "physicalSize": {
+                "name": "物理的なサイズ"
+            },
+            "primitiveShape": {
+                "name": "元の形状"
             }
         }
     },
@@ -3336,6 +3589,13 @@
             }
         }
     },
+    "mmind::StepFeatureDetector": {
+        "properties": {
+            "detectorType": {
+                "name": "検出器タイプ"
+            }
+        }
+    },
     "mmind::StepFilter": {
         "properties": {
             "reverseBoolList": {
@@ -3386,6 +3646,42 @@
             },
             "weightsScale": {
                 "name": "バウンディングボックス外重み付け比率"
+            }
+        }
+    },
+    "mmind::StepFind2DContour": {
+        "groupInfos": {
+            "Contours Drawing Settings": "輪郭描画の設定",
+            "Contours Retrieval Settings": "輪郭抽出の設定"
+        },
+        "properties": {
+            "contourRetrievalMode": {
+                "name": "輪郭抽出モード"
+            },
+            "hierarchyLevel": {
+                "name": "指定された階層"
+            },
+            "lineSize": {
+                "name": "線の太さ"
+            },
+            "maxContourSize": {
+                "name": "最大輪郭サイズ"
+            },
+            "mergeContours": {
+                "name": "輪郭をマージする"
+            },
+            "minContourSize": {
+                "name": "最小輪郭サイズ"
+            },
+            "sortContourBySizeAscending": {
+                "name": "輪郭の大きさを昇順に並べる"
+            }
+        }
+    },
+    "mmind::StepFindCorners": {
+        "properties": {
+            "drawCornerRadius": {
+                "name": "角の半径を描く"
             }
         }
     },
@@ -4282,6 +4578,16 @@
             }
         }
     },
+    "mmind::StepImageTypeConvert": {
+        "properties": {
+            "convertType": {
+                "name": "変換タイプ"
+            },
+            "scaleFactor": {
+                "name": "倍率"
+            }
+        }
+    },
     "mmind::StepImgBalancer": {
         "groupInfos": {
             "Balancer Settings": "バランサーの設定"
@@ -4290,6 +4596,13 @@
             "balancerType": {
                 "keyToolTip": "バランサーのタイプを選択します。",
                 "name": "バランサーのタイプ"
+            }
+        }
+    },
+    "mmind::StepImgFilter": {
+        "properties": {
+            "filterType": {
+                "name": "フィルタータイプ"
             }
         }
     },
@@ -4316,15 +4629,31 @@
             }
         }
     },
+    "mmind::StepImgTransformer": {
+        "properties": {
+            "transformerType": {
+                "name": "変換タイプ"
+            }
+        }
+    },
     "mmind::StepInscribedCircleDetector": {
         "groupInfos": {
             "Detection Settings": "検出設定"
         },
         "keywords": "内接円検出器",
         "properties": {
+            "expandedRatioOfCircleRadius": {
+                "name": "内接円半径拡大率 (0 ~1.0)"
+            },
             "maxNumberOfDetectedCircles": {
                 "keyToolTip": "検出した円の最大数",
                 "name": "検出した円の最大数"
+            },
+            "minInscribedCircleRadius": {
+                "name": "最小内接円の半径"
+            },
+            "ratioOfFirstCircleRadius": {
+                "name": "最初の円の半径に対する最小比率"
             }
         }
     },
@@ -4513,7 +4842,6 @@
     "mmind::StepLineDetector": {
         "groupInfos": {
             "FastLineDetetor Settings": "FastLineDetetorの設定",
-            "Line Detector Setting": "直線検出器の設定",
             "Line Properties": "直線プロパティ",
             "LineSegmentDetector Settings": "LineSegmentDetectorの設定"
         },
@@ -4649,6 +4977,32 @@
             },
             "z": {
                 "name": "Z"
+            }
+        }
+    },
+    "mmind::StepLoadTemplates": {
+        "properties": {
+            "angleTolerance": {
+                "name": "角度公差（0〜180）"
+            },
+            "gradientQuant": {
+                "name": "勾配定量化"
+            },
+            "minLineLength": {
+                "name": "最小の線長さ"
+            },
+            "symmetry": {
+                "name": "対称性"
+            },
+            "templateDiagonalQuantization": {
+                "name": "テンプレート対角定量化"
+            }
+        }
+    },
+    "mmind::StepMakeTemplate": {
+        "properties": {
+            "ROI": {
+                "name": "ROI"
             }
         }
     },
@@ -6121,6 +6475,19 @@
             },
             "symmetryAngle": {
                 "name": "対称な角(0 ~ 360)"
+            }
+        }
+    },
+    "mmind::StepRotateImgsByPoses": {
+        "properties": {
+            "manipulatedAxis": {
+                "name": "指定軸"
+            },
+            "referenceAngleIn2D": {
+                "name": "2D基準角"
+            },
+            "transLength": {
+                "name": "指定軸に沿ったオフセット"
             }
         }
     },
