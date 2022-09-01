@@ -4936,30 +4936,6 @@
             }
         }
     },
-    "mmind::StepLoadTemplates": {
-        "properties": {
-            "angleTolerance": {
-                "name": "角度公差（0〜180）"
-            },
-            "gradientQuant": {
-                "name": "勾配定量化"
-            },
-            "minLineLength": {
-                "name": "最小の線長さ"
-            },
-            "symmetry": {
-                "name": "対称性"
-            },
-            "templateDiagonalQuantization": {
-                "name": "テンプレート対角定量化"
-            }
-        }
-    },
-    "mmind::StepMakeTemplate": {
-        "properties": {
-            "ROI": {
-                "name": "ROI"
-            },
     "mmind::StepMakePosePointToRefPlace": {
         "groupInfos": {
             "Input Check Settings": "入力確認設定",
@@ -5001,6 +4977,32 @@
             },
             "z": {
                 "name": "Z"
+            }
+        }
+    },
+    "mmind::StepLoadTemplates": {
+        "properties": {
+            "angleTolerance": {
+                "name": "角度公差（0〜180）"
+            },
+            "gradientQuant": {
+                "name": "勾配定量化"
+            },
+            "minLineLength": {
+                "name": "最小の線長さ"
+            },
+            "symmetry": {
+                "name": "対称性"
+            },
+            "templateDiagonalQuantization": {
+                "name": "テンプレート対角定量化"
+            }
+        }
+    },
+    "mmind::StepMakeTemplate": {
+        "properties": {
+            "ROI": {
+                "name": "ROI"
             }
         }
     },
