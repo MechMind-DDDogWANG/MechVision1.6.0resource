@@ -1088,6 +1088,7 @@
                 "name": "多重露光上限値"
             },
             "exposureMultiple": {
+                "keyToolTip": "各カメラの露出は、この倍数を掛けて、計算されます。",
                 "name": "露出倍数"
             },
             "exposureTime": {
@@ -1106,21 +1107,27 @@
                 "name": "ソフトウェアトリガ"
             },
             "limitAverageGrayValueOfOutputImage": {
+                "keyToolTip": "チェックを入れたら、平均グレー値を計算します。\nチェックを外したら、平均グレー値を計算しません。",
                 "name": "出力画像の平均グレー値の制限"
             },
             "maxGrayValue": {
+                "keyToolTip": "RGB画像またはグレー画像のグレー値の最大値である。",
                 "name": "グレー値の最大値"
             },
             "maxIterationNums": {
+                "keyToolTip": "最大反復回数である。",
                 "name": "最大反復回数"
             },
             "maxRecaptureTime": {
+                "keyToolTip": "カメラが画像を異常に撮影した場合、複数回の撮影が行われ、この値は最最大撮り直し回数となります。",
                 "name": "最大撮り直し回数"
             },
             "meanGrayValue": {
+                "keyToolTip": "平均グレー値の予想値である。",
                 "name": "平均グレー値"
             },
             "minGrayValue": {
+                "keyToolTip": "RGB画像またはグレー画像のグレー値の最小値である。",
                 "name": "グレー値の最小値"
             },
             "timeoutMs": {
@@ -1543,6 +1550,7 @@
         },
         "properties": {
             "boxDimensionErrorTolerance": {
+                "keyToolTip": "箱の寸法の最大値と最小値の差の誤差許容範囲である。",
                 "name": "箱の寸法の誤差許容範囲"
             },
             "boxDimensionInfoType": {
@@ -1585,18 +1593,22 @@
                 "name": "フィルタータイプ"
             },
             "marginWidth": {
+                "keyToolTip": "残りのマスクギャップの幅である。",
                 "name": "ギャップ幅"
             },
             "minRectangularity": {
                 "name": "最小長方形度のしきい値"
             },
             "rectangularityValidation": {
+                "keyToolTip": "長方形度の定義：マスクの最小外接矩形面積に対するマスク面積との比である。",
                 "name": "長方形度の検証"
             },
             "showMarginMask": {
+                "keyToolTip": "残りのギャップマスクを表示します。",
                 "name": "ギャップマスクを表示"
             },
             "sizeRatioOfRemainingBoxToStandardBox": {
+                "keyToolTip": "標準の箱の寸法に対する残りのマスクの箱の寸法との比の閾値である。",
                 "name": "標準箱の寸法領域に対する残りの領域の比率"
             }
         }
@@ -1809,12 +1821,14 @@
                 "name": "P2"
             },
             "SADWindowSize": {
+                "keyToolTip": "初期コスト算出するためのウィンドウサイズであり、正数かつ奇数である必要があります。",
                 "name": "マッチングウィンドウサイズ"
             },
             "depthRadius": {
                 "name": "深度半径"
             },
             "lambda": {
+                "keyToolTip": "値を大きくすると、フィルタリングされた視差マップのエッジは、ソース画像のエッジに近づきます。",
                 "name": "エッジリザベーション係数 (8000 ~ 20000)"
             },
             "matchMode": {
@@ -1822,9 +1836,11 @@
                 "valueToolTip": "デフォルト設定の使用を推奨します。"
             },
             "maxDepth": {
+                "keyToolTip": "関心した深度の最大値である。",
                 "name": "深度の最大値"
             },
             "minDepth": {
+                "keyToolTip": "関心した深度の最小値である。",
                 "name": "深度の最小値"
             },
             "nonZeroCountRatio": {
@@ -1843,6 +1859,7 @@
                 "name": "位置姿勢処理モード"
             },
             "preFilterCap": {
+                "keyToolTip": "前処理された画像ピクセルの指定の桁で数値を切り捨てる値である。Birchfield-Tomasi画素コスト関数に関係しています。",
                 "name": "前処理で勾配の閾値の上限"
             },
             "rightMatcherType": {
@@ -1867,18 +1884,22 @@
                 "name": "カラー画像に対してWLSフィルタリングの効果を表す"
             },
             "sigma": {
+                "keyToolTip": "大きな値を設定すると、低コントラストエッジから視差が漏れることがあります。\n小さな値を設定すると、フィルタはソース画像のノイズやテクスチャーに対して感度が良過ぎる可能性があります。",
                 "name": "カラー画像ぼかし係数"
             },
             "sigmaXYRatio": {
                 "name": "カラー画像ぼかし係数XY値比"
             },
             "speckleRange": {
-                "name": "同じスペックルウィンドウ内近くの画素の最大視差値の差"
+                "keyToolTip": "連続した画素の最大視差値の差である。\nスペックルフィルタリングを使用する場合、この値は正である必要があります。",
+                "name": "同じスペックルウィンドウ内近くの画素の視差値の最大値"
             },
             "speckleWindowSize": {
-                "name": "スペックルウィンドウサイズの最大面積"
+                "keyToolTip": "ノイズスペックルとして考えられるための滑らかな視差領域の最大サイズである。0に設定するとスペックルフィルタリングが無効になります。\nこの値はカメラの解像度と正の相関があります。フィルタリングの効果を示すためには、適切な値を設定する必要があります。",
+                "name": "スペックルウィンドウの最大サイズ"
             },
             "useGray": {
+                "keyToolTip": "チェックを入れたら（デフォルト）、左右の画像を1チャンネルに変換し、グレー画像としてマッチングします。\nチェックを外したら、3チャンネルでマッチングします。",
                 "name": "グレースケールを用いてマッチングする"
             },
             "useOcclutionFilter": {
@@ -2062,27 +2083,34 @@
         },
         "properties": {
             "LRRAngleStep": {
+                "keyToolTip": "輪郭内で最大の回転矩形（LRR）を検索する際の回転検索ステップである。",
                 "name": "LRR検索の角度ステップサイズ"
             },
             "LRRTanslationStep": {
+                "keyToolTip": "輪郭内で最大の回転矩形（LRR）を探索する際の並進探索ステップである。",
                 "name": "LRR検索の並進ステップサイズ"
             },
             "areaSizeLowerBound": {
-                "name": "連結領域の最小面積"
+                "name": "連結領域の最小面積",
+                "valueToolTip": "この値は、輪郭が有効なサイズであることを確認するために、正の数である必要があります。"
             },
             "areaSizeUpperBound": {
-                "name": "連結領域の最大面積"
+                "name": "連結領域の最大面積",
+                "valueToolTip": "この値は，面積制約の範囲が有効であるように，下限値より大きくなければならいけません。\nこの値が下限値と等しい場合、連結成分は下限値でのみ制約されます。"
             },
             "bboxLToWRatioThre": {
+                "keyToolTip": "輪郭のバウンディングボックスの長辺と短辺の比を表す閾値である。輪郭が凹の場合、バウンディングボックスの長辺と短辺の比がこの閾値より大きければ、回転した最大の矩形の中心を把持点とします。\nバウンディングボックスの長辺と短辺の比がこの閾値より小さければ、インサークル (POI) の中心を把持点とします。",
                 "name": "境界ボックスのアスペクト比のしきい値"
             },
             "calcDepthMethod": {
                 "name": "位置姿勢のZ軸の計算方法"
             },
             "convexityThre": {
+                "keyToolTip": "ヒート領域の凸領域がこの値より大きい場合、その重心を把持点とします。\nそれ以外の場合は、輪郭のバウンディングボックスの長辺と短辺の比に応じて、輪郭内の円の中心（POI）または最大回転矩形（LLR）の中心を把持点とします。",
                 "name": "凸性のしきい値 (0 ~ 1)"
             },
             "depthSearchRadius": {
+                "keyToolTip": "深度画像におけるヒートポイントの深さを決定するための検索半径である。",
                 "name": "位置姿勢のZ軸を計算するときの領域検索半径"
             },
             "distThre": {
@@ -2096,25 +2124,31 @@
                 "name": "フォントのスケーリング(0.5 ~ 2.0)"
             },
             "gripperType": {
-                "name": "治具のタイプ"
+                "name": "治具のタイプ",
+                "valueToolTip": "SuctionCup（サクションカップ）: 吸盤のことです。\nParallelJaw（パラレルジョー）:  平行な爪です。"
             },
             "histPrecision": {
                 "keyToolTip": "中央値を使用してヒートポイントの深度を計算するときのヒストグラムの精度。",
                 "name": "ヒストグラムの精度"
             },
             "lowerThre": {
+                "keyToolTip": "連結領域を取得するための確率の下限しきい値（0~1）である。",
                 "name": "連結領域を生成する確率の下限しきい値"
             },
             "poiPrecision": {
+                "keyToolTip": "位置姿勢の計算精度 (POI)を高めます。",
                 "name": "位置姿勢の計算精度 (POI)"
             },
             "probabilityStep": {
+                "keyToolTip": "設定した確率の閾値でヒート領域が生成されない場合は、閾値が下限値に達するまで、このステップ値を調整して閾値を減少させます。",
                 "name": "確率しきい値を小さくするためのステップサイズ"
             },
             "probabilityThre": {
+                "keyToolTip": "連結領域を取得するための確率の開始しきい値（0~1）である。",
                 "name": "連結領域を生成する確率の開始しきい値"
             },
             "rotationClassNum": {
+                "keyToolTip": "ディープラーニングモデルにおけるθのクラス数である。",
                 "name": "回転角度のグループ数"
             },
             "scoreType": {
@@ -2139,7 +2173,8 @@
                 "name": "把持位置姿勢の確率を表示"
             },
             "thresholdUsage": {
-                "name": "しきい値の使用方式"
+                "name": "しきい値の使用方式",
+                "valueToolTip": "複数のしきい値である。設定された確率の範囲内で閾値を使用し、連結領域を取得します。ヒートマップからより多くの位置姿勢を取得しますが、速度が遅くなります。"
             },
             "topK": {
                 "keyToolTip": "確率の高い最初のK個位置姿勢が抽出されます。",
@@ -2152,6 +2187,7 @@
                 "name": "シータの近似値を使う"
             },
             "useContourApproximateDir": {
+                "keyToolTip": "チェックを入れたら、取得した輪郭の PCA 計算し、第一固有ベクトルの方向を出力位置姿勢の X 軸として使用します。",
                 "name": "主方向を位置姿勢のX軸として使用"
             }
         }
@@ -2833,9 +2869,11 @@
     "mmind::StepCompareDepth": {
         "properties": {
             "downDif": {
+                "keyToolTip": "2つの深度画像の差分許容値の下限値であり、計算単位はmmである。\n深度値差がこの閾値を超えている画素は、緑色で表示されます。",
                 "name": "深度値差の下限値"
             },
             "upperDif": {
+                "keyToolTip": "2つの深度画像の差分許容値の上限値であり、計算単位はmmである。\n深度値差がこの閾値を超えている画素は、赤色で表示されます。",
                 "name": "深度値差の上限値"
             }
         }
@@ -2959,27 +2997,32 @@
     "mmind::StepDeepLearningPack": {
         "properties": {
             "clsConfidenceThreshold": {
+                "keyToolTip": "値がこのしきい値以上の結果は保存されます。",
                 "name": "画像分類の信頼度しきい値 (0.0~1.0)"
             },
             "clsResultsOutputFlags": {
                 "name": "画像分類の出力フラグ"
             },
             "detConfidenceThreshold": {
+                "keyToolTip": "値がこの閾値以上の結果は保存されます。",
                 "name": "対象物検出の信頼度しきい値 (0.0~1.0)"
             },
             "detResultsOutputFlags": {
                 "name": "対象物検出の出力フラグ"
             },
             "modelsPackagePath": {
+                "keyToolTip": "演算に使用するモデルパッケージファイルのパスを設定します。モデルパッケージファイルはMech-DLKからエクスポートされた\".dlkpack \"ファイルである。",
                 "name": "モデルパッケージのファイルパス"
             },
             "needFilterSegResults": {
                 "name": "欠陥セグメンテーションの結果をフィルタリング"
             },
             "segAreaLowerLimit": {
+                "keyToolTip": "値がこの下限値以上の結果は保存されます。",
                 "name": "欠陥の分割輪郭の面積の下限値"
             },
             "segPerimeterLowerLimit": {
+                "keyToolTip": "値がこの下限値以上の結果は保存されます。",
                 "name": "分割輪郭の周囲の下限値"
             },
             "segResultsOutputFlags": {
@@ -2999,6 +3042,7 @@
         },
         "properties": {
             "clsConfidenceThreshold": {
+                "keyToolTip": "信頼度がこの閾値以上の結果は、保存され出力されます。",
                 "name": "画像分類の信頼度しきい値(0.0～1.0)"
             },
             "clsResultsOutputFlags": {
@@ -3008,15 +3052,18 @@
                 "name": "すばやく位置決めの出力フラグ"
             },
             "instanceSegConfidenceThreshold": {
+                "keyToolTip": "信頼度がこの閾値以上の結果は、保存され出力されます。",
                 "name": "インスタンスセグメンテーションの信頼度しきい値(0.0～1.0)"
             },
             "instanceSegResultsOutputFlags": {
                 "name": "インスタンスセグメンテーションの出力フラグ"
             },
             "modelPackagePath": {
+                "keyToolTip": "演算に使用するモデルパッケージファイルのパスを設定します。モデルパッケージファイルはMech-DLKからエクスポートされた\".dlkpack \"ファイルである。",
                 "name": "モデルパッケージのファイルパス"
             },
             "objConfidenceThreshold": {
+                "keyToolTip": "信頼度がこの閾値以上の結果は、保存され出力されます。",
                 "name": "対象物検出の信頼度しきい値(0.0～1.0)"
             },
             "objResultsOutputFlags": {
@@ -3038,30 +3085,39 @@
         },
         "properties": {
             "classificationConfigFile": {
+                "keyToolTip": "欠陥分類設定ファイルのファイルのパスである。",
                 "name": "コンフィグファイル"
             },
             "classificationModelFile": {
+                "keyToolTip": "欠陥分類モデルのファイルのパスである。",
                 "name": "モデルファイル"
             },
             "defectAreaThreshold": {
+                "keyToolTip": "欠陥画素数が設定した閾値以下の場合、その欠陥を無視します。閾値の範囲は0～50000である。",
                 "name": "欠陥サイズをフィルタリングするためのしきい値"
             },
             "detectionRegionRoiList": {
+                "keyToolTip": "欠陥検出のためのROI領域を設定します。このステップは、測定モードで行う必要があります。",
                 "name": "欠陥検出のROI領域"
             },
             "drawDefectLabelOnImage": {
+                "keyToolTip": "画像でに欠陥のカテゴリーを描画します。",
                 "name": "画像で欠陥のカテゴリーを絵画"
             },
             "drawDefectMaskOnImage": {
+                "keyToolTip": "画像でに欠陥のマスクを描画します。",
                 "name": "画像で欠陥のマスクを描画"
             },
             "fontScale": {
+                "keyToolTip": "フォントサイズを設定します。",
                 "name": "フォントサイズ（0~10）"
             },
             "manuallyFontScale": {
+                "keyToolTip": "カスタムサイズのフォントサイズを使用するように選択します。",
                 "name": "カスタマイズのフォントサイズを使用"
             },
             "useClassification": {
+                "keyToolTip": "欠陥を分類する必要がある場合、このオプションにチェックを入れてください。",
                 "name": "欠陥分類の機能を使用"
             }
         }
@@ -3115,47 +3171,59 @@
     "mmind::StepDetectBinFourSides": {
         "groupInfos": {
             "Bin Location Settings": "箱の位置設定",
+            "Bin Size Settings": "箱のサイズの設定",
             "Collision Model Settings": "衝突モデルの設定",
-            "Corner Detection Settings": "コーナー検出設定"
+            "Corner Detection Settings": "角検出設定"
         },
         "properties": {
             "binHeight": {
+                "keyToolTip": "対象物の実物の正確な高さである。",
                 "name": "箱の高さ"
             },
             "binLength": {
+                "keyToolTip": "対象物の実物の正確な長さである。",
                 "name": "箱の長さ"
             },
             "binWidth": {
+                "keyToolTip": "対象物の実物の正確な幅である。",
                 "name": "箱の幅"
             },
             "blockSize": {
+                "keyToolTip": "周辺の各画素の微分共分散行列を計算するための平均ブロックサイズである。",
                 "name": "ブロックサイズ"
             },
             "centerAwayCamera": {
+                "keyToolTip": "箱の中心からカメラまでの距離である。",
                 "name": "箱の中心からカメラまでの高低差"
             },
             "k": {
                 "name": "K値"
             },
             "margin": {
+                "keyToolTip": "上縁の内輪郭からタンク壁までの距離である。",
                 "name": "マージン"
             },
             "maxCorners": {
-                "name": "最大コーナー数"
+                "keyToolTip": "返される角の最大数である。",
+                "name": "最大角数"
             },
             "minDistance": {
+                "keyToolTip": "返された角の間の可能な最小ユークリッド距離である。",
                 "name": "最短距離"
             },
             "neighborDepthSearchSize": {
                 "name": "近くの深度値のカーネルサイズを検索"
             },
             "qualityLevel": {
+                "keyToolTip": "角の品質の最低限の許容レベルを表しているパラメータである。",
                 "name": "品質レベル"
             },
             "thickness": {
+                "keyToolTip": "箱の側面の厚さである。",
                 "name": "厚さ"
             },
             "useHarrisDetector": {
+                "keyToolTip": "Harris検出器を使用する場合のみ選択してください。",
                 "name": "Harrisコーナー検出器を使用"
             }
         }
@@ -3166,9 +3234,11 @@
         },
         "properties": {
             "binHeight": {
+                "keyToolTip": "箱の高さである。",
                 "name": "箱の高さ"
             },
             "binSideWallThickness": {
+                "keyToolTip": "箱側面の厚さである。",
                 "name": "箱側面の厚さ"
             }
         }
@@ -3193,18 +3263,26 @@
         },
         "properties": {
             "boxAlignType": {
+                "keyToolTip": "衝突モデルを箱の側壁に整列させるためのタイプです。\n内側整列：箱の側壁が衝突モデルの内側になるように整列します。\n外側整列：箱の側壁は、衝突モデルの外側になるように整列します。",
                 "name": "整列タイプ"
             },
+            "boxHeight": {
+                "keyToolTip": "衝突モデルの高さである。"
+            },
             "boxLength": {
+                "keyToolTip": "衝突モデルの長さである。",
                 "name": "長さ"
             },
             "boxWidth": {
+                "keyToolTip": "衝突モデルの幅である。",
                 "name": "幅"
             },
             "edgeWidth": {
+                "keyToolTip": "箱の側壁の幅である。",
                 "name": "箱の側壁の幅"
             },
             "moveYDis": {
+                "keyToolTip": "衝突モデルが自身の位置姿勢の y 軸に沿ったの変位である。モデルの側面が箱の側壁に整列した後、モデルはこの距離だけ平行移動します。",
                 "name": "変位"
             }
         }
@@ -3384,27 +3462,35 @@
         },
         "properties": {
             "drawArrow": {
+                "keyToolTip": "始点から終点までの矢印を描画します。",
                 "name": "軌跡の方向を描画"
             },
             "drawingLabels": {
+                "keyToolTip": "指定されるラベルを格納するファイルである。",
                 "name": "ラベルファイル名"
             },
             "fontScale": {
+                "keyToolTip": "テキストのフォントサイズである。",
                 "name": "文字サイズ"
             },
             "infoType": {
-                "name": "情報タイプ"
+                "name": "情報タイプ",
+                "valueToolTip": "位置姿勢3D: 画像に位置姿勢のみを描画します。\n位置姿勢3D及びラベル: 画像に位置姿勢とそれに対応するラベルのみを描画します。\nマスク及びマスクの個数: マスク画像のバウンディングボックスのみを描画し、マスクの個数を画像に表示します。"
             },
             "onlyDrawSpecificLabel": {
+                "keyToolTip": "チェックを入れると、ラベルファイルに含まれるラベルのみを描画します。その以外の場合、すべての入力したラベルが画像に描画されます。",
                 "name": "指定されたラベルのみ描画"
             },
             "poseColor": {
+                "keyToolTip": "位置姿勢の位置を示すドットである。",
                 "name": "ドットカラー"
             },
             "radius": {
+                "keyToolTip": "位置姿勢の位置を示すドットである。",
                 "name": "ドット半径"
             },
             "thickness": {
+                "keyToolTip": "テキストの線の太さを指定します。",
                 "name": "線の太さ"
             }
         }
@@ -3449,9 +3535,11 @@
         },
         "properties": {
             "drawIndex": {
+                "keyToolTip": "チェックを入れると、矩形のインデックスを表示します。\nチェックを外すと、矩形のインデックスを表示しません。",
                 "name": "四角形のインデックスを表示"
             },
             "drawInfoWithSameColor": {
+                "keyToolTip": "チェックを入れると、外接長方形とその対象物の情報は、同じ色で表示されます。\nチェックを外すと、外接長方形とその対象物の情報は、それぞれランダムな色で表示されます。",
                 "name": "同じ色の長方形の情報を表示"
             }
         }
@@ -3575,9 +3663,11 @@
         },
         "properties": {
             "averageEdgeThreshold": {
+                "keyToolTip": "閾値が高いほど、検出されるエッジが少なくなります。",
                 "name": "エッジ平均しきい値 (0~255)"
             },
             "fuseEdgeThreshold": {
+                "keyToolTip": "閾値が高いほど、検出されるエッジが少なくなります。",
                 "name": "エッジ融合しきい値 (0~255)"
             }
         }
@@ -3615,37 +3705,53 @@
         },
         "properties": {
             "alignType": {
+                "keyToolTip": "衝突整列タイプである。",
                 "name": "整列タイプ"
             },
             "boxHeight": {
+                "keyToolTip": "箱の高さ(z)",
                 "name": "箱の高さ"
             },
             "boxLength": {
+                "keyToolTip": "箱の長さ(x)",
                 "name": "箱の長さ"
             },
             "boxWidth": {
+                "keyToolTip": "箱の幅(y)",
                 "name": "箱の幅"
             },
             "edgeWidth": {
+                "keyToolTip": "箱の側壁の正確な幅（角鋼など）",
                 "name": "側壁の幅"
             },
             "moveYDis": {
+                "keyToolTip": "0（移動なし） \n正（箱の中心に近い）\n負（箱の中心から離れる）",
                 "name": "変位"
             },
             "removedNum": {
-                "name": "バウンディングボックス外と判定する点群の数の閾値"
+                "keyToolTip": "バウンディングボックス外と判定する点群の数の閾値である。",
+                "name": "削除数",
+                "valueToolTip": "この値より大きい場合は、バウンディングボックス外と判断されます。"
             },
             "removedRatio": {
-                "name": "バウンディングボックス外と判定する点群の比の閾値"
+                "keyToolTip": "バウンディングボックス外と判定する点群の比の閾値である。",
+                "name": "削除率",
+                "valueToolTip": "この値より大きい場合は、バウンディングボックス外と判断されます。"
             },
             "thresholdType": {
-                "name": "フィルター閾値タイプ"
+                "keyToolTip": "フィルター閾値の種類である。",
+                "name": "フィルター閾値タイプ",
+                "valueToolTip": "削除数 / 削除率"
             },
             "useOutOfBinWeights": {
-                "name": "対象物がバウンディングボックス外と判定される重み付けの使用"
+                "keyToolTip": "箱外にある重み付けを使います。",
+                "name": "対象物がバウンディングボックス外と判定される重み付けの使用",
+                "valueToolTip": "対象物と箱の垂直度が高いほど、重み付けが大きくなります。"
             },
             "weightsScale": {
-                "name": "バウンディングボックス外重み付け比率"
+                "keyToolTip": "重み付け縮尺",
+                "name": "バウンディングボックス外重み付け比率",
+                "valueToolTip": "デフォルト:1.0"
             }
         }
     },
@@ -3688,6 +3794,7 @@
     "mmind::StepFineClassifier": {
         "properties": {
             "confidenceThreshold": {
+                "keyToolTip": "この値が高いほど、予測される分類の信頼性が高くなります。",
                 "name": "信頼度しきい値 (0 ~ 1.0)"
             }
         }
@@ -4312,24 +4419,30 @@
                 "name": "幅"
             },
             "cameraToPickAreaMax": {
-                "name": "最大稼働距離"
+                "name": "最大稼働距離",
+                "valueToolTip": "シーン内のカメラとオブジェクト（複数可）間の最大距離である。箱を使用する場合は、このパラメータをカメラ底面から箱の底面までの距離に設定してください。"
             },
             "cameraToPickAreaMin": {
-                "name": "最小稼働距離"
+                "name": "最小稼働距離",
+                "valueToolTip": "シーン内のカメラとオブジェクト（複数可）間の最小距離である。箱を使用する場合は、このパラメータをカメラ底面から箱の上面までの距離に設定してください。"
             },
             "collisionThresh": {
                 "name": "衝突のしきい値"
             },
             "developerMode": {
-                "name": "有効化"
+                "name": "有効化",
+                "valueToolTip": "可視化を有効にすると、プロジェクトの実行速度が低下します。"
             },
             "offsetZ": {
-                "name": "Zに沿ってオフセット"
+                "name": "Zに沿ってオフセット",
+                "valueToolTip": "配置の際に計画した位置姿勢に上向きのオフセットを加え、圧迫を防いでいます。"
             },
             "placeByDrop": {
-                "name": "ドロップによる配置を許可"
+                "name": "ドロップによる配置を許可",
+                "valueToolTip": "このパラメータにチェックを入れると、出力位置姿勢は箱の上面に計画され、 \\\"Upward Offset along Z-Axis\"にあるパラメータの設定によって上向きにオフセットされます。"
             },
             "safetyGap": {
+                "keyToolTip": "対象物間の安全配置間隔である。",
                 "name": "対象物の配置間隔"
             },
             "samplePoints": {
@@ -4351,36 +4464,46 @@
         },
         "properties": {
             "depthRefPercentile": {
+                "keyToolTip": "ディープラーニングサーバーで前処理にあるこのパラメータを操作します。",
                 "name": "深度参照比率"
             },
             "gaussianKSize": {
+                "keyToolTip": "ヒートマップを滑らかにするために使用されるガウシアンフィルタのカーネルサイズである。",
                 "name": "ガウスカーネルサイズ"
             },
             "gaussianSigma": {
+                "keyToolTip": "ヒートマップを滑らかにするために使用されるガウシアンフィルタの標準偏差である。",
                 "name": "ガウス標準偏差"
             },
             "globalMean": {
+                "keyToolTip": "ディープラーニングサーバーで前処理にあるこのパラメータを操作します。",
                 "name": "全体的な平均値"
             },
             "gripperType": {
-                "name": "治具のタイプ"
+                "name": "治具のタイプ",
+                "valueToolTip": "SuctionCup（サクションカップ）:吸盤のことです。\nParallelJaw（パラレルジョー）: 平行な爪です。"
             },
             "methodType": {
                 "name": "予測方法"
             },
             "outputHeight": {
+                "keyToolTip": "出力されるヒートマップの高さである。",
                 "name": "ヒートマップの高さ"
             },
             "outputWidth": {
+                "keyToolTip": "出力されるヒートマップの幅である。",
                 "name": "ヒートマップの幅"
             },
             "rotationClassNum": {
+                "keyToolTip": "ディープラーニングモデルにおける回転角度のグループ数である。",
                 "name": "回転角度のグループ数"
             },
             "showProcessedDepth": {
+                "keyToolTip": "チェックを入れると、ディープラーニングサーバーに命令し、処理された深度画像を可視化します。\nデバッグモードのみで有効にします。",
                 "name": "処理された後の深度画像を表示"
             },
             "visArrowThre": {
+                "keyToolTip": "グリッパータイプがパラレルジョーのときのみ動作します。Z軸に関する把持の方向性は、成功の確率がこの閾値より高い位置で可視化されます。",
                 "name": "しきい値の可視化"
             }
         }
@@ -4402,10 +4525,12 @@
         },
         "properties": {
             "adjustPose": {
-                "name": "対象物の寸法によって位置姿勢を補正"
+                "name": "対象物の寸法によって位置姿勢を補正",
+                "valueToolTip": "これを有効にすると、位置姿勢のX軸が対象物の長辺であると指定されます。"
             },
             "adjustZ": {
-                "name": "物体のZ方向の位置姿勢を調整"
+                "name": "物体のZ方向の位置姿勢を調整",
+                "valueToolTip": "製品に圧迫の発生を防ぐために、把持位置姿勢に上向きのオフセットを加えています。"
             },
             "binLength": {
                 "name": "箱の長さ"
@@ -4414,13 +4539,16 @@
                 "name": "箱の幅"
             },
             "cameraToPickAreaMax": {
-                "name": "最大稼働距離"
+                "name": "最大稼働距離",
+                "valueToolTip": "シーン内のカメラとオブジェクト（複数可）間の最大距離である。箱を使用する場合は、このパラメータをカメラ底面から箱の底面までの距離に設定してください。"
             },
             "cameraToPickAreaMin": {
-                "name": "最小稼働距離"
+                "name": "最小稼働距離",
+                "valueToolTip": "シーン内のカメラとオブジェクト（複数可）間の最小距離である。箱を使用する場合は、このパラメータをカメラ底面から箱の上面までの距離に設定してください。"
             },
             "contourDetection": {
-                "name": "輪郭検出"
+                "name": "輪郭検出",
+                "valueToolTip": "対象物の輪郭検出である。"
             },
             "contourModelPath": {
                 "name": "輪郭検出のモデルファイル"
@@ -4429,28 +4557,34 @@
                 "name": "輪郭検出が優先"
             },
             "developerMode": {
-                "name": "可視化を有効にする"
+                "name": "可視化を有効にする",
+                "valueToolTip": "可視化を有効にすると、プロジェクトの実行速度が低下します。"
             },
             "estimateSingleObjectSize": {
                 "name": "同じ種類の対象物の寸法を推定"
             },
             "lengthSegmentOne": {
-                "name": "短い/長い"
+                "name": "短い/長い",
+                "valueToolTip": "検出した対象物の長さがこの値より大きい場合は<長>、そうでない場合は<短>という吸盤ラベルがつけられます。"
             },
             "longestBound": {
-                "name": "対象物の長辺"
+                "name": "対象物の長辺",
+                "valueToolTip": "長辺がこの値より長い対象物は消去されます。"
             },
             "longestFilter": {
-                "name": "対象物の長辺フィルタリング"
+                "name": "対象物の長辺フィルタリング",
+                "valueToolTip": "対象物の長辺に基づいてフィルタリングします。"
             },
             "maskPointCluster": {
-                "name": "マスク内の点群クラスタリング"
+                "name": "マスク内の点群クラスタリング",
+                "valueToolTip": "チェックを入れたら、対象物の検出位置姿勢の精度が向上しますが、プロジェクトの効率は低下します。"
             },
             "maxOverlapInstance": {
                 "name": "検出最大数"
             },
             "maxPoses": {
-                "name": "出力位置姿勢の最大数"
+                "name": "出力位置姿勢の最大数",
+                "valueToolTip": "Mech-Visionは、最大数の位置姿勢を出力します。"
             },
             "objectDiagonalLen": {
                 "name": "物体の長さの重み"
@@ -4483,7 +4617,8 @@
                 "name": "推定のモデルファイル"
             },
             "shortestBound": {
-                "name": "対象物の短辺"
+                "name": "対象物の短辺",
+                "valueToolTip": "最短辺がこの値より短い対象物は消去されます。"
             },
             "shortestFilter": {
                 "name": "対象物の短辺フィルタリング"
@@ -4492,7 +4627,8 @@
                 "name": "把持のタイプを表示"
             },
             "showType": {
-                "name": "可視化のプロパティ"
+                "name": "可視化のプロパティ",
+                "valueToolTip": "赤い数字は、最初にピッキングされる対象物を示します。"
             },
             "sizeSegmentOne": {
                 "name": "大い"
@@ -4504,16 +4640,19 @@
                 "name": "吸盤のサイズの重み"
             },
             "useBinSetting": {
-                "name": "箱を使用"
+                "name": "箱を使用",
+                "valueToolTip": "( 有効 ) 箱の中にある対象物の位置を特定することができます。"
             },
             "usePoseEstimator": {
-                "name": "ディープラーニングを使用"
+                "name": "ディープラーニングを使用",
+                "valueToolTip": "チェックを入れた場合、ディープラーニングによる位置姿勢推定を有効にします。それ以外の場合は従来の方法を有効にします。"
             },
             "usePositionInfo": {
                 "name": "対象物の位置情報を使用"
             },
             "useSmartFilter": {
-                "name": "マスクのスマートフィルタリング"
+                "name": "マスクのスマートフィルタリング",
+                "valueToolTip": "シーン内の対象物の数が多い場合は、スマートマスクフィルタリングの使用を推奨します。(対象物の数が15個以上）。"
             }
         }
     },
@@ -4824,9 +4963,11 @@
         },
         "properties": {
             "inputPortNum": {
+                "keyToolTip": "入力ポートの数である。1の場合、マッピングは「1対1」である。\n1より大きい場合、マッピングは「ラベルの組み合わせ対1」である。",
                 "name": "入力ポート数(1–8)"
             },
             "labelFile": {
+                "keyToolTip": "対応するマッピングファイルである。",
                 "name": "ラベルファイル",
                 "valueToolTip": "ラベルマッピングを設定"
             }
@@ -4936,6 +5077,25 @@
             }
         }
     },
+    "mmind::StepLoadTemplates": {
+        "properties": {
+            "angleTolerance": {
+                "name": "角度公差（0〜180）"
+            },
+            "gradientQuant": {
+                "name": "勾配定量化"
+            },
+            "minLineLength": {
+                "name": "最小の線長さ"
+            },
+            "symmetry": {
+                "name": "対称性"
+            },
+            "templateDiagonalQuantization": {
+                "name": "テンプレート対角定量化"
+            }
+        }
+    },
     "mmind::StepMakePosePointToRefPlace": {
         "groupInfos": {
             "Input Check Settings": "入力確認設定",
@@ -4977,25 +5137,6 @@
             },
             "z": {
                 "name": "Z"
-            }
-        }
-    },
-    "mmind::StepLoadTemplates": {
-        "properties": {
-            "angleTolerance": {
-                "name": "角度公差（0〜180）"
-            },
-            "gradientQuant": {
-                "name": "勾配定量化"
-            },
-            "minLineLength": {
-                "name": "最小の線長さ"
-            },
-            "symmetry": {
-                "name": "対称性"
-            },
-            "templateDiagonalQuantization": {
-                "name": "テンプレート対角定量化"
             }
         }
     },
@@ -5201,8 +5342,26 @@
     },
     "mmind::StepMergeDepthImages": {
         "properties": {
+            "angleDiffThre": {
+                "name": "角度差の最大値"
+            },
+            "minHeightDiff": {
+                "name": "高さの差の最小値"
+            },
             "mode": {
                 "name": "モード"
+            },
+            "offsetRange": {
+                "name": "オフセット範囲"
+            },
+            "refNormalX": {
+                "name": "X"
+            },
+            "refNormalY": {
+                "name": "Y"
+            },
+            "refNormalZ": {
+                "name": "Z"
             }
         }
     },
@@ -5363,15 +5522,19 @@
     "mmind::StepNotify": {
         "properties": {
             "actionWhenFailed": {
+                "keyToolTip": "送信に失敗したときのメッセージの種類である。",
                 "name": "送信失敗した際のメッセージフォーマット"
             },
             "message": {
+                "keyToolTip": "送信された内容である。",
                 "name": "メッセージ"
             },
             "serviceName": {
+                "keyToolTip": "通知の送付先である。",
                 "name": "サービス名"
             },
             "timeout": {
+                "keyToolTip": "タイムアウトである。",
                 "name": "タイムアウト"
             }
         }
@@ -5477,6 +5640,15 @@
     },
     "mmind::StepParamsCompensation": {
         "properties": {
+            "CompensationMethod": {
+                "name": "補足方法"
+            },
+            "maxDistanceBetweenPointPair": {
+                "name": "点間距離の最大値"
+            },
+            "parametersCompensationDirectory": {
+                "name": "パラメータ補足ディレクトリ"
+            },
             "targetReference": {
                 "name": "ターゲット基準"
             }
@@ -6439,6 +6611,19 @@
             }
         }
     },
+    "mmind::StepRotateImgsByPoses": {
+        "properties": {
+            "manipulatedAxis": {
+                "name": "指定軸"
+            },
+            "referenceAngleIn2D": {
+                "name": "2D基準角"
+            },
+            "transLength": {
+                "name": "指定軸に沿ったオフセット"
+            }
+        }
+    },
     "mmind::StepRotatePosesLocally": {
         "properties": {
             "axisType": {
@@ -6475,19 +6660,6 @@
             },
             "symmetryAngle": {
                 "name": "対称な角(0 ~ 360)"
-            }
-        }
-    },
-    "mmind::StepRotateImgsByPoses": {
-        "properties": {
-            "manipulatedAxis": {
-                "name": "指定軸"
-            },
-            "referenceAngleIn2D": {
-                "name": "2D基準角"
-            },
-            "transLength": {
-                "name": "指定軸に沿ったオフセット"
             }
         }
     },
@@ -7217,6 +7389,7 @@
     "mmind::StepVariantsToLabels": {
         "properties": {
             "precision": {
+                "keyToolTip": "小数点以下の桁数を指定します。",
                 "name": "小数点以下の桁数"
             }
         }
